@@ -19,4 +19,4 @@ $dbh = new PDO(
   $settings['database']['password']
 );
 
-?>
+

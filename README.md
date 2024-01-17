@@ -14,8 +14,7 @@ Main structure of php project. Folders / files:
 The web/index.php is the heart of the system.
 This means that your web applications root folder is the “web” folder.
 
-All requests go through this file and it decides how the routing of the app
-should be.
+All requests go through this file and it decides how the routing of the app should be.
 You can add additional hooks in this file to add certain routes.
 
 ### Project Structure
@@ -27,8 +26,7 @@ The root of the project holds a few directories:
 **/lib/base** The library files. Don’t change these :)
 **/web** This folder holds files that are to be “downloaded” from your app. Stylesheets, javascripts and images used. (and more of course)
 
-The system uses a basic MVC structure, with your web app’s files located in the
-“app” folder.
+The system uses a basic MVC structure, with your web app’s files located in the “app” folder.
 
 #### app/controllers
 Your application’s controllers should be defined here.
