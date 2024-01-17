@@ -1,74 +1,52 @@
 [
     {
-        "id": 1,
-        "usuario": "pirpol",
-        "tarea": "Creacion boton enviar",
+        "idTarea": 1,
+        "nickName": "pirpol",
+        "password": "klkl23P",
+        "nomTarea": "Creacion boton enviar",
         "tipoTarea": "FronTend",
         "fechaCreacion": "2013-11-03",
         "fechaFinPrevista": "2013-11-07",
         "estadoTarea": "Pendiente"
     },
     {
-        "id": 2,
-        "usuario": "diegdar",
-        "tarea": "Creacion clase conexion datos",
+        "idTarea": 2,
+        "nickName": "diegdar",
+        "password": "h45Xl",
+        "nomTarea": "Creacion clase conexion datos",
         "tipoTarea": "BackEnd",
         "fechaCreacion": "2013-08-07",
         "fechaFinPrevista": "2013-08-14",
         "estadoTarea": "En ejecucion"
     },
     {
-        "id": 3,
-        "usuario": "lirvel",
-        "tarea": "Analisis datos ingresos marzo",
+        "idTarea": 3,
+        "nickName": "lirvel",
+        "password": "mmv11L",
+        "nomTarea": "Analisis datos ingresos marzo",
         "tipoTarea": "DataScience",
         "fechaCreacion": "2013-03-09",
         "fechaFinPrevista": "2013-03-15",
         "estadoTarea": "En ejecucion"
     },
     {
-    "id": 4,
-    "usuario": "pirpol",
-    "tarea": "Mejora rendimiento pagina inicio",
-    "tipoTarea": "FronTend",
-    "fechaCreacion": "2013-04-16",
-    "fechaFinPrevista": "2013-04-23",
-    "estadoTarea": "Pendiente"
+        "idTarea": 4,
+        "nickName": "rasbil",
+        "password": "nns42l",
+        "nomTarea": "A\u00f1adir color fondo",
+        "tipoTarea": "Frontend",
+        "fechaCreacion": "2021-01-01",
+        "fechaFinPrevista": "2021-01-10",
+        "estadoTarea": "Pendiente"
     },
     {
-    "id": 5,
-    "usuario": "diegdar",
-    "tarea": "Implementacion nueva funcionalidad API",
-    "tipoTarea": "BackEnd",
-    "fechaCreacion": "2013-05-23",
-    "fechaFinPrevista": "2013-05-30",
-    "estadoTarea": "En ejecucion"
-    },
-    {
-    "id": 6,
-    "usuario": "lirvel",
-    "tarea": "Creacion modelo machine learning para prediccion ventas",
-    "tipoTarea": "DataScience",
-    "fechaCreacion": "2013-06-20",
-    "fechaFinPrevista": "2013-06-27",
-    "estadoTarea": "Pendiente"
-    },
-    {
-    "id": 7,
-    "usuario": "pirpol",
-    "tarea": "Diseno nuevo logo empresa",
-    "tipoTarea": "FronTend",
-    "fechaCreacion": "2013-07-27",
-    "fechaFinPrevista": "2013-08-03",
-    "estadoTarea": "En ejecucion"
-    },
-    {
-    "id": 8,
-    "usuario": "diegdar",
-    "tarea": "Optimizacion base de datos",
-    "tipoTarea": "BackEnd",
-    "fechaCreacion": "2013-08-24",
-    "fechaFinPrevista": "2013-08-31",
-    "estadoTarea": "Pendiente"
+        "idTarea": 5,
+        "nickName": "ribol",
+        "password": "jk2389m",
+        "nomTarea": "Crear funcion sumar",
+        "tipoTarea": "BackEnd",
+        "fechaCreacion": "2022-11-04",
+        "fechaFinPrevista": "2022-12-15",
+        "estadoTarea": "En ejecucion"
     }
 ]
