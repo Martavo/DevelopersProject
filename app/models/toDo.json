@@ -1,38 +1,38 @@
 [
     {
-        "idTarea": 1,
-        "usuario": "pirpol",
-        "nomTarea": "Creacion boton enviar",
-        "tipoTarea": "FronTend",
-        "fechaCreacion": "2013-11-03",
-        "fechaFinPrevista": "2013-11-07",
-        "estadoTarea": "Pendiente"
+        "taskId": 1,
+        "user": "pirpol",
+        "taskName": "Creacion boton enviar",
+        "taskType": "FronTend",
+        "creationDate": "2013-11-03",
+        "expectedEndDate": "2013-11-07",
+        "statusTask": "Pendiente"
     },
     {
-        "idTarea": 2,
-        "usuario": "diegdar",
-        "nomTarea": "Creacion clase conexion datos",
-        "tipoTarea": "BackEnd",
-        "fechaCreacion": "2013-08-07",
-        "fechaFinPrevista": "2013-08-14",
-        "estadoTarea": "En ejecucion"
+        "taskId": 2,
+        "user": "diegdar",
+        "taskName": "Creacion clase conexion datos",
+        "taskType": "BackEnd",
+        "creationDate": "2013-08-07",
+        "expectedEndDate": "2013-08-14",
+        "statusTask": "En ejecucion"
     },
     {
-        "idTarea": 3,
-        "usuario": "lirvel",
-        "nomTarea": "Analisis datos ingresos marzo",
-        "tipoTarea": "DataScience",
-        "fechaCreacion": "2013-03-09",
-        "fechaFinPrevista": "2013-03-15",
-        "estadoTarea": "En ejecucion"
+        "taskId": 3,
+        "user": "lirvel",
+        "taskName": "Analisis datos ingresos marzo",
+        "taskType": "DataScience",
+        "creationDate": "2013-03-09",
+        "expectedEndDate": "2013-03-15",
+        "statusTask": "En ejecucion"
     },
     {
-        "idTarea": 4,
-        "usuario": "ribol",
-        "nomTarea": "Crear funcion sumar",
-        "tipoTarea": "BackEnd",
-        "fechaCreacion": "2022-11-04",
-        "fechaFinPrevista": "2022-12-15",
-        "estadoTarea": "En ejecucion"
+        "taskId": 4,
+        "user": "ribol",
+        "taskName": "Crear funcion sumar",
+        "taskType": "BackEnd",
+        "creationDate": "2022-11-04",
+        "expectedEndDate": "2022-12-15",
+        "statusTask": "En ejecucion"
     }
 ]

@@ -2,42 +2,45 @@
 
 class ToDo
 {
-    protected array $tareas;
 
-    public function getTareas()
+    // PENDIENTES: metodos de tareas
+
+    protected array $tasks;
+
+    public function getTasks()
     {   
-        $tareas = json_decode(file_get_contents(__DIR__ . '../../../models/toDo.json'), true);
+        $tasks = json_decode(file_get_contents(__DIR__ . '../../../models/toDo.json'), true);
 
-        return $this->tareas = $tareas;
+        return $this->tasks = $tasks;
     }
 
-    public function createTarea(Task $tarea, User $usuario)
+    public function createTask(Task $task, User $user)
     {
-        $tareas = $this->getTareas(); //obtenemos todas las tareas antes de agregar la nueva tarea
+        $tasks = $this->getTasks(); //obtenemos todas las tareas antes de agregar la nueva tarea
 
         // recogemos los valores de los getters de cada objeto en cada variable
-        $idTarea=$tarea->getIdTarea();
-        $usuario = $usuario->getNickName();
-        $nomTarea = $tarea->getNomTarea();
-        $tipoTarea=$tarea->getTipoTarea();
-        $fechaCreacion=$tarea->getFechaCreacion();
-        $fechaFinPrevista=$tarea->getFechaFinPrevista();
-        $estadoTarea=$tarea->getEstadoTarea();
+        $taskId=$task->getTaskId();
+        $user = $user->getNickName();
+        $taskName = $task->getTaskName();
+        $taskType=$task->getTaskType();
+        $creationDate=$task->getCreationDate();
+        $expectedEndDate=$task->getExpectedEndDate();
+        $taskStatus=$task->gettaskStatus();
 
         // creamos la tarea con los valores de cada variable
-        $tareaNueva = ["idTarea"=>$idTarea, "usuario"=>$usuario,"nomTarea"=>$nomTarea, "tipoTarea"=>$tipoTarea, "fechaCreacion"=>$fechaCreacion, "fechaFinPrevista"=>$fechaFinPrevista, "estadoTarea"=>$estadoTarea];
+        $newTask = ["taskId"=>$taskId, "usuario"=>$user,"nomTarea"=>$taskName, "taskType"=>$taskType, "creationDate"=>$creationDate, "expectedEndDate"=>$expectedEndDate, "taskStatus"=>$taskStatus];
 
-        // insertamos la tarea en el array de $tareas
-        $tareas []= $tareaNueva;
+        // insertamos la tarea en el array de $tasks
+        $tasks []= $newTask;
 
-        // insertamos el array $tareas en la BBDD(el archivo Json) por medio del metodo addJson() junto con la nueva tarea creada
-        $this->addJson($tareas);
+        // insertamos el array $tasks en la BBDD(el archivo Json) por medio del metodo addJson() junto con la nueva tarea creada
+        $this->addJson($tasks);
 
     }
 
-    public function addJson($tareas)
+    public function addJson($tasks)
     {
-        file_put_contents(__DIR__ . '../../../models/toDo.json', json_encode($tareas, JSON_PRETTY_PRINT));
+        file_put_contents(__DIR__ . '../../../models/toDo.json', json_encode($tasks, JSON_PRETTY_PRINT));
     }
 
 }
