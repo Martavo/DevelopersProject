@@ -1,8 +1,7 @@
 [
     {
         "idTarea": 1,
-        "nickName": "pirpol",
-        "password": "klkl23P",
+        "usuario": "pirpol",
         "nomTarea": "Creacion boton enviar",
         "tipoTarea": "FronTend",
         "fechaCreacion": "2013-11-03",
@@ -11,8 +10,7 @@
     },
     {
         "idTarea": 2,
-        "nickName": "diegdar",
-        "password": "h45Xl",
+        "usuario": "diegdar",
         "nomTarea": "Creacion clase conexion datos",
         "tipoTarea": "BackEnd",
         "fechaCreacion": "2013-08-07",
@@ -21,8 +19,7 @@
     },
     {
         "idTarea": 3,
-        "nickName": "lirvel",
-        "password": "mmv11L",
+        "usuario": "lirvel",
         "nomTarea": "Analisis datos ingresos marzo",
         "tipoTarea": "DataScience",
         "fechaCreacion": "2013-03-09",
@@ -31,18 +28,7 @@
     },
     {
         "idTarea": 4,
-        "nickName": "rasbil",
-        "password": "nns42l",
-        "nomTarea": "A\u00f1adir color fondo",
-        "tipoTarea": "Frontend",
-        "fechaCreacion": "2021-01-01",
-        "fechaFinPrevista": "2021-01-10",
-        "estadoTarea": "Pendiente"
-    },
-    {
-        "idTarea": 5,
-        "nickName": "ribol",
-        "password": "jk2389m",
+        "usuario": "ribol",
         "nomTarea": "Crear funcion sumar",
         "tipoTarea": "BackEnd",
         "fechaCreacion": "2022-11-04",

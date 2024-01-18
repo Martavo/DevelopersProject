@@ -17,8 +17,7 @@ class ToDo
 
         // recogemos los valores de los getters de cada objeto en cada variable
         $idTarea=$tarea->getIdTarea();
-        $nickName = $usuario->getNickName();
-        $password = $usuario->getPassword();
+        $usuario = $usuario->getNickName();
         $nomTarea = $tarea->getNomTarea();
         $tipoTarea=$tarea->getTipoTarea();
         $fechaCreacion=$tarea->getFechaCreacion();
@@ -26,7 +25,7 @@ class ToDo
         $estadoTarea=$tarea->getEstadoTarea();
 
         // creamos la tarea con los valores de cada variable
-        $tareaNueva = ["idTarea"=>$idTarea, "nickName"=>$nickName,"password"=>$password, "nomTarea"=>$nomTarea, "tipoTarea"=>$tipoTarea, "fechaCreacion"=>$fechaCreacion, "fechaFinPrevista"=>$fechaFinPrevista, "estadoTarea"=>$estadoTarea];
+        $tareaNueva = ["idTarea"=>$idTarea, "usuario"=>$usuario,"nomTarea"=>$nomTarea, "tipoTarea"=>$tipoTarea, "fechaCreacion"=>$fechaCreacion, "fechaFinPrevista"=>$fechaFinPrevista, "estadoTarea"=>$estadoTarea];
 
         // insertamos la tarea en el array de $tareas
         $tareas []= $tareaNueva;
