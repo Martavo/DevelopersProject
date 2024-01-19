@@ -6,9 +6,9 @@
     <title>Document</title>
 </head>
 <?php
-require_once "../../../controllers/class/ToDoController.php";
-require_once "../../../controllers/class/TaskController.php";
-require_once "../../../controllers/class/UserController.php";
+require_once "../app/controllers/class/ToDoController.php";
+require_once "../app/controllers/class/TaskController.php";
+require_once "../app/controllers/class/UserController.php";
 
 $tarea1 = new Task( "Agregar color fondo", taskType::FRONTEND, "2021-01-01", "2021-01-10", taskStatus::PENDIENTE); 
 $tarea2 = new Task( "Crear funcion sumar", taskType::BACKEND, "2022-11-04", "2022-12-15", taskStatus::EN_EJECUCION); 
@@ -28,7 +28,7 @@ $toDo = new ToDo();
     $taskToUpdate["statusTask"]="Finalizada";
     $toDo->updateTask($taskToUpdate, 3);
 
-// var_dump($toDo->getTasks());
+var_dump($toDo->getTasks());
 
 
 ?>
