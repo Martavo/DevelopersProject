@@ -24,7 +24,7 @@
         "taskType": "DataScience",
         "creationDate": "2013-03-09",
         "expectedEndDate": "2013-03-15",
-        "statusTask": "En ejecucion"
+        "statusTask": "Finalizada"
     },
     {
         "taskId": 4,
@@ -34,5 +34,14 @@
         "creationDate": "2022-11-04",
         "expectedEndDate": "2022-12-15",
         "statusTask": "En ejecucion"
+    },
+    {
+        "taskId": 5,
+        "user": "pirpol",
+        "taskName": "Analisis de mercado",
+        "taskType": "DataScience",
+        "creationDate": "2013-07-03",
+        "expectedEndDate": "2013-07-07",
+        "statusTask": "Finalizado"
     }
 ]
