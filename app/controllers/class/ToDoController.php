@@ -82,6 +82,46 @@ class ToDo
         // Gestionamos el error, creo que con el metodo errorController
     }
 
+    // Método para filtrar la información a través del tipo de tarea
+    public function getTasksByType(taskType $type){
+    
+    $tasks = $this->getTasks();
+    $filteredTasks = [];
+
+    foreach ($tasks as $task) {
+        $taskType = $this->getTaskType($task['taskType']);
+
+        if ($taskType === $type->tasks()) {
+            $filteredTasks[] = $task;
+        }
+    }
+
+    return $filteredTasks;
+    }
+
+    // Método auxiliar para obtener el nombre del tipo de tarea
+    public function getTaskType($type){
+
+        $taskTypeEnum = new taskType(); 
+        return $taskTypeEnum->tasks()[$type] ?? null; // Devuelve el nombre del tipo de tarea o null si no se encuentra
+    }
+
+    // Método para filtrar la información por el nombre de la tarea sea mayusculas o minusculas
+    public function getTasksByName($searchString){
+
+        $tasks = $this->getTasks();
+        $filteredTasksbyName = [];
+
+        foreach ($tasks as $task) {
+            // Buscamos la cadena de búsqueda en el nombre de la tarea
+            if (stripos($task['taskName'], $searchString) !== false) {
+            $filteredTasksbyName[] = $task;
+            }
+        }
+
+    return $filteredTasksbyName;
+}
+
 }
 
 
