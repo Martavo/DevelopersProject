@@ -19,7 +19,9 @@ $usuario2 = new User("rasbil", "nns42l");
 $toDo = new ToDo();
 $toDo->createTask($tarea2,$usuario1);
 
-var_dump($toDo->getTasks());
+$toDo->deleteTask(13);
+
+// var_dump($toDo->getTasks());
 
 
 ?>

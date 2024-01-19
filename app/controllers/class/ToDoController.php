@@ -3,7 +3,7 @@
 class ToDo
 {
 
-    // PENDIENTES: metodos de tareas
+    // PENDIENTES: updateTask(), listTasks()->(creo que seria el mismo getTasks())
 
     protected array $tasks;
 
@@ -14,9 +14,30 @@ class ToDo
         return $this->tasks = $tasks;
     }
 
+    public function deleteTask(int $searchedTaskId)
+    {
+        $tasks = $this->getTasks();
+        $foundTask = false;
+
+        $longArray = count($tasks);
+        $i=0;
+        while($foundTask==false && $i<$longArray)             
+        {
+            if($tasks[$i]["taskId"]==$searchedTaskId)
+            {
+                array_splice($tasks,$i, 1);
+                $foundTask = true;
+            }
+            $i++;
+        }
+        echo $foundTask==false ? "La tarea buscada no se encuentra en nuestra BBDD" : null;
+
+        $this->addJson($tasks);
+    }
+
     public function createTask(Task $task, User $user)
     {
-        $tasks = $this->getTasks(); //obtenemos todas las tareas antes de agregar la nueva tarea
+        $tasks = $this->getTasks(); //obtenemos todas las tasks antes de agregar la nueva tarea
 
         // recogemos los valores de los getters de cada objeto en cada variable
         $taskId=$task->getTaskId();
