@@ -78,6 +78,26 @@ class ToDo
         return $taskFound;
     }
 
+    public function updateTask(array $uplatedTask, int $taskId)
+    {
+        $tasks = $this->getTasks();
+
+        $isFound = false;
+        $longArray = count($tasks);
+        $i=0;
+        while($isFound==false && $i<$longArray)             
+        {
+            if($tasks[$i]["taskId"]==$taskId)
+            {   //sobreescribria los datos antiguos con los actualizados
+                $tasks[$i] = array_merge($tasks[$i], $uplatedTask);
+                $isFound = true;//cuando encuentre la tarea dejara de iterar
+            }
+            $i++;
+        }
+
+        $this->addJson($tasks);
+    }
+
     
 }
 

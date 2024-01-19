@@ -23,6 +23,10 @@ $toDo = new ToDo();
 // BORRAR TAREA
     // $toDo->deleteTask(13);
 
+// ACTUALIZAR UNA TAREA
+$taskToUpdate= $toDo->searchTask(3);
+$taskToUpdate["statusTask"]="Finalizada";
+$toDo->updateTask($taskToUpdate, 3);
 
 // var_dump($toDo->getTasks());
 
