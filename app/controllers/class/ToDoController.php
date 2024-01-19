@@ -43,68 +43,41 @@ class ToDo
         file_put_contents(__DIR__ . '../../../models/toDo.json', json_encode($tasks, JSON_PRETTY_PRINT));
     }
 
-   // Método para buscar la información a través del nombre de usuario
-    public function getTasksByUser($nickName){
+    // Método para buscar por usuario
+    public function listByUser(string $searchedUser){
         $tasks = $this->getTasks();
-        $userTasks = [];
+        $filterTasks = array();
+
+        foreach ($tasks as $task){
+            if($task["user"] == $searchedUser){   
+            $filterTasks[] = $task; // Almacena la información completa de la tarea
+            }
+        }
+
+        if(empty($filterTasks)){
+            // Si el array está vacío, gestion de errores
+        } else {
+            print_r($filterTasks);
+        }
+    }
+
+   // Método para obtener la información de usuarios y tareas por tipo
+    public function getUsersAndTasksByType(taskType $type){
+        $tasks = $this->getTasks();
+        $filteredTasks = [];
 
         foreach ($tasks as $task) {
-            if ($task['user'] === $nickName) {
-                // Obtenemos la información del usuario con el método getUserInfo
-                $userInfo = $this->getUserInfo($nickName);
+            $taskTypeEnum = new taskType();
+            $taskType = $taskTypeEnum->tasks()[$task['taskType']] ?? null;
 
-                if ($userInfo !== null) {
-                    // Agregamos la información del usuario y la tarea al array $userTasks
-                    $task['user'] = $userInfo; 
-                    $userTasks[] = $task;
-                } else {
-                    // Gestionamos el error, creo que con el metodo errorController
-                    
-                
-                }
-            }
-
-        return $userTasks;
-        }
-    }
-
-    // Método para obtener la información del usuario
-    public function getUserInfo($nickName){
-        // Lee el json para obtener la información de los usuarios
-        $users = json_decode(file_get_contents(__DIR__ . '../../../models/user.json'), true);
-
-        foreach ($users as $user) {
-            if ($user['nickName'] === $nickName) {
-                unset($user['password']);
-                return $user; // Devuelve la informacion del usuario sin la contraseña
+            if ($taskType === $type->tasks()) {
+                $filteredTasks[] = $task; // Almacena la información completa de la tarea
             }
         }
-        // Gestionamos el error, creo que con el metodo errorController
-    }
 
-    // Método para filtrar la información a través del tipo de tarea
-    public function getTasksByType(taskType $type){
-    
-    $tasks = $this->getTasks();
-    $filteredTasks = [];
+        print_r($filteredTasks);
+}
 
-    foreach ($tasks as $task) {
-        $taskType = $this->getTaskType($task['taskType']);
-
-        if ($taskType === $type->tasks()) {
-            $filteredTasks[] = $task;
-        }
-    }
-
-    return $filteredTasks;
-    }
-
-    // Método auxiliar para obtener el nombre del tipo de tarea
-    public function getTaskType($type){
-
-        $taskTypeEnum = new taskType(); 
-        return $taskTypeEnum->tasks()[$type] ?? null; // Devuelve el nombre del tipo de tarea o null si no se encuentra
-    }
 
     // Método para filtrar la información por el nombre de la tarea sea mayusculas o minusculas
     public function getTasksByName($searchString){
@@ -119,8 +92,8 @@ class ToDo
             }
         }
 
-    return $filteredTasksbyName;
-}
+        print_r($filteredTasksbyName);
+    }
 
 }
 

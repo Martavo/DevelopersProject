@@ -21,6 +21,19 @@ $toDo->createTask($tarea2,$usuario1);
 
 var_dump($toDo->getTasks());
 
+//codigo para buscar por usuario:
+$searchedUser = "paolo";
+$filterTasks= $toDo->listByUser($searchedUser);
+
+
+//codigo para buscar por tipo de tarea
+$selectedType = taskType::FRONTEND; 
+$filteredTasks = $toDo->getUsersAndTasksByType($selectedType);
+
+
+//codigo ejemplo para buscar por nombre tarea
+$searchedString = "Enviar"; 
+$filteredTasksbyName = $toDo->getTasksByName($searchedString);
 
 ?>
 <body>
