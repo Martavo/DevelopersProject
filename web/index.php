@@ -17,6 +17,11 @@ $usuario1 = new User("ribol", "jk2389m");
 $usuario2 = new User("rasbil", "nns42l");
 
 $toDo = new ToDo();
+
+$toDo->createTask($tarea2,$usuario1);
+
+var_dump($toDo->getTasks());
+
 // CREAR NUEVA TAREA
     // $toDo->createTask($tarea2,$usuario1);
 
@@ -29,6 +34,20 @@ $toDo = new ToDo();
     $toDo->updateTask($taskToUpdate, 3);
 
 var_dump($toDo->getTasks());
+
+  //codigo para buscar por usuario:
+$searchedUser = "paolo";
+$filterTasks= $toDo->listByUser($searchedUser);
+
+
+//codigo para buscar por tipo de tarea
+$selectedType = taskType::FRONTEND; 
+$filteredTasks = $toDo->getUsersAndTasksByType($selectedType);
+
+
+//codigo ejemplo para buscar por nombre tarea
+$searchedString = "Enviar"; 
+$filteredTasksbyName = $toDo->getTasksByName($searchedString);
 
 
 ?>
