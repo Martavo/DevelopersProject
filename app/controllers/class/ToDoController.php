@@ -43,6 +43,45 @@ class ToDo
         file_put_contents(__DIR__ . '../../../models/toDo.json', json_encode($tasks, JSON_PRETTY_PRINT));
     }
 
+   // Método para buscar la información a través del nombre de usuario
+    public function getTasksByUser($nickName){
+        $tasks = $this->getTasks();
+        $userTasks = [];
+
+        foreach ($tasks as $task) {
+            if ($task['user'] === $nickName) {
+                // Obtenemos la información del usuario con el método getUserInfo
+                $userInfo = $this->getUserInfo($nickName);
+
+                if ($userInfo !== null) {
+                    // Agregamos la información del usuario y la tarea al array $userTasks
+                    $task['user'] = $userInfo; 
+                    $userTasks[] = $task;
+                } else {
+                    // Gestionamos el error, creo que con el metodo errorController
+                    
+                
+                }
+            }
+
+        return $userTasks;
+        }
+    }
+
+    // Método para obtener la información del usuario
+    public function getUserInfo($nickName){
+        // Lee el json para obtener la información de los usuarios
+        $users = json_decode(file_get_contents(__DIR__ . '../../../models/user.json'), true);
+
+        foreach ($users as $user) {
+            if ($user['nickName'] === $nickName) {
+                unset($user['password']);
+                return $user; // Devuelve la informacion del usuario sin la contraseña
+            }
+        }
+        // Gestionamos el error, creo que con el metodo errorController
+    }
+
 }
 
 
