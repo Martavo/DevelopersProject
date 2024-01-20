@@ -114,26 +114,24 @@ class ToDo
         if(empty($filterTasks)){
             // Si el array está vacío, gestion de errores
         } else {
-            print_r($filterTasks);
+            return $filterTasks;
         }
     }
 
    // Método para obtener la información de usuarios y tareas por tipo
-    public function getUsersAndTasksByType(taskType $type){
-        $tasks = $this->getTasks();
-        $filteredTasks = [];
+   public function getUsersAndTasksByType(string $type){
+    $tasks = $this->getTasks();
+    $filteredTasks = [];
 
-        foreach ($tasks as $task) {
-            $taskTypeEnum = new taskType();
-            $taskType = $taskTypeEnum->tasks()[$task['taskType']] ?? null;
-
-            if ($taskType === $type->tasks()) {
-                $filteredTasks[] = $task; // Almacena la información completa de la tarea
-            }
+    foreach ($tasks as $task) {
+        // recogemos en el array asosiciativo el valor que hay del taskType en la task actual y asi podemos compararlo con el que intrudujo el usuario
+        if ($task["taskType"] === $type) {
+            $filteredTasks[] = $task; // Almacena la información completa de la tarea
         }
+    }
 
-        print_r($filteredTasks);
-}
+    return $filteredTasks;
+    }
 
 
     // Método para filtrar la información por el nombre de la tarea sea mayusculas o minusculas
@@ -149,7 +147,7 @@ class ToDo
             }
         }
 
-        print_r($filteredTasksbyName);
+        return $filteredTasksbyName;
     }
 }
 

@@ -33,22 +33,22 @@ var_dump($toDo->getTasks());
     $taskToUpdate["statusTask"]="Finalizada";
     $toDo->updateTask($taskToUpdate, 3);
 
-var_dump($toDo->getTasks());
+    var_dump($toDo->getTasks());
 
   //codigo para buscar por usuario:
 $searchedUser = "paolo";
 $filterTasks= $toDo->listByUser($searchedUser);
-
+//e imprimir el array resultante
 
 //codigo para buscar por tipo de tarea
 $selectedType = taskType::FRONTEND; 
-$filteredTasks = $toDo->getUsersAndTasksByType($selectedType);
-
+$filteredTasks = $toDo->getUsersAndTasksByType($type);
+//e imprimir el array resultante
 
 //codigo ejemplo para buscar por nombre tarea
 $searchedString = "Enviar"; 
 $filteredTasksbyName = $toDo->getTasksByName($searchedString);
-
+//e imprimir el array resultante
 
 ?>
 <body>
