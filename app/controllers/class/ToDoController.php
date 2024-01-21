@@ -79,7 +79,7 @@ class ToDo
         return $taskFound;
     }
 
-    public function updateTask(array $uplatedTask, int $taskId)
+    public function updateTask(array $updatedTask, int $taskId)
     {
         $tasks = $this->getTasks();
 
@@ -90,7 +90,7 @@ class ToDo
         {
             if($tasks[$i]["taskId"]==$taskId)
             {   //sobreescribria los datos antiguos con los actualizados
-                $tasks[$i] = array_merge($tasks[$i], $uplatedTask);
+                $tasks[$i] = array_merge($tasks[$i], $updatedTask);
                 $isFound = true;//cuando encuentre la tarea dejara de iterar
             }
             $i++;
@@ -98,6 +98,7 @@ class ToDo
 
         $this->addJson($tasks);
     }
+
 
 
   // Método para buscar por usuario
@@ -149,6 +150,7 @@ class ToDo
 
         return $filteredTasksbyName;
     }
+
 }
 
 

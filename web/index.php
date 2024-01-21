@@ -29,9 +29,15 @@ var_dump($toDo->getTasks());
     // $toDo->deleteTask(13);
 
 // ACTUALIZAR UNA TAREA
-    $taskToUpdate= $toDo->searchTask(3);
-    $taskToUpdate["statusTask"]="Finalizada";
-    $toDo->updateTask($taskToUpdate, 3);
+    // $taskToUpdate= $toDo->searchTask(3);
+    // $taskToUpdate["statusTask"]="Finalizada";
+    // $toDo->updateTask($taskToUpdate, 3);
+
+
+// LISTAR POR TIPO DE TAREA
+	// $listByTypeTask= $toDo->getUsersAndTasksByType("FronTend");
+	// print_r($listByTypeTask);
+
 
     var_dump($toDo->getTasks());
 
@@ -50,6 +56,10 @@ $searchedString = "Enviar";
 $filteredTasksbyName = $toDo->getTasksByName($searchedString);
 //e imprimir el array resultante
 
+
+
+// LISTAR POR NOMBRE TAREA
+	// $listByTaskName = $toDo->getTasksByName("Creacion");
 ?>
 <body>
     

@@ -10,7 +10,7 @@ enum taskType
     {
         return match($this)
         {
-            self::FRONTEND=>"Frontend",
+            self::FRONTEND=>"FronTend",
             self::BACKEND=>"BackEnd",
             self::DATA_SCIENCE=>"DataScience"
         };
