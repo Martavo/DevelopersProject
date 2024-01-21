@@ -34,5 +34,59 @@
         "creationDate": "2022-11-04",
         "expectedEndDate": "2022-12-15",
         "statusTask": "En ejecucion"
+    },
+    {
+        "taskId": 5,
+        "user": "ribol",
+        "taskName": "Crear funcion sumar",
+        "taskType": "BackEnd",
+        "creationDate": "2022-11-04",
+        "expectedEndDate": "2022-12-15",
+        "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 6,
+        "user": "rasbil",
+        "taskName": "pruebaTarea",
+        "taskType": "DataScience",
+        "creationDate": "2020-03-12",
+        "expectedEndDate": "2020-03-17",
+        "taskStatus": "Pendiente"
+    },
+    {
+        "taskId": 7,
+        "user": "ribol",
+        "taskName": "Crear funcion sumar",
+        "taskType": "BackEnd",
+        "creationDate": "2022-11-04",
+        "expectedEndDate": "2022-12-15",
+        "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 8,
+        "user": "rasbil",
+        "taskName": "pruebaTarea",
+        "taskType": "DataScience",
+        "creationDate": "2020-03-12",
+        "expectedEndDate": "2020-03-17",
+        "taskStatus": "Pendiente"
+    },
+    {
+        "taskId": 9,
+        "user": "ribol",
+        "taskName": "Crear funcion sumar",
+        "taskType": "BackEnd",
+        "creationDate": "2022-11-04",
+        "expectedEndDate": "2022-12-15",
+        "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 10,
+        "user": "rasbil",
+        "taskName": "pruebaTarea",
+        "taskType": "DataScience",
+        "creationDate": "2020-03-12",
+        "expectedEndDate": "2020-03-17",
+        "taskStatus": "Pendiente"
     }
 ]
