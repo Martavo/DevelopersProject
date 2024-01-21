@@ -39,6 +39,7 @@ class ToDo
         file_put_contents(__DIR__ . '../../../models/toDo.json', json_encode($tasks, JSON_PRETTY_PRINT));
     }
 
+
     public function deleteTask(int $taskId)
     {
         $tasks = $this->getTasks();
@@ -97,7 +98,59 @@ class ToDo
 
         $this->addJson($tasks);
     }
-    
+
+
+
+  // Método para buscar por usuario
+    public function listByUser(string $searchedUser){
+        $tasks = $this->getTasks();
+        $filterTasks = array();
+
+        foreach ($tasks as $task){
+            if($task["user"] == $searchedUser){   
+            $filterTasks[] = $task; // Almacena la información completa de la tarea
+            }
+        }
+
+        if(empty($filterTasks)){
+            // Si el array está vacío, gestion de errores
+        } else {
+            return $filterTasks;
+        }
+    }
+
+   // Método para obtener la información de usuarios y tareas por tipo
+   public function getUsersAndTasksByType(string $type){
+    $tasks = $this->getTasks();
+    $filteredTasks = [];
+
+    foreach ($tasks as $task) {
+        // recogemos en el array asosiciativo el valor que hay del taskType en la task actual y asi podemos compararlo con el que intrudujo el usuario
+        if ($task["taskType"] === $type) {
+            $filteredTasks[] = $task; // Almacena la información completa de la tarea
+        }
+    }
+
+    return $filteredTasks;
+    }
+
+
+    // Método para filtrar la información por el nombre de la tarea sea mayusculas o minusculas
+    public function getTasksByName($searchString){
+
+        $tasks = $this->getTasks();
+        $filteredTasksbyName = [];
+
+        foreach ($tasks as $task) {
+            // Buscamos la cadena de búsqueda en el nombre de la tarea
+            if (stripos($task['taskName'], $searchString) !== false) {
+            $filteredTasksbyName[] = $task;
+            }
+        }
+
+        return $filteredTasksbyName;
+    }
+
 }
 
 
