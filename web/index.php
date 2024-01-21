@@ -24,13 +24,19 @@ $toDo = new ToDo();
     // $toDo->deleteTask(13);
 
 // ACTUALIZAR UNA TAREA
-    $taskToUpdate= $toDo->searchTask(3);
-    $taskToUpdate["statusTask"]="Finalizada";
-    $toDo->updateTask($taskToUpdate, 3);
+    // $taskToUpdate= $toDo->searchTask(3);
+    // $taskToUpdate["statusTask"]="Finalizada";
+    // $toDo->updateTask($taskToUpdate, 3);
 
-var_dump($toDo->getTasks());
+// LISTAR POR TIPO DE TAREA
+	// $listByTypeTask= $toDo->getUsersAndTasksByType("FronTend");
+	// print_r($listByTypeTask);
+
+// var_dump($toDo->getTasks());
 
 
+// LISTAR POR NOMBRE TAREA
+	// $listByTaskName = $toDo->getTasksByName("Creacion");
 ?>
 <body>
     
