@@ -1,52 +1,21 @@
 <?php
 
-enum taskType
-{
-    case FRONTEND;
-    case BACKEND;
-    case DATA_SCIENCE;
-
-    public function tasks():string
-    {
-        return match($this)
-        {
-            self::FRONTEND=>"FronTend",
-            self::BACKEND=>"BackEnd",
-            self::DATA_SCIENCE=>"DataScience"
-        };
-    }
-}
-enum taskStatus
-{
-    case PENDIENTE;
-    case EN_EJECUCION;
-    case TERMINADO;
-    public function taskStatuses():string
-    {
-        return match($this)
-        {
-            self::PENDIENTE=>"Pendiente",
-            self::EN_EJECUCION=>"En ejecucion",
-            self::TERMINADO=>"Terminado"
-        };
-    }
-}
 
 class Task
 {
     protected int $taskId;
     protected string $taskName;
-    protected taskType $taskType;
+    protected string $taskType;
     protected string $creationDate;
     protected string $expectedEndDate;
-    protected taskStatus $taskStatus;
+    protected string $taskStatus;
 
     public function __construct(
     string $taskName,
-    taskType $taskType,
+    string $taskType,
     string $creationDate,
     string $expectedEndDate,
-    taskStatus $taskStatus)
+    string $taskStatus)
     {
         $this->taskId = $this->getLastTaskId() + 1;//le da el valor a $taskId con el valor del ultimo taskId  + 1
         $this->taskName = $taskName;
@@ -95,25 +64,6 @@ class Task
         return $this;
     }
 
-    /**
-     * Get the value of taskType
-     */ 
-    public function getTaskType()
-    {
-        return $this->taskType->tasks();
-    }
-
-    /**
-     * Set the value of taskType
-     *
-     * @return  self
-     */ 
-    public function setTaskType(taskType $taskType)
-    {
-        $this->taskType = $taskType;
-
-        return $this;
-    }
 
     /**
      * Get the value of creationDate
@@ -155,12 +105,34 @@ class Task
         return $this;
     }
 
+
+
+    /**
+     * Get the value of taskType
+     */ 
+    public function getTaskType()
+    {
+        return $this->taskType;
+    }
+
+    /**
+     * Set the value of taskType
+     *
+     * @return  self
+     */ 
+    public function setTaskType($taskType)
+    {
+        $this->taskType = $taskType;
+
+        return $this;
+    }
+
     /**
      * Get the value of taskStatus
      */ 
     public function getTaskStatus()
     {
-        return $this->taskStatus->taskStatuses();
+        return $this->taskStatus;
     }
 
     /**
@@ -168,13 +140,12 @@ class Task
      *
      * @return  self
      */ 
-    public function setTaskStatus(taskStatus $taskStatus)
+    public function setTaskStatus($taskStatus)
     {
         $this->taskStatus = $taskStatus;
 
         return $this;
     }
-
 }
 
 // $Tarea1 = new Task( "Agregar color fondo", taskType::FRONTEND, "2021-01-01", "2021-01-10", taskStatus::PENDIENTE); 

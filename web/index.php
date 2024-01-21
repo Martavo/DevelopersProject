@@ -10,20 +10,20 @@ require_once "../app/controllers/class/ToDoController.php";
 require_once "../app/controllers/class/TaskController.php";
 require_once "../app/controllers/class/UserController.php";
 
-$tarea1 = new Task( "Agregar color fondo", taskType::FRONTEND, "2021-01-01", "2021-01-10", taskStatus::PENDIENTE); 
-$tarea2 = new Task( "Crear funcion sumar", taskType::BACKEND, "2022-11-04", "2022-12-15", taskStatus::EN_EJECUCION); 
+$tarea1 = new Task( "Agregar color fondo", "FrontEnd", "2021-01-01", "2021-01-10", "Pendiente"); 
+$tarea2 = new Task( "Crear funcion sumar", "BackEnd", "2022-11-04", "2022-12-15", "En ejecucion"); 
 
 $usuario1 = new User("ribol", "jk2389m");
 $usuario2 = new User("rasbil", "nns42l");
 
 $toDo = new ToDo();
 
-$toDo->createTask($tarea2,$usuario1);
+$toDo->createTask($tarea2,$usuario1->getNickName());
 
 var_dump($toDo->getTasks());
 
 // CREAR NUEVA TAREA
-    // $toDo->createTask($tarea2,$usuario1);
+    $toDo->createTask(new Task("pruebaTarea", "DataScience", "2020-03-12", "2020-03-17","Pendiente"),$usuario2->getNickName());
 
 // BORRAR TAREA
     // $toDo->deleteTask(13);
@@ -33,33 +33,25 @@ var_dump($toDo->getTasks());
     // $taskToUpdate["statusTask"]="Finalizada";
     // $toDo->updateTask($taskToUpdate, 3);
 
-
 // LISTAR POR TIPO DE TAREA
 	// $listByTypeTask= $toDo->getUsersAndTasksByType("FronTend");
 	// print_r($listByTypeTask);
 
+//BUSCAR POR USUARIO:
+    // $searchedUser = "paolo";
+    // $filterTasks= $toDo->listByUser($searchedUser);
+    // print_r($filterTasks);
 
-    var_dump($toDo->getTasks());
+//BUSCAR POR TIPO DE TAREA
+    // $type = "enviar";
+    // $filteredTasks = $toDo->getUsersAndTasksByType($type);
+    // print_r($filterTasks);
 
-  //codigo para buscar por usuario:
-$searchedUser = "paolo";
-$filterTasks= $toDo->listByUser($searchedUser);
-//e imprimir el array resultante
+//BUSCAR POR NOMBRE TAREA
+    // $searchedString = "Enviar"; 
+    // $filteredTasksbyName = $toDo->getTasksByName($searchedString);
+    // print_r($filteredTasksbyName);
 
-//codigo para buscar por tipo de tarea
-$selectedType = taskType::FRONTEND; 
-$filteredTasks = $toDo->getUsersAndTasksByType($type);
-//e imprimir el array resultante
-
-//codigo ejemplo para buscar por nombre tarea
-$searchedString = "Enviar"; 
-$filteredTasksbyName = $toDo->getTasksByName($searchedString);
-//e imprimir el array resultante
-
-
-
-// LISTAR POR NOMBRE TAREA
-	// $listByTaskName = $toDo->getTasksByName("Creacion");
 ?>
 <body>
     

@@ -11,7 +11,7 @@ class ToDo
         return $this->tasks = $tasks;
     }
 
-    public function createTask(Task $task, User $user)
+    public function createTask(Task $task, string $nickName)
     {
         $tasks = $this->getTasks(); //obtenemos todas las tasks antes de agregar la nueva tarea
 
@@ -19,7 +19,7 @@ class ToDo
         $newTask = [
             // recogemos los valores de los getters y lo pasamos a la clave del array asociativo
             "taskId"=>$task->getTaskId(), 
-            "user"=>$user->getNickName(),
+            "user"=>$nickName,
             "taskName"=>$task->getTaskName(), 
             "taskType"=>$task->getTaskType(), 
             "creationDate"=>$task->getCreationDate(), 
