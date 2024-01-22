@@ -45,14 +45,15 @@ class User
     //get users from JSON or empty array if there aren't
     public function getUsers()
     {   
-        $this->users = json_decode(file_get_contents(__DIR__ . '/users.json'), true) ?? [];
+        $this->users = json_decode(file_get_contents(__DIR__ . '../../../models/users.json'), true) ?? [];
         return $this->users;
     }
+
 
     //save changes in JSON
     protected function saveUsers()
     {
-        file_put_contents(__DIR__ . '/users.json', json_encode($this->users, JSON_PRETTY_PRINT));
+        file_put_contents(__DIR__ . '../../../models/users.json', json_encode($this->users, JSON_PRETTY_PRINT));
     }
 
     public function createUser(User $user)
