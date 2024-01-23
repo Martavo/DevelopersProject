@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espacio del Usuario</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 25%;
+            background-color: #FFC;
+            border: 2px dotted #F00;
+            margin: auto;
+        }
+        .izq {
+            text-align: right;
+        }
+        .der {
+            text-align: left;
+        }
+        td {
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        function confirmarEliminar() {
+            var respuesta = confirm("¿Estás seguro de que quieres eliminar tu perfil?");
+            if (respuesta) {
+                // Si el usuario confirma, redirige a loginUsersForm
+                window.location.href = 'loginUsersForm.php';
+            }
+            // Si el usuario cancela, no hace nada
+        }
+    </script>
+</head>
+<body>
+    <h1>Espacio del Usuario</h1>
+
+    <table>
+        <tr>
+            <td colspan="2">
+                <a href="updateUserProfile.php"><button>Actualizar Perfil</button></a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button onclick="confirmarEliminar()">Eliminar Perfil</button>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
