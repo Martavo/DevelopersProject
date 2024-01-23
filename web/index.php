@@ -6,9 +6,9 @@
     <title>Document</title>
 </head>
 <?php
-require_once "../app/controllers/class/ToDoController.php";
-require_once "../app/controllers/class/TaskController.php";
-require_once "../app/controllers/class/UserController.php";
+require_once "../app/Model/class/ToDoModel.php";
+require_once "../app/Model/class/TaskModel.php";
+require_once "../app/Model/class/UserModel.php";
 
 $tarea1 = new Task( "Agregar color fondo", "FrontEnd", "2021-01-01", "2021-01-10", "Pendiente"); 
 $tarea2 = new Task( "Crear funcion sumar", "BackEnd", "2022-11-04", "2022-12-15", "En ejecucion"); 
