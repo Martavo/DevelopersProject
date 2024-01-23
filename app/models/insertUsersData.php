@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $userManager->createUser($newUser);
 
         // Redirigir a compruebaLogin para confirmar que todo está ok y ir a la pagina principal
-        header("Location: compruebaLogin.php");
+        header("Location: checkLogin.php");
         exit();
 
     } catch (Exception $e) {

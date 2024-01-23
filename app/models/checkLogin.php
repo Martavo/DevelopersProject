@@ -34,7 +34,7 @@ try {
             header("location: listaTareas_View.php");
          } else {
             // Usuario no autenticado, redirigir a la página de inicio de sesión
-            header("Location: ../../app/views/formularioLogin_View.html");
+            header("Location: ../../app/views/loginUsersForm_View.html");
         }
 
     }catch(Exception $e){
