@@ -10,4 +10,5 @@
  */
 $routes = array(
 	'/test' => 'test#index'
+	
 );

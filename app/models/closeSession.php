@@ -13,7 +13,7 @@
     session_destroy();
 
  
-    header("location:../views/FormularioLogin_View.html");
+    header("location:../views/loginUsersForm_View.html");
 
 ?>
 </body>
