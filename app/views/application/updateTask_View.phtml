@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <h1>Actualizar Tarea</h1>
     <?php if ($task): ?>
-        <form action="" method="post">
+        <form action="ruta tabla principal" method="post">
             <label for="taskName">Nombre de la Tarea:</label>
             <input type="text" name="taskName" value="<?= htmlspecialchars($task['taskName']); ?>">
 
