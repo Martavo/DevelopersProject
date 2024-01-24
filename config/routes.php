@@ -12,11 +12,14 @@ $routes = array(
 	//Create
 	'/createUserForm' => 'application#createUserForm_View',
 	//Delete
-	'/deleteUserProfile' => 'application#deleteUserProfile_View',
+	'/deleteUser' => 'models#deleteUser',
 	'/loginUsersForm' => 'application#loginUsersForm_View',
-	'/updayeUserProfile' => 'application#updateUserProfile_View',
+	'/updateUserProfile' => 'application#updateUserProfile_View',
 	'/userProfile' => 'application#userProfile_View',
-	'/updateTask' => 'application#updateTask_View'
+	'/updateTask' => 'application#updateTask_View',
+	'/checkLogin' => 'models#checkLogin',
+	'/closeSession' => 'models#closeSession',
+	'/insertUsersData' => 'models#insertUsersData'
 
 
 	
