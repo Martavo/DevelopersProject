@@ -1,0 +1,82 @@
+<?php
+
+enum TaskType: string {
+    case FrontEnd = 'FrontEnd';
+    case BackEnd = 'BackEnd';
+    //case dataScience = 'DataScience';
+}
+
+enum TaskStatus: string {
+    case Pending = 'pending';
+    case Finished = 'finished';
+    case InProcess = 'in process';
+}
+
+
+include_once __DIR__ . '/ToDoModel.php';
+
+$taskId = isset($_GET['taskId']) ? $_GET['taskId'] : ''; 
+
+$todo = new ToDo();
+$task = $taskId ? $todo->searchTask($taskId) : null;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    try {
+        $updatedTask = [
+            "taskName" => $_POST['taskName'] ?? '',
+            "taskType" => $_POST['taskType'] ?? '',
+            "taskStatus" => $_POST['taskStatus'] ?? ''
+        ];
+
+        
+        if (!in_array($updatedTask["taskType"], TaskType::cases())) {
+            throw new Exception("Invalid task type");
+        }
+        if (!in_array($updatedTask["taskStatus"], TaskStatus::cases())) {
+            throw new Exception("Invalid task status");
+        }
+
+        $todo->updateTask($updatedTask, $taskId);
+
+        header("Location: listaTareas_View.phtml");
+        exit();
+    } catch (Exception $e) {
+        echo "ERROR: " . $e->getMessage();
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Tarea</title>
+</head>
+<body>
+    <h1>Actualizar Tarea</h1>
+    <?php if ($task): ?>
+        <form action="" method="post">
+            <label for="taskName">Nombre de la Tarea:</label>
+            <input type="text" name="taskName" value="<?= htmlspecialchars($task['taskName']); ?>">
+
+            <label for="taskType">Tipo de Tarea:</label>
+            <select name="taskType">
+                <option value="FrontEnd" <?= $task['taskType'] == 'FrontEnd' ? 'selected' : ''; ?>>FrontEnd</option>
+                <option value="BackEnd" <?= $task['taskType'] == 'BackEnd' ? 'selected' : ''; ?>>BackEnd</option>
+            </select>
+
+            <label for="taskStatus">Estado de la Tarea:</label>
+            <select name="taskStatus">
+                <option value="pending" <?= $task['taskStatus'] == 'pending' ? 'selected' : ''; ?>>Pendiente</option>
+                <option value="finished" <?= $task['taskStatus'] == 'finished' ? 'selected' : ''; ?>>Finalizada</option>
+                <option value="in process" <?= $task['taskStatus'] == 'in process' ? 'selected' : ''; ?>>En Proceso</option>
+            </select>
+
+            <button type="submit">Guardar Cambios</button>
+        </form>
+    <?php else: ?>
+        <p>Tarea no encontrada.</p>
+    <?php endif; ?>
+</body>
+</html>
