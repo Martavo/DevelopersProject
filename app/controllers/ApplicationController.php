@@ -1,5 +1,6 @@
 <?php
 
+
 require_once("../app/models/class/taskModel.php");
 require_once("../app/models/class/toDoModel.php");
 require_once("../app/models/class/userModel.php");
@@ -15,8 +16,5 @@ require_once("../app/models/class/userModel.php");
 require_once("../app/views/layouts/tasksList_View.php");
 
 
-
-
-
-
+?>
 
