@@ -30,7 +30,7 @@
 <body>
     <h1>INTRODUCE TUS DATOS</h1>
 
-    <form action="../models/checkLogin.php" method="post">
+    <form action="checkLogin" method="post">
         <table>
             <tr>
                 <td class="izq">Usuario:</td>
@@ -44,7 +44,7 @@
                 <td colspan="2"><input type="submit" name="enviar" value="LOGIN"></td>
             </tr>
             <tr>
-                <a href="createUsersForm_View.html"><input type="button" value="SIGNIN"></a>
+                <a href="<?php echo WEB_ROOT . "/createUsersForm"?>">SIGNIN</a>
             </tr>
         </table>
     </form>

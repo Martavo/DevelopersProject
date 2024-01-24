@@ -25,16 +25,6 @@
             padding: 10px;
         }
     </style>
-    <script>
-        function confirmarEliminar() {
-            var respuesta = confirm("¿Estás seguro de que quieres eliminar tu perfil?");
-            if (respuesta) {
-                // Si el usuario confirma, redirige a loginUsersForm
-                window.location.href = 'loginUsersForm.php';
-            }
-            // Si el usuario cancela, no hace nada
-        }
-    </script>
 </head>
 <body>
     <h1>Espacio del Usuario</h1>
@@ -42,14 +32,21 @@
     <table>
         <tr>
             <td colspan="2">
-                <a href="updateUserProfile.php"><button>Actualizar Perfil</button></a>
+            <a href="/updateUserProfile> <input type=" button" value=">Actualizar Perfil"></a>
+
             </td>
         </tr>
         <tr>
             <td colspan="2">
-                <button onclick="confirmarEliminar()">Eliminar Perfil</button>
+               <a href="deleteUser" =<?php echo $task['taskId']?>" onclick="return confirmDelete(<?php echo $task['taskId']?>);">
+                <input type='button' name='del' id='del' value='Borrar'></a>
+
             </td>
         </tr>
     </table>
+    <script>
+    function confirmDelete(id) {
+    return confirm("¿Estás seguro de que deseas eliminar el perfil?");}
+</script>
 </body>
 </html>
