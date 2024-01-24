@@ -3,10 +3,10 @@
         "taskId": 1,
         "user": "pirpol",
         "taskName": "Creacion boton enviar",
-        "taskType": "FronTend",
+        "taskType": "FrontEnd",
         "creationDate": "2013-11-03",
         "expectedEndDate": "2013-11-07",
-        "statusTask": "Pendiente"
+        "taskStatus": "Pendiente"
     },
     {
         "taskId": 2,
@@ -15,7 +15,7 @@
         "taskType": "BackEnd",
         "creationDate": "2013-08-07",
         "expectedEndDate": "2013-08-14",
-        "statusTask": "En ejecucion"
+        "taskStatus": "En ejecucion"
     },
     {
         "taskId": 3,
@@ -24,7 +24,7 @@
         "taskType": "DataScience",
         "creationDate": "2013-03-09",
         "expectedEndDate": "2013-03-15",
-        "statusTask": "Finalizada"
+        "taskStatus": "Finalizada"
     },
     {
         "taskId": 4,
@@ -33,7 +33,7 @@
         "taskType": "BackEnd",
         "creationDate": "2022-11-04",
         "expectedEndDate": "2022-12-15",
-        "statusTask": "En ejecucion"
+        "taskStatus": "En ejecucion"
     },
     {
         "taskId": 5,
@@ -87,6 +87,24 @@
         "taskType": "DataScience",
         "creationDate": "2020-03-12",
         "expectedEndDate": "2020-03-17",
+        "taskStatus": "Pendiente"
+    },
+    {
+        "taskId": 11,
+        "user": "Xavi",
+        "taskName": "crear archivo Actualizar Tarea",
+        "taskType": "BackEnd",
+        "creationDate": "2013-11-05",
+        "expectedEndDate": "2013-11-09",
+        "taskStatus": "Pendiente"
+    },
+    {
+        "taskId": 12,
+        "user": "ana",
+        "taskName": "crear boton",
+        "taskType": "BackEnd",
+        "creationDate": "2023-01-12",
+        "expectedEndDate": "2023-01-15",
         "taskStatus": "Pendiente"
     }
 ]
