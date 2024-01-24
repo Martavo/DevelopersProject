@@ -1,61 +1,49 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
 <?php
-require_once "../app/Model/class/ToDoModel.php";
-require_once "../app/Model/class/TaskModel.php";
-require_once "../app/Model/class/UserModel.php";
 
-$tarea1 = new Task( "Agregar color fondo", "FrontEnd", "2021-01-01", "2021-01-10", "Pendiente"); 
-$tarea2 = new Task( "Crear funcion sumar", "BackEnd", "2022-11-04", "2022-12-15", "En ejecucion"); 
+error_reporting(E_ALL|E_STRICT);
+ini_set('display_errors', 1);
+date_default_timezone_set('CET');
 
-$usuario1 = new User("ribol", "jk2389m");
-$usuario2 = new User("rasbil", "nns42l");
+// defines the web root
+define('WEB_ROOT', substr($_SERVER['SCRIPT_NAME'], 0, strpos($_SERVER['SCRIPT_NAME'], '/index.php')));
+// defindes the path to the files
+define('ROOT_PATH', realpath(dirname(__FILE__) . '/../'));
+// defines the cms path
+define('CMS_PATH', ROOT_PATH . '/lib/base/');
 
-$toDo = new ToDo();
+// starts the session
+session_start();
 
-$toDo->createTask($tarea2,$usuario1->getNickName());
+// includes the system routes. Define your own routes in this file
+include(ROOT_PATH . '/config/routes.php');
 
-var_dump($toDo->getTasks());
+/**
+ * Standard framework autoloader
+ * @param string $className
+ */
+function autoloader($className) {
+	// controller autoloading
+	if (strlen($className) > 10 && substr($className, -10) == 'Controller') {
+		if (file_exists(ROOT_PATH . '/app/controllers/' . $className . '.php') == 1) {
+			require_once ROOT_PATH . '/app/controllers/' . $className . '.php';
+		}
+	}
+	else {
+		if (file_exists(CMS_PATH . $className . '.php')) {
+			require_once CMS_PATH . $className . '.php';
+		}
+		else if (file_exists(ROOT_PATH . '/lib/' . $className . '.php')) {
+			require_once ROOT_PATH . '/lib/' . $className . '.php';
+		}
+		else {
+			require_once ROOT_PATH . '/app/models/'.$className.'.php';
+		}
+	}
+}
 
-// CREAR NUEVA TAREA
-    $toDo->createTask(new Task("pruebaTarea", "DataScience", "2020-03-12", "2020-03-17","Pendiente"),$usuario2->getNickName());
+// activates the autoloader
+spl_autoload_register('autoloader');
 
-// BORRAR TAREA
-    // $toDo->deleteTask(13);
-
-// ACTUALIZAR UNA TAREA
-    // $taskToUpdate= $toDo->searchTask(3);
-    // $taskToUpdate["statusTask"]="Finalizada";
-    // $toDo->updateTask($taskToUpdate, 3);
-
-// LISTAR POR TIPO DE TAREA
-	// $listByTypeTask= $toDo->getUsersAndTasksByType("FronTend");
-	// print_r($listByTypeTask);
-
-//BUSCAR POR USUARIO:
-    // $searchedUser = "paolo";
-    // $filterTasks= $toDo->listByUser($searchedUser);
-    // print_r($filterTasks);
-
-//BUSCAR POR TIPO DE TAREA
-    // $type = "enviar";
-    // $filteredTasks = $toDo->getUsersAndTasksByType($type);
-    // print_r($filterTasks);
-
-//BUSCAR POR NOMBRE TAREA
-    // $searchedString = "Enviar"; 
-    // $filteredTasksbyName = $toDo->getTasksByName($searchedString);
-    // print_r($filteredTasksbyName);
-
-?>
-<body>
-    
-</body>
-</html>
+$router = new Router();
+$router->execute($routes);
 
