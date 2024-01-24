@@ -16,7 +16,7 @@ $routes = array(
 	'/loginUsersForm' => 'application#loginUsersForm_View',
 	'/updayeUserProfile' => 'application#updateUserProfile_View',
 	'/userProfile' => 'application#userProfile_View',
-	
+	'/updateTask' => 'application#updateTask_View'
 
 
 	
