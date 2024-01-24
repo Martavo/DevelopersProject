@@ -27,7 +27,7 @@ class Task
 
     public function getLastTaskId(): int
     {
-        $tasks = json_decode(file_get_contents(__DIR__ . '../../../models/toDo.json'), true);
+        $tasks = json_decode(file_get_contents('../app/models/BBDD/toDo.json'), true);
 
         $lastTask = end($tasks);
         $lastTaskId = $lastTask["taskId"];

@@ -1,11 +1,20 @@
 <?php
 
-    require_once("models/BBDD/toDo.json");
-    require_once("models/BBDD/users.json");
 
-    require_once("models/class/taskModel.php");
-    require_once("models/class/toDoModel.php");
-    require_once("models/class/userModel.php");
+require_once("../app/models/class/taskModel.php");
+require_once("../app/models/class/toDoModel.php");
+require_once("../app/models/class/userModel.php");
+
+// metodos Tareas
+    $toDo = new ToDo();
+    $arrayTasks = $toDo->getTasks();
+
+// metodos usuarios
+    $userModel = new UserManager();
+    $users = $userModel->getUsers();
+
+require_once("../app/views/layouts/tasksList_View.php");
 
 
 ?>
+
