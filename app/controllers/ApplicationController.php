@@ -16,5 +16,5 @@ require_once("../app/models/class/userModel.php");
 require_once("../app/views/layouts/tasksList_View.php");
 
 
-?>
+
 

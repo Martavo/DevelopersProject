@@ -27,7 +27,5 @@ $routes = array(
 	'/closeSession' => 'models#closeSession',
 	//Crear un nuevo usuario
 	'/insertUsersData' => 'models#insertUsersData'
-
-
 	
 );
