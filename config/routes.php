@@ -9,16 +9,23 @@
  * '/calendar' => 'calendar#index'
  */
 $routes = array(
-	//Create
+	//Crear un usuario
 	'/createUserForm' => 'application#createUserForm_View',
-	//Delete
+	//Borrar un usuario
 	'/deleteUser' => 'models#deleteUser',
+	//login usuario
 	'/loginUsersForm' => 'application#loginUsersForm_View',
+	//Actualizar perfil de un usuario
 	'/updateUserProfile' => 'application#updateUserProfile_View',
+	//Ver perfil de un usuario
 	'/userProfile' => 'application#userProfile_View',
+	//Actualizar una tarea
 	'/updateTask' => 'application#updateTask_View',
+	//Valida el usuario existe en la BBDD
 	'/checkLogin' => 'models#checkLogin',
+	//Cierra la sesion del usuario
 	'/closeSession' => 'models#closeSession',
+	//Crear un nuevo usuario
 	'/insertUsersData' => 'models#insertUsersData'
 
 
