@@ -3,13 +3,13 @@
 enum TaskType: string {
     case FrontEnd = 'FrontEnd';
     case BackEnd = 'BackEnd';
-    //case dataScience = 'DataScience';
+    case DataScience = 'DataScience';
 }
 
 enum TaskStatus: string {
-    case Pending = 'pending';
-    case Finished = 'finished';
-    case InProcess = 'in process';
+    case Pending = 'Pendiente';
+    case Finished = 'Finalizada';
+    case InProcess = 'En Ejecucion';
 }
 
 
@@ -64,13 +64,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <select name="taskType">
                 <option value="FrontEnd" <?= $task['taskType'] == 'FrontEnd' ? 'selected' : ''; ?>>FrontEnd</option>
                 <option value="BackEnd" <?= $task['taskType'] == 'BackEnd' ? 'selected' : ''; ?>>BackEnd</option>
+                <option value="DataScience" <?= $task['taskType'] == 'DataScience' ? 'selected' : ''; ?>>DataScience</option>
             </select>
 
             <label for="taskStatus">Estado de la Tarea:</label>
             <select name="taskStatus">
-                <option value="pending" <?= $task['taskStatus'] == 'pending' ? 'selected' : ''; ?>>Pendiente</option>
-                <option value="finished" <?= $task['taskStatus'] == 'finished' ? 'selected' : ''; ?>>Finalizada</option>
-                <option value="in process" <?= $task['taskStatus'] == 'in process' ? 'selected' : ''; ?>>En Proceso</option>
+                <option value="Pendiente" <?= $task['taskStatus'] == 'Pendiente' ? 'selected' : ''; ?>>Pending</option>
+                <option value="Finalizada" <?= $task['taskStatus'] == 'Finalizada' ? 'selected' : ''; ?>>Finished</option>
+                <option value="En Proceso" <?= $task['taskStatus'] == 'En Proceso' ? 'selected' : ''; ?>>InProgress</option>
             </select>
 
             <button type="submit">Guardar Cambios</button>
