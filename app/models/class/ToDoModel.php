@@ -6,7 +6,7 @@ class ToDo
 
     public function getTasks()
     {   
-        $tasks = json_decode(file_get_contents(__DIR__ . '../../../models/toDo.json'), true);
+        $tasks = json_decode(file_get_contents( __DIR__ . '../../BBDD/toDo.json'), true);
 
         return $this->tasks = $tasks;
     }
@@ -36,7 +36,7 @@ class ToDo
 
     public function addJson($tasks)
     {
-        file_put_contents(__DIR__ . '../../../models/toDo.json', json_encode($tasks, JSON_PRETTY_PRINT));
+        file_put_contents('../app/models/BBDD/toDo.json', json_encode($tasks, JSON_PRETTY_PRINT));
     }
 
 
