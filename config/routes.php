@@ -9,6 +9,9 @@
  * '/calendar' => 'calendar#index'
  */
 $routes = array(
+	// Pagina principal
+	'/' => 'application#loginUsersForm_View',
+	'/index' => 'application#loginUsersForm_View',
 	// Listar todas las tareas
 	'/taskslist' => 'application#taskslist_View',
 	//Crear un usuario
