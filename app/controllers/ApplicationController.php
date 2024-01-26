@@ -18,15 +18,17 @@ require_once("../app/models/class/userModel.php");
 class ApplicationController extends Controller 
 {
 
-    public function loginUsersForm_ViewAction()
+    public function indexAction()
     {
-        $userModel = new UserManager();
-        $allUsers = $userModel->getUsers();
+        $toDoModel = new ToDo();
+        $allTasks = $toDoModel->getTasks();
 
-        $this->view->$allUsers =$allUsers;
+        $this->view->allTasks = $allTasks;
 
-        return $this->view->$allUsers;
+        return $this->view->allTasks;
     }
+
+    public function get
 }
     
 

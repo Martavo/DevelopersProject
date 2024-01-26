@@ -10,27 +10,21 @@
  */
 $routes = array(
 	// Pagina principal
-	'/' => 'application#loginUsersForm_View',
-	'/index' => 'application#loginUsersForm_View',
-	// Listar todas las tareas
-	'/taskslist' => 'application#taskslist_View',
+		'/' => 'User#index',
+		'/index.phtml' => 'User#index',
+	// Validacion Login
+	'loginUsersForm_View'=> 'user#loginUsersForm_View',
 	//Crear un usuario
-	'/createUserForm' => 'application#createUserForm_View',
+	'/createUserForm_view' => 'User#createUserForm_view',
+	// Listar todas las tareas
+	'listaTareas_View' => 'tasks#listaTareas_View',
 	//Borrar un usuario
-	'/deleteUser' => 'models#deleteUser',
 	//login usuario
-	'/loginUsersForm' => 'application#loginUsersForm_View',
 	//Actualizar perfil de un usuario
-	'/updateUserProfile' => 'application#updateUserProfile_View',
 	//Ver perfil de un usuario
-	'/userProfile' => 'application#userProfile_View',
 	//Actualizar una tarea
-	'/updateTask' => 'application#updateTask_View',
 	//Valida el usuario existe en la BBDD
-	'/checkLogin' => 'models#checkLogin',
 	//Cierra la sesion del usuario
-	'/closeSession' => 'models#closeSession',
 	//Crear un nuevo usuario
-	'/insertUsersData' => 'models#insertUsersData'
 	
 );
