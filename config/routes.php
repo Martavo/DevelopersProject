@@ -12,9 +12,9 @@ $routes = array(
 	// Pagina principal
 		'/' => 'User#index',
 	// Validacion Login
-	'/checkLoging'=> 'User#checkLogin',
+	'/loginUsersForm_View'=> 'User#loginUsersForm_View',
 	//Crear un usuario
-	'/createUserForm_view' => 'User#createUserForm_view',
+	'/createUsersForm_View' => 'User#createUsersForm_View',
 	// Listar todas las tareas
 	'/listaTareas_View' => 'tasks#listaTareas_View',
 	//Borrar un usuario
