@@ -1,15 +1,18 @@
 <?php
 require_once(__DIR__ . '../../models/class/UserModel.php');
+require_once(__DIR__ . '../../models/class/ToDoModel.php');
 require_once(__DIR__ . '/../../lib/base/Controller.php');
 
 
 class UserController extends Controller
 {
     private $userManager;
+    private $ToDo;
 
     public function __construct()
     {
         $this->userManager = new UserManager();
+        $this->ToDo = new ToDo();
     }
 
     public function indexAction()
@@ -43,16 +46,18 @@ class UserController extends Controller
                     if ($users[$i]['nickName'] === $nickName && $users[$i]['password'] === $password) {
                         $isValidated = true;
                     }
+                    $i++;
                 }
 
                 if ($isValidated) {
                     // Usuario autenticado correctamente
                     session_start();
                     $_SESSION["user"] = $nickName;
-                    header("location: listaTareas_View");
+                    header("location: tasksList_View");
                 } else {
                     // Usuario no autenticado, redirigir a la página de inicio de sesión
-                    header("Location: ../../app/views/loginUsersForm_View.html");
+                    header("location: loginUsersForm_View");
+                    echo "usuario incorrecto";
                 }
             } catch (Exception $e) {
 
@@ -60,6 +65,13 @@ class UserController extends Controller
             }
         }
     }
+    // public function listTasksAction()
+    // {
+    //     $arrayTasks = $ToDo->getTasks();
+
+    //     echo "estas en el listTasksAction";
+    // }
+
 
 }
 
