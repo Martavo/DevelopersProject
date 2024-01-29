@@ -1,6 +1,6 @@
 <?php
 
-class ToDo
+class ToDo extends Model
 {
     protected array $tasks;
 

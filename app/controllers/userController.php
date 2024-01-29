@@ -17,7 +17,7 @@ class UserController extends Controller
 
     }
 
-    public function loginUsersForm_ViewAction()
+    public function checkLoginAction()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             try {
@@ -25,15 +25,6 @@ class UserController extends Controller
                 $password = isset($_POST['password']) ? $_POST['password'] : '';
                 // Obtener la lista de usuarios
                 $users = $this->userManager->getUsers();
-
-                // Validar el usuario y la contraseña
-                // $isValidated = false;
-                // foreach ($users as $user) {
-                //     if ($user['nickName'] === $nickName && $user['password'] === $password) {
-                //         $isValidated = true;
-                //         break;
-                //     }
-                // }
 
                 $isValidated = false;
                 $longArray = count($users);
@@ -59,6 +50,7 @@ class UserController extends Controller
             }
         }
     }
+
 }
 
 // $userController = new UserController();

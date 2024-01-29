@@ -1,8 +1,10 @@
 <?php
 
-require_once("../app/models/class/taskModel.php");
-require_once("../app/models/class/toDoModel.php");
-require_once("../app/models/class/userModel.php");
+require_once(__DIR__ . "../app/models/class/taskModel.php");
+require_once(__DIR__ . "../app/models/class/toDoModel.php");
+
+require_once(__DIR__.'\..\..\lib\base\Controller.php');
+
 
 // // metodos Tareas
 //     $toDo = new ToDo();
@@ -28,7 +30,6 @@ class ApplicationController extends Controller
         return $this->view->allTasks;
     }
 
-    public function get
 }
     
 
