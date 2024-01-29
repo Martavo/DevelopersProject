@@ -1,7 +1,7 @@
 <?php
 
 
-class Task extends Model
+class Task
 {
     protected int $taskId;
     protected string $taskName;

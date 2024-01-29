@@ -5,16 +5,20 @@ require_once(__DIR__ . '/../../lib/base/Controller.php');
 
 class TaskController extends Controller
 {
-    private $toDo;
 
-    public function __construct()
+    public function GetTasksAction()
     {
-        $this->toDo = new ToDo();
-    }
+        $toDo = new ToDo();   
+        $arrayTasks = $toDo->getTasks();
+        // var_dump($arrayTasks);
 
-    public function listTasksAction()
-    {
-        echo "estas en el listTasksAction";
+        return $arrayTasks;
+
     }
 
 }
+
+// $TaskController = new TaskController();
+// $arrayTasks = $TaskController->GetTasksAction();
+
+// var_dump($arrayTasks);

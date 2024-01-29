@@ -18,7 +18,7 @@ $routes = array(
 	// validacion login
 	'/checkLogin'=> 'User#checkLogin',
 	// Listar todas las tareas
-	'/tasksList_View' => 'User#listTasks',
+	'/tasksList_View' => 'Task#GetTasks',
 	//Borrar un usuario
 	//login usuario
 	//Actualizar perfil de un usuario

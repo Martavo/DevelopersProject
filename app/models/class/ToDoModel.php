@@ -1,6 +1,6 @@
 <?php
 
-class ToDo extends Model
+class ToDo 
 {
     protected array $tasks;
 
@@ -153,6 +153,11 @@ class ToDo extends Model
 
 }
 
+// $toDo = new ToDo();
+
+// $arrayTasks = $toDo->getTasks();
+
+// var_dump($arrayTasks);
 
 
 

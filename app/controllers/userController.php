@@ -64,14 +64,6 @@ class UserController extends Controller
             }
         }
     }
-    // public function listTasksAction()
-    // {
-    //     $arrayTasks = $ToDo->getTasks();
-
-    //     echo "estas en el listTasksAction";
-    // }
-
-
 }
 
 // $userController = new UserController();
