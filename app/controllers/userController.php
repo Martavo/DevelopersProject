@@ -7,12 +7,11 @@ require_once(__DIR__ . '/../../lib/base/Controller.php');
 class UserController extends Controller
 {
     private $userManager;
-    private $ToDo;
-
+   
     public function __construct()
     {
         $this->userManager = new UserManager();
-        $this->ToDo = new ToDo();
+        
     }
 
     public function indexAction()
