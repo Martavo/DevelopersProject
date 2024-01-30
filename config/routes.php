@@ -19,6 +19,10 @@ $routes = array(
 	'/checkLogin'=> 'User#checkLogin',
 	// Listar todas las tareas
 	'/tasksList_View' => 'Task#tasksList_View',
+	// Borrar Tarea
+	'/deleteTask' => 'Task#deleteTask',
+
+
 	//Borrar un usuario
 	//login usuario
 	//Actualizar perfil de un usuario
