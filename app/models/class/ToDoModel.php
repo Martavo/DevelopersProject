@@ -36,7 +36,7 @@ class ToDo
 
     public function addJson($tasks)
     {
-        file_put_contents('../app/models/BBDD/toDo.json', json_encode($tasks, JSON_PRETTY_PRINT));
+        file_put_contents(__DIR__ . '../../BBDD/toDo.json', json_encode($tasks, JSON_PRETTY_PRINT));
     }
 
 

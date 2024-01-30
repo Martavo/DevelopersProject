@@ -21,8 +21,8 @@ $routes = array(
 	'/tasksList_View' => 'Task#tasksList_View',
 	// Borrar Tarea
 	'/deleteTask' => 'Task#deleteTask',
-
-
+	// Insertar una nueva tarea
+	'/insertTask'=> 'Task#insertTask'
 	//Borrar un usuario
 	//login usuario
 	//Actualizar perfil de un usuario

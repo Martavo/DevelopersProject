@@ -1,5 +1,6 @@
 <?php
 require_once(__DIR__ . '../../models/class/ToDoModel.php');
+require_once(__DIR__ . '../../models/class/TaskModel.php');
 require_once(__DIR__ . '/../../lib/base/Controller.php');
 
 
@@ -37,9 +38,39 @@ class TaskController extends Controller
         }    
     }
 
+    public function insertTaskAction()
+    {
+        if(isset($_POST["user"]))
+        {
+            $user= $_POST["user"];
+            $taskName= $_POST["taskName"];
+            $taskType= $_POST["taskType"];
+            $creationDate= $_POST["creationDate"];
+            $expectedEndDate= $_POST["expectedEndDate"];
+            $statusTask= $_POST["statusTask"];
+
+            $toDo = $this->toDo;
+            $toDo->createTask(new Task(
+                $taskName,
+                $taskType,
+                $creationDate,
+                $expectedEndDate,
+                $statusTask,
+            ),
+            $user);
+
+            // Redirigimos a la página de listado de tareas con los nuevo datos insertados.
+            header("location:tasksList_View");
+        }else{
+            echo "Debe introducir todos los datos";
+        }
+
+    }
+
 }
 
 // $TaskController = new TaskController();
 // $arrayTasks = $TaskController->tasksList_ViewAction();
+// $TaskController->insertTaskAction("prueba 18.43","prueba 18.43","prueba 18.43","prueba 18.43","prueba 18.43","prueba 18.43");
 
 // var_dump($arrayTasks);
