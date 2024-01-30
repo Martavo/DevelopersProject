@@ -8,36 +8,7 @@
 </head>
 <body>
     
-<?php
-require_once "../app/controllers/ApplicationController.php";
-
-    // INSERTAR REGISTROS -------------------
-    if(isset($_POST["cr"])){ //Si se ha pulsado el boton insertar
-        $user= $_POST["user"];
-        $taskName= $_POST["taskName"];
-        $taskType= $_POST["taskType"];
-        $creationDate= $_POST["creationDate"];
-        $expectedEndDate= $_POST["expectedEndDate"];
-        $statusTask= $_POST["statusTask"];
-
-        $toDo->createTask(new Task(
-            $taskName,
-            $taskType,
-            $creationDate,
-            $expectedEndDate,
-            $statusTask,
-        ),
-        $user);
-
-        // hacemos que se dirija a esta misma pagina para que actualice la página con los nuevo datos insertados
-        header("location:index.php");
-    }
-    
-    // FIN INSERTAR REGISTROS --------------
-    
-?>
-
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"> 
+<form action="insertTask" method="post"> 
   <table width="50%">
     <tr >
       <td class="primera_fila">Nº Tarea</td>

@@ -9,15 +9,6 @@
         "taskStatus": "Pendiente"
     },
     {
-        "taskId": 2,
-        "user": "diegdar",
-        "taskName": "Creacion clase conexion datos",
-        "taskType": "BackEnd",
-        "creationDate": "2013-08-07",
-        "expectedEndDate": "2013-08-14",
-        "taskStatus": "En ejecucion"
-    },
-    {
         "taskId": 4,
         "user": "ribol",
         "taskName": "Crear funcion sumar",
@@ -43,15 +34,6 @@
         "creationDate": "2020-03-12",
         "expectedEndDate": "2020-03-17",
         "taskStatus": "Pendiente"
-    },
-    {
-        "taskId": 7,
-        "user": "ribol",
-        "taskName": "Crear funcion sumar",
-        "taskType": "BackEnd",
-        "creationDate": "2022-11-04",
-        "expectedEndDate": "2022-12-15",
-        "taskStatus": "En ejecucion"
     },
     {
         "taskId": 8,
@@ -87,6 +69,42 @@
         "taskType": "BackEnd",
         "creationDate": "2023-01-12",
         "expectedEndDate": "2023-01-15",
+        "taskStatus": "Pendiente"
+    },
+    {
+        "taskId": 13,
+        "user": "prueba 18.43",
+        "taskName": "prueba 18.43",
+        "taskType": "prueba 18.43",
+        "creationDate": "prueba 18.43",
+        "expectedEndDate": "prueba 18.43",
+        "taskStatus": "prueba 18.43"
+    },
+    {
+        "taskId": 14,
+        "user": "prueba 18.21",
+        "taskName": "prueba 18.21",
+        "taskType": "BackEnd",
+        "creationDate": "prueba 18.21",
+        "expectedEndDate": "prueba 18.21",
+        "taskStatus": "Pendiente"
+    },
+    {
+        "taskId": 15,
+        "user": "",
+        "taskName": "",
+        "taskType": "BackEnd",
+        "creationDate": "",
+        "expectedEndDate": "",
+        "taskStatus": "Pendiente"
+    },
+    {
+        "taskId": 16,
+        "user": "",
+        "taskName": "",
+        "taskType": "DataScience",
+        "creationDate": "",
+        "expectedEndDate": "",
         "taskStatus": "Pendiente"
     }
 ]
