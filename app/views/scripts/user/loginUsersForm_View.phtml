@@ -3,47 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./output.css" rel="stylesheet">
     <title>Document</title>
-    <style>
-        h1{
-            text-align: center;
-        }
-        table{
-            width: 25%;
-            background-color: #FFC;
-            border: 2px dotted #F00;
-            margin: auto;
-        }
-        .izq{
-            text-align: right;
-        }
-        .der{
-            text-align: left;
-        }
-        td{
-            text-align: center;
-            padding: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
 </head>
-<body>
-    <h1>INTRODUCE TUS DATOS</h1>
+<body class="bg-blue-200 dark:bg-gray-900 flex items-center justify-center flex-col">
 
-    <form action="checkLogin" method="POST" enctype="multipart/form-data" autocomplete="off">
-        <table>
-            <tr>
-                <td class="izq">Usuario:</td>
-                <td class="der"><input type="text" name="usuario" value="pirpol"></td>
-            </tr>
-            <tr>
-                <td class="izq">Password:</td>
-                <td class="der"><input text="password" name="password" value="1234"></td>
-            </tr>
-            <tr>
-                <td colspan="2"><input type="submit" name="enviar" value="LOGIN"></td>
-            </tr>
-        </table>
+    <div class="text-4xl mb-8 mt-10 text-center">INTRODUCE TUS DATOS</div>
+
+    <form action="checkLogin" method="POST" enctype="multipart/form-data" autocomplete="off" class="text-center">
+        <div class="mb-4">
+            <label for="usuario" class="izq block">Usuario:</label>
+            <input type="text" id="usuario" name="usuario" value="pirpol" class="der px-4 py-2 border rounded">
+        </div>
+        <div class="mb-4">
+            <label for="password" class="izq block">Password:</label>
+            <input type="password" id="password" name="password" value="1234" class="der px-4 py-2 border rounded">
+        </div>
+        <div>
+            <input type="submit" name="enviar" value="LOGIN" class="bg-blue-500 text-white px-4 py-2 rounded">
+        </div>
     </form>
 </body>
 </html>

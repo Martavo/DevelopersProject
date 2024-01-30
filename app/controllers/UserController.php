@@ -21,12 +21,12 @@ class UserController extends Controller
 
     public function loginUsersForm_ViewAction()
     {
-        echo "hola desde loginUsersForm_View";
+   
     }
 
     public function createUsersForm_ViewAction()
     {
-        echo "hola desde createUsersForm_View";
+      
     }
 
     public function checkLoginAction()
