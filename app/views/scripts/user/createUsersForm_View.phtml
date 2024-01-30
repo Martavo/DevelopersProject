@@ -1,32 +1,27 @@
-<!doctype html>
-<html>
-    
-    <head>
-    
-        <meta charset="utf-8">
-        <title>Documento sin título</title>
-        
-    </head>
-    
-    <body>
-    
-        <form action="insertUsersData" method="get">
-        
-            <p>
-              <label>Usuario: 
-                <input type="text" name="usu">
-              </label>
-              <br>
-              <label>Contraseña: 
-                <input type="text" name="con">
-              </label>
-            </p>
-            <p>
-              <input type="submit" name="enviando" value="Registro">
-            </p>
-        
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-blue-200 dark:bg-gray-900 flex items-center justify-center flex-col">
+    <div class="bg-white mt-10 rounded-lg shadow-md flex flex-col justify-center p-6 py-24 lg:px-36 mx-auto border-5">
+        <div class="text-4xl mb-8 mt-10 text-center">INTRODUCE TUS DATOS DE REGISTRO</div>
+
+        <form action="insertUsersData" method="get" class="text-center ">
+            <div class="mb-4">
+                <label for="usuario"class="izq block" >Usuario:</label>
+                <input type="text" id="usuario" name="usuario" value="" class="w-80 text-xl px-4 py-2 border rounded text-center">
+            </div>
+            <div class="mb-4">
+                <label for="password" class="izq block">Password:</label>
+                <input type="password" id="password" name="password" value="" class="w-80 text-ml px-4 py-2 border rounded text-center">
+            </div>
+            <div>
+                <input type="submit" name="enviar" value="REGISTRARSE" class="bg-blue-400 text-white px-4 py-2 rounded hover:bg-blue-300">
+            </div>
         </form>
-    
-    </body>
-    
-</html>
+    </div>
+</body>
