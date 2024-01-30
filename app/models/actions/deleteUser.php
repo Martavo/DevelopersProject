@@ -2,6 +2,6 @@
 
 $userId = $_GET["userId"];
 
-$userModel -> deleleUser($userId);
+$userModel -> deleteUser($userId);
 
 header("Location: /loginUserForm");

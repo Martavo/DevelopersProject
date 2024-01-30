@@ -24,6 +24,7 @@ $routes = array(
 
 
 	//Borrar un usuario
+	'/deleteUser' => ''
 	//login usuario
 	//Actualizar perfil de un usuario
 	//Ver perfil de un usuario

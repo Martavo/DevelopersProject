@@ -4,49 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Espacio del Usuario</title>
-    <style>
-        h1 {
-            text-align: center;
-        }
-        table {
-            width: 25%;
-            background-color: #FFC;
-            border: 2px dotted #F00;
-            margin: auto;
-        }
-        .izq {
-            text-align: right;
-        }
-        .der {
-            text-align: left;
-        }
-        td {
-            text-align: center;
-            padding: 10px;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Espacio del Usuario</h1>
+<body class="bg-gray-100">
+    <div class="container mx-auto mt-10">
+        <h1 class="text-center text-3xl font-bold mb-6">Espacio del Usuario</h1>
 
-    <table>
-        <tr>
-            <td colspan="2">
-            <a href="/updateUserProfile> <input type=" button" value=">Actualizar Perfil"></a>
-
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-               <a href="deleteUser" =<?php echo $task['taskId']?>" onclick="return confirmDelete(<?php echo $task['taskId']?>);">
-                <input type='button' name='del' id='del' value='Borrar'></a>
-
-            </td>
-        </tr>
-    </table>
+        <div class="flex justify-center">
+            <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <div class="mb-4">
+                    <button onclick="location.href='/updateUserProfile'" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                        Actualizar Perfil
+                    </button>
+                </div>
+                <div class="mb-4">
+                    <button onclick="confirmDelete() && location.href='deleteUser'" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                        Borrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
-    function confirmDelete(id) {
-    return confirm("¿Estás seguro de que deseas eliminar el perfil?");}
-</script>
+        function confirmDelete() {
+            return confirm("¿Estás seguro de que deseas eliminar el perfil?");
+        }
+    </script>
 </body>
 </html>

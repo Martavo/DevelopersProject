@@ -14,22 +14,61 @@ class UserController extends Controller
         
     }
 
-    public function indexAction()
-    {
+    public function createUserAction()
+{
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $nickName = $_POST['usuario'] ?? '';
+        $password = $_POST['password'] ?? '';
+
+        //$passwordHash = password_hash($password, PASSWORD_DEFAULT);
+
+        $creationSuccess = $this->userManager->createUser($nickName, $password);
+
+        if ($creationSuccess) {
+            header("location: loginUsersForm_View");
+        } else {
+            
+        }
 
     }
+}
 
-    public function loginUsersForm_ViewAction()
-    {
-        echo "hola desde loginUsersForm_View";
+    public function updateUserAction()
+{
+    session_start();
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['user'])) {
+        $currentUserName = $_SESSION['user'];
+        $newUserName = $_POST['newUserName'] ?? $currentUserName;
+        $newPassword = $_POST['newPassword'] ?? '';
+
+        $updateSuccess = $this->userManager->updateUser($currentUserName, $newUserName, $newPassword);
+
+        if ($updateSuccess) {
+            $_SESSION['user'] = $newUserName;
+            header("location: userProfile_View");
+        } else {
+            
+        } 
     }
+}
 
-    public function createUsersForm_ViewAction()
-    {
-        echo "hola desde createUsersForm_View";
+    public function deleteUserAction()
+{
+    session_start();
+    if (isset($_SESSION['user'])) {
+        $userName = $_SESSION['user'];
+        $deleteSuccess = $this->userManager->deleteUser($userName);
+
+        if ($deleteSuccess) {
+            session_destroy();
+            header("location: loginUsersForm_View");
+        } else {
+            
+        }
     }
+}
 
-    public function checkLoginAction()
+public function checkLoginAction()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             try {
@@ -64,7 +103,28 @@ class UserController extends Controller
             }
         }
     }
+
 }
+
+    /*public function indexAction()
+    {
+
+    }*/
+
+    /*public function loginUsersForm_ViewAction()
+    {
+        echo "hola desde loginUsersForm_View";
+        
+
+    }*/
+
+    /*public function createUsersForm_ViewAction()
+    {
+        echo "hola desde createUsersForm_View";
+    }*/
+
+    
+
 
 // $userController = new UserController();
 // $userController->loginUsersForm_ViewAction("pirpol", "klkl23P");
