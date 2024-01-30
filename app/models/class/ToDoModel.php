@@ -1,6 +1,6 @@
 <?php
 
-class ToDo
+class ToDo 
 {
     protected array $tasks;
 
@@ -153,6 +153,11 @@ class ToDo
 
 }
 
+// $toDo = new ToDo();
+
+// $arrayTasks = $toDo->getTasks();
+
+// var_dump($arrayTasks);
 
 
 
