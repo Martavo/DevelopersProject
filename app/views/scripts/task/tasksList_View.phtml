@@ -3,113 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="hoja.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css">
     <title>Lista de Tareas</title>
 </head>
-<body>
+<body class="bg-blue-200">
     
 <?php
 require_once "../app/controllers/ApplicationController.php";
 
-    // INSERTAR REGISTROS -------------------
-    if(isset($_POST["cr"])){ //Si se ha pulsado el boton insertar
-        $user= $_POST["user"];
-        $taskName= $_POST["taskName"];
-        $taskType= $_POST["taskType"];
-        $creationDate= $_POST["creationDate"];
-        $expectedEndDate= $_POST["expectedEndDate"];
-        $statusTask= $_POST["statusTask"];
+// INSERTAR REGISTROS -------------------
+if(isset($_POST["cr"])){ //Si se ha pulsado el botón insertar
+    $user = $_POST["user"];
+    $taskName = $_POST["taskName"];
+    $taskType = $_POST["taskType"];
+    $creationDate = $_POST["creationDate"];
+    $expectedEndDate = $_POST["expectedEndDate"];
+    $statusTask = $_POST["statusTask"];
 
-        $toDo->createTask(new Task(
-            $taskName,
-            $taskType,
-            $creationDate,
-            $expectedEndDate,
-            $statusTask,
-        ),
-        $user);
+    $toDo->createTask(new Task(
+        $taskName,
+        $taskType,
+        $creationDate,
+        $expectedEndDate,
+        $statusTask,
+    ),
+    $user);
 
-        // hacemos que se dirija a esta misma pagina para que actualice la página con los nuevo datos insertados
-        header("location:index.php");
-    }
-    
-    // FIN INSERTAR REGISTROS --------------
-    
+    // hacemos que se dirija a esta misma página para que actualice la página con los nuevos datos insertados
+    header("location:index.php");
+}
+
+// FIN INSERTAR REGISTROS --------------
 ?>
 
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"> 
-  <table width="50%">
-    <tr >
-      <td class="primera_fila">Nº Tarea</td>
-      <td class="primera_fila">Usuario</td>
-      <td class="primera_fila">Tarea</td>
-      <td class="primera_fila">Tipo de Tarea</td>
-      <td class="primera_fila">Fecha de Creacion</td>
-      <td class="primera_fila">Fecha Fin Prevista</td>
-      <td class="primera_fila">Estado de la tarea</td>
-      <td class="sin">&nbsp;</td>
-      <td class="sin">&nbsp;</td>
-      <td class="sin">&nbsp;</td>
-    </tr> 
+<div class="container mx-auto mt-4">
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <table class="w-full border-collapse border border-blue-400">
+            <tr class="bg-blue-200">
+                <th class="py-2 px-4">Nº Tarea</th>
+                <th class="py-2 px-4">Usuario</th>
+                <th class="py-2 px-4">Tarea</th>
+                <th class="py-2 px-4">Tipo de Tarea</th>
+                <th class="py-2 px-4">Fecha de Creación</th>
+                <th class="py-2 px-4">Fecha Fin Prevista</th>
+                <th class="py-2 px-4">Estado de la tarea</th>
+                <th class="py-2 px-4"></th>
+                <th class="py-2 px-4"></th>
+                <th class="py-2 px-4"></th>
+            </tr>
 
-<!--filas de inserccion datos  -->    
-    <tr>
-      <td></td>
-        <td><input type='text' name='user' size='10' class='centrado'></td>
-        <td><input type='text' name='taskName' size='10' class='centrado'></td>
-        <td>
-            <select name="taskType" id="taskType" size='10' class='centrado'>
-                <option value="FrontEnd">FrontEnd</option>
-                <option value="BackEnd">BackEnd</option>
-                <option value="DataScience">Data Science</option>
-            </select>
-        </td>
-        <td><input type='text' name='creationDate' size='10' class='centrado'></td>
-        <td><input type='text' name='expectedEndDate' size='10' class='centrado'></td>
-        <td>
-            <select name="statusTask" id="statusTask" size='10' class='centrado'>
-                <option value="En ejecucion">En ejecucion</option>
-                <option value="Pendiente">Pendiente</option>
-                <option value="Finalizada">Finalizada</option>
-            </select>
-        </td>
-        <td class='bot'><input type='submit' name='cr' id='cr' value='Insertar'></td>
-    </tr>    
+            <!-- Filas de inserción de datos -->
+            <tr>
+                <td></td>
+                <td><input type='text' name='user' class='px-4 py-2 border border-blue-400 rounded'></td>
+                <td><input type='text' name='taskName' class='px-4 py-2 border border-blue-400 rounded'></td>
+                <td>
+                    <select name="taskType" id="taskType" class='px-4 py-2 border border-blue-400 rounded'>
+                        <option value="FrontEnd">FrontEnd</option>
+                        <option value="BackEnd">BackEnd</option>
+                        <option value="DataScience">Data Science</option>
+                    </select>
+                </td>
+                <td><input type='text' name='creationDate' class='px-4 py-2 border border-blue-400 rounded'></td>
+                <td><input type='text' name='expectedEndDate' class='px-4 py-2 border border-blue-400 rounded'></td>
+                <td>
+                    <select name="statusTask" id="statusTask" class='px-4 py-2 border border-blue-400 rounded'>
+                        <option value="En ejecucion">En ejecucion</option>
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="Finalizada">Finalizada</option>
+                    </select>
+                </td>
+                <td class='py-2 px-4'><input type='submit' name='cr' id='cr' value='Insertar' class='bg-blue-500 text-white px-4 py-2 rounded'></td>
+            </tr>
 
-		<?php 
-      $TaskController = new TaskController();
-      $arrayTasks = $TaskController->tasksList_ViewAction();
+            <?php 
+            $TaskController = new TaskController();
+            $arrayTasks = $TaskController->tasksList_ViewAction();
 
-      foreach($arrayTasks as $task): ?>
-   	<tr>
-     <td><?php echo $task['taskId']?></td>
-      <td><?php echo $task['user']?></td>
-      <td><?php echo $task['taskName']?></td>
-      <td><?php echo $task['taskType']?></td>
-      <td><?php echo $task['creationDate']?></td>
-      <td><?php echo $task['expectedEndDate']?></td>
-      <td><?php echo $task['taskStatus']?></td>
-      <td class="bot">
-        <a href="deleteTask?taskId=<?php echo $task['taskId']?>" onclick="return confirmDelete(<?php echo $task['taskId']?>);">
-        <input type='button' name='del' id='del' value='Borrar'>
-      </a>
-      </td>
-      <td class='bot'>
-        <a href="../../app/models/actions/updateTask.php?taskId=<?php echo $task['taskId']?> & user=<?php echo $task['user']?> & taskName=<?php echo $task['taskName']?> & taskType=<?php echo $task['taskType']?> & creationDate=<?php echo $task['creationDate']?> & expectedEndDate=<?php echo $task['expectedEndDate']?> & taskStatus=<?php echo $task['taskStatus']?>">
-        <input type='button' name='up' id='up' value='Actualizar'>
-      </a>
-      </td>
-    </tr>
-    <?php
-    endforeach
-    ?>
-  </table>
-</form>
+            foreach($arrayTasks as $task): ?>
+                <tr>
+                <td class="text-center"><?php echo $task['taskId']?></td>
+                <td class="text-center"><?php echo $task['user']?></td>
+                <td class="text-center"><?php echo $task['taskName']?></td>
+                <td class="text-center"><?php echo $task['taskType']?></td>
+                <td class="text-center"><?php echo $task['creationDate']?></td>
+                <td class="text-center"><?php echo $task['expectedEndDate']?></td>
+                <td class="text-center"><?php echo $task['taskStatus']?></td>
+                <td class="py-2 px-4 text-center">
+                    <td class="py-2 px-4">
+                        <a href="..\..\app\models\actions\deleteTask.php?taskId=<?php echo $task['taskId']?>" onclick="return confirmDelete(<?php echo $task['taskId']?>);">
+                            <input type='button' name='del' id='del' value='Borrar' class='bg-red-500 text-white px-4 py-2 rounded'>
+                        </a>
+                    </td>
+                    <td class='py-2 px-4 text-center'>
+                        <a href="../../app/models/actions/updateTask.php?taskId=<?php echo $task['taskId']?> & user=<?php echo $task['user']?> & taskName=<?php echo $task['taskName']?> & taskType=<?php echo $task['taskType']?> & creationDate=<?php echo $task['creationDate']?> & expectedEndDate=<?php echo $task['expectedEndDate']?> & taskStatus=<?php echo $task['taskStatus']?>">
+                            <input type='button' name='up' id='up' value='Actualizar' class='bg-green-500 text-white px-4 py-2 rounded'>
+                        </a>
+                    </td>
+                </tr>
+            <?php endforeach ?>
+        </table>
+    </form>
+</div>
 
 <!-- Ventana emergente para confirmar borrado de registro -->
 <script>
 function confirmDelete(id) {
-  return confirm("¿Estás seguro de que deseas borrar la tarea numero: " + id + "?");
+    return confirm("¿Estás seguro de que deseas borrar la tarea número: " + id + "?");
 }
 </script>
 
