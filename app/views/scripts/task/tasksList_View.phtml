@@ -90,7 +90,7 @@ require_once "../app/controllers/ApplicationController.php";
       <td><?php echo $task['expectedEndDate']?></td>
       <td><?php echo $task['taskStatus']?></td>
       <td class="bot">
-        <a href="..\..\app\models\actions\deleteTask.php?taskId=<?php echo $task['taskId']?>" onclick="return confirmDelete(<?php echo $task['taskId']?>);">
+        <a href="deleteTask?taskId=<?php echo $task['taskId']?>" onclick="return confirmDelete(<?php echo $task['taskId']?>);">
         <input type='button' name='del' id='del' value='Borrar'>
       </a>
       </td>
