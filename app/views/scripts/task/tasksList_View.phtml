@@ -7,7 +7,7 @@
     <title>Lista de Tareas</title>
 </head>
 
-<body class="bg-gray-100  flex items-center justify-center flex-col">
+<body class="bg-gray-100 flex items-center justify-center flex-col mc-auto ">
 <div class="text-4xl mb-8 mt-10 text-center">PANEL DE TAREAS</div>
 <?php
 require_once "../app/controllers/ApplicationController.php";
@@ -43,24 +43,9 @@ if(isset($_POST["cr"])){ //Si se ha pulsado el botón insertar
             <tr class="bg-gray-100">
 
 <body class="bg-blue-200">
-     
-<form action="insertTask" method="post"> 
-  <table width="50%">
-    <tr >
-      <td class="primera_fila">Nº Tarea</td>
-      <td class="primera_fila">Usuario</td>
-      <td class="primera_fila">Tarea</td>
-      <td class="primera_fila">Tipo de Tarea</td>
-      <td class="primera_fila">Fecha de Creacion</td>
-      <td class="primera_fila">Fecha Fin Prevista</td>
-      <td class="primera_fila">Estado de la tarea</td>
-      <td class="sin">&nbsp;</td>
-      <td class="sin">&nbsp;</td>
-      <td class="sin">&nbsp;</td>
-    </tr> 
 
 <div class="container mx-auto mt-4">
-    <form action="insertTask"> method="post">
+    <form action="insertTask"> 
         <table class="w-full border-collapse border border-blue-400">
             <tr class="bg-blue-200">
                 <th class="py-2 px-4">Nº Tarea</th>
@@ -117,9 +102,6 @@ if(isset($_POST["cr"])){ //Si se ha pulsado el botón insertar
 
                         <a href="..\..\app\models\actions\deleteTask.php?taskId=<?php echo $task['taskId']?>" onclick="return confirmDelete(<?php echo $task['taskId']?>);">
                             <input type='button' name='del' id='del' value='Borrar' class='bg-red-500 text-white px-4 py-2 rounded hover:bg-red-300'>
-
-                        <a href="deleteTask?taskId=<?php echo $task['taskId']?>" onclick="return confirmDelete(<?php echo $task['taskId']?>);">
-                            <input type='button' name='del' id='del' value='Borrar' class='bg-red-500 text-white px-4 py-2 rounded'>
 
                         </a>
                     </td>
