@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../app/views/layouts/hoja.css">
+    <link rel="stylesheet" type="text/css" href="hoja.css">
     <title>Lista de Tareas</title>
 </head>
 <body>
@@ -77,6 +77,9 @@ require_once "../app/controllers/ApplicationController.php";
     </tr>    
 
 		<?php 
+      $TaskController = new TaskController();
+      $arrayTasks = $TaskController->tasksList_ViewAction();
+
       foreach($arrayTasks as $task): ?>
    	<tr>
      <td><?php echo $task['taskId']?></td>
