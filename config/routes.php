@@ -29,7 +29,6 @@ $routes = array(
 		'/insertTask'=> 'Task#insertTask',
 		// Editar una tarea
 		'/editTask'=> 'editTask',
-
 	//Borrar un usuario
 	//login usuario
 	//Actualizar perfil de un usuario
