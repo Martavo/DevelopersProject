@@ -24,10 +24,12 @@ $routes = array(
 
 
 	//Borrar un usuario
-	'/deleteUser' => ''
+	'/deleteUser' => 'User#deleteUser',
 	//login usuario
 	//Actualizar perfil de un usuario
+	'/updateUser' => 'User#updateUser',
 	//Ver perfil de un usuario
+	'/userProfileView' => 'User#userProfile_View'
 	//Actualizar una tarea
 	//Valida el usuario existe en la BBDD
 	//Cierra la sesion del usuario
