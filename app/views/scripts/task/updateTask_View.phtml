@@ -12,39 +12,8 @@ enum TaskStatus: string {
     case InProcess = 'En Ejecucion';
 }
 
-
-include_once __DIR__ . '/ToDoModel.php';
-
-$taskId = isset($_GET['taskId']) ? $_GET['taskId'] : ''; 
-
-$todo = new ToDo();
-$task = $taskId ? $todo->searchTask($taskId) : null;
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    try {
-        $updatedTask = [
-            "taskName" => $_POST['taskName'] ?? '',
-            "taskType" => $_POST['taskType'] ?? '',
-            "taskStatus" => $_POST['taskStatus'] ?? ''
-        ];
-
-        
-        if (!in_array($updatedTask["taskType"], TaskType::cases())) {
-            throw new Exception("Invalid task type");
-        }
-        if (!in_array($updatedTask["taskStatus"], TaskStatus::cases())) {
-            throw new Exception("Invalid task status");
-        }
-
-        $todo->updateTask($updatedTask, $taskId);
-
-        header("Location: listaTareas_View.phtml");
-        exit();
-    } catch (Exception $e) {
-        echo "ERROR: " . $e->getMessage();
-    }
-}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,22 +25,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <h1>Actualizar Tarea</h1>
     <?php if ($task): ?>
-        <form action="ruta tabla principal" method="post">
+        <form action="updateTask" method="post">
             <label for="taskName">Nombre de la Tarea:</label>
             <input type="text" name="taskName" value="<?= htmlspecialchars($task['taskName']); ?>">
 
             <label for="taskType">Tipo de Tarea:</label>
             <select name="taskType">
-                <option value="FrontEnd" <?= $task['taskType'] == 'FrontEnd' ? 'selected' : ''; ?>>FrontEnd</option>
-                <option value="BackEnd" <?= $task['taskType'] == 'BackEnd' ? 'selected' : ''; ?>>BackEnd</option>
-                <option value="DataScience" <?= $task['taskType'] == 'DataScience' ? 'selected' : ''; ?>>DataScience</option>
+                <option value="FrontEnd" <?php echo $task['taskType'] == 'FrontEnd' ? 'selected' : ''; ?>>FrontEnd</option>
+                <option value="BackEnd" <?php echo $task['taskType'] == 'BackEnd' ? 'selected' : ''; ?>>BackEnd</option>
+                <option value="DataScience" <?php echo $task['taskType'] == 'DataScience' ? 'selected' : ''; ?>>DataScience</option>
             </select>
 
             <label for="taskStatus">Estado de la Tarea:</label>
             <select name="taskStatus">
-                <option value="Pendiente" <?= $task['taskStatus'] == 'Pendiente' ? 'selected' : ''; ?>>Pending</option>
-                <option value="Finalizada" <?= $task['taskStatus'] == 'Finalizada' ? 'selected' : ''; ?>>Finished</option>
-                <option value="En Proceso" <?= $task['taskStatus'] == 'En Proceso' ? 'selected' : ''; ?>>InProgress</option>
+                <option value="Pendiente" <?php echo $task['taskStatus'] == 'Pendiente' ? 'selected' : ''; ?>>Pending</option>
+                <option value="Finalizada" <?php echo $task['taskStatus'] == 'Finalizada' ? 'selected' : ''; ?>>Finished</option>
+                <option value="En Proceso" <?php echo $task['taskStatus'] == 'En Proceso' ? 'selected' : ''; ?>>InProgress</option>
             </select>
 
             <button type="submit">Guardar Cambios</button>
@@ -81,3 +50,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php endif; ?>
 </body>
 </html>
+

@@ -37,6 +37,65 @@ class TaskController extends Controller
         }    
     }
 
+<<<<<<< Updated upstream
+=======
+    public function insertTaskAction()
+    {
+        if(isset($_POST["user"]))
+        {
+            $user= $_POST["user"];
+            $taskName= $_POST["taskName"];
+            $taskType= $_POST["taskType"];
+            $creationDate= $_POST["creationDate"];
+            $expectedEndDate= $_POST["expectedEndDate"];
+            $statusTask= $_POST["statusTask"];
+
+            $toDo = $this->toDo;
+            $toDo->createTask(new Task(
+                $taskName,
+                $taskType,
+                $creationDate,
+                $expectedEndDate,
+                $statusTask,
+            ),
+            $user);
+
+            // Redirigimos a la página de listado de tareas con los nuevo datos insertados.
+            header("location:tasksList_View");
+        }else{
+            echo "Debe introducir todos los datos";
+        }
+
+    }
+
+    public function updateTaskAction()
+{
+    $taskId = $_POST["taskId"];
+
+    if (!isset($taskId)) {
+        header("location:error_404.php");
+    } else {
+        $toDo = $this->toDo;
+        $task = $toDo->getTask($taskId);
+
+        if (!$task) {
+            header("location:error_404.php");
+        } else {
+            $updatedTask = $_POST;
+
+            $taskName = $updatedTask["taskName"];
+            $taskType = $updatedTask["taskType"];
+            $taskStatus = $updatedTask["taskStatus"];
+
+            $updatedTask = new Task($taskName, $taskType, $taskStatus);
+
+            $toDo->updateTask($updatedTask, $taskId);
+            header("location:tasksList_View");
+        }
+    }
+}
+
+>>>>>>> Stashed changes
 }
 
 // $TaskController = new TaskController();
