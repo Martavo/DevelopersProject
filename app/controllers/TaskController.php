@@ -16,10 +16,18 @@ class TaskController extends Controller
 
     public function tasksList_ViewAction()
     {
-        // echo "estas en TaskController->tasksList_ViewAction()";
-         $toDo = $this->toDo;
-        return $arrayTasks = $toDo->getTasks();
-        // var_dump($arrayTasks);
+        // !isset comprueba si NO se almaceno algo en la variable superglobal "user", si se cumple esta condición es porque no se valido el usuario por lo que sera redirigido al formulario de login
+        if(!isset($_SESSION["user"])){
+
+            header("location:loginUsersForm_View");
+    
+        }else{
+            // echo "estas en TaskController->tasksList_ViewAction()";
+             $toDo = $this->toDo;
+            return $arrayTasks = $toDo->getTasks();
+            // var_dump($arrayTasks);
+        }
+    
     }
 
     public function deleteTaskAction()

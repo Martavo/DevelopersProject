@@ -88,5 +88,14 @@
         "creationDate": "",
         "expectedEndDate": "",
         "taskStatus": "Pendiente"
+    },
+    {
+        "taskId": 17,
+        "user": "",
+        "taskName": "",
+        "taskType": "FrontEnd",
+        "creationDate": "",
+        "expectedEndDate": "",
+        "taskStatus": "En ejecucion"
     }
 ]
