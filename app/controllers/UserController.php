@@ -21,7 +21,6 @@ class UserController extends Controller
 
     public function loginUsersForm_ViewAction()
     {
-   
     }
 
     public function createUsersForm_ViewAction()
@@ -47,16 +46,14 @@ class UserController extends Controller
                     }
                     $i++;
                 }
-
                 if ($isValidated) {
                     // Usuario autenticado correctamente
                     session_start();
                     $_SESSION["user"] = $nickName;
                     header("location: tasksList_View");
                 } else {
-                    // Usuario no autenticado, redirigir a la página de inicio de sesión
-                    header("location: loginUsersForm_View");
-                    echo "usuario incorrecto";
+                    // Usuario no autenticado, redirigir a la página de inicio de sesión e impresion de que no fue validado
+                    header("location: loginUsersForm_View?error=invalidatedUser");
                 }
             } catch (Exception $e) {
 
@@ -72,7 +69,7 @@ class UserController extends Controller
         // cierra la sesion abierta
         session_destroy();
         // redirige a la pagina del login
-        header("location:login.html");
+        header("location:loginUsersForm_View");
 
     }
 }
