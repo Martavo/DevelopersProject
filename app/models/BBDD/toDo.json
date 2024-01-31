@@ -9,24 +9,6 @@
         "taskStatus": "Pendiente"
     },
     {
-        "taskId": 4,
-        "user": "ribol",
-        "taskName": "Crear funcion sumar",
-        "taskType": "BackEnd",
-        "creationDate": "2022-11-04",
-        "expectedEndDate": "2022-12-15",
-        "taskStatus": "En ejecucion"
-    },
-    {
-        "taskId": 5,
-        "user": "ribol",
-        "taskName": "Crear funcion sumar",
-        "taskType": "BackEnd",
-        "creationDate": "2022-11-04",
-        "expectedEndDate": "2022-12-15",
-        "taskStatus": "En ejecucion"
-    },
-    {
         "taskId": 6,
         "user": "rasbil",
         "taskName": "pruebaTarea",
