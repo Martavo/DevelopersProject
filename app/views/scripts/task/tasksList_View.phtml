@@ -13,11 +13,7 @@
 <div class="bg-gray-100 flex items-center justify-center flex-col">
     <form action="insertTask" method="post">
         <table class="w-full border-collapse border border-blue-200">
-            <tr class="bg-gray-100">
-
-<div class="container mx-auto mt-4">
-            
-            <tr class="bg-blue-200">
+            <tr class="bg-gray-100">            
                 <th class="py-2 px-4">Nº Tarea</th>
                 <th class="py-2 px-4">Usuario</th>
                 <th class="py-2 px-4">Tarea</th>
@@ -25,7 +21,6 @@
                 <th class="py-2 px-4">Fecha de Creación</th>
                 <th class="py-2 px-4">Fecha Fin Prevista</th>
                 <th class="py-2 px-4">Estado de la tarea</th>
-                <th class="py-2 px-4"></th>
                 <th class="py-2 px-4"></th>
                 <th class="py-2 px-4"></th>
             </tr>
@@ -67,9 +62,8 @@
                 <td class="text-center"><?php echo $task['creationDate']?></td>
                 <td class="text-center"><?php echo $task['expectedEndDate']?></td>
                 <td class="text-center"><?php echo $task['taskStatus']?></td>
-                <td class="py-2 px-4 text-center">
                     <td class="py-2 px-4">
-                        <a href="..\..\app\models\actions\deleteTask.php?taskId=<?php echo $task['taskId']?>" onclick="return confirmDelete(<?php echo $task['taskId']?>);">
+                        <a href="deleteTask?taskId=<?php echo $task['taskId']?>" onclick="return confirmDelete(<?php echo $task['taskId']?>);">
                             <input type='button' name='del' id='del' value='Borrar' class='bg-red-500 text-white px-4 py-2 rounded hover:bg-red-300'>
                         </a>
                     </td>
