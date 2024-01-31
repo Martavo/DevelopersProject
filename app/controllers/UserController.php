@@ -64,6 +64,17 @@ class UserController extends Controller
             }
         }
     }
+
+    public function closeUserSessionAction()
+    {
+        // Reanuda la sesion que esta abierta, para que identifique que sesion tiene que cerrar
+        session_start();
+        // cierra la sesion abierta
+        session_destroy();
+        // redirige a la pagina del login
+        header("location:login.html");
+
+    }
 }
 
 // $userController = new UserController();
