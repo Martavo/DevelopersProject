@@ -67,7 +67,7 @@ class UserController extends Controller
 
             header("location: userIndex");
         } else {
-            echo "A username is required for deletion.";
+            echo "Introduce el nombre de usuario que quieres borrar.";
         }
     }
 
@@ -83,7 +83,7 @@ class UserController extends Controller
 
             header("location: userIndex");
         } else {
-            echo "All fields are required for updating.";
+            echo "Rellena todos los campos.";
         }
     }
 
