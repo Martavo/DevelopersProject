@@ -6,26 +6,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css">
     <title>Lista de Tareas</title>
 </head>
-<body class="bg-blue-200">
-     
-<form action="insertTask" method="post"> 
-  <table width="50%">
-    <tr >
-      <td class="primera_fila">Nº Tarea</td>
-      <td class="primera_fila">Usuario</td>
-      <td class="primera_fila">Tarea</td>
-      <td class="primera_fila">Tipo de Tarea</td>
-      <td class="primera_fila">Fecha de Creacion</td>
-      <td class="primera_fila">Fecha Fin Prevista</td>
-      <td class="primera_fila">Estado de la tarea</td>
-      <td class="sin">&nbsp;</td>
-      <td class="sin">&nbsp;</td>
-      <td class="sin">&nbsp;</td>
-    </tr> 
+
+<body class="bg-gray-100 flex items-center justify-center flex-col mc-auto ">
+<div class="text-4xl mb-8 mt-10 text-center">PANEL DE TAREAS</div>
+
+<div class="bg-gray-100 flex items-center justify-center flex-col">
+    <form action="insertTask" method="post">
+        <table class="w-full border-collapse border border-blue-200">
+            <tr class="bg-gray-100">
 
 <div class="container mx-auto mt-4">
-    <form action="insertTask"> method="post">
-        <table class="w-full border-collapse border border-blue-400">
+            
             <tr class="bg-blue-200">
                 <th class="py-2 px-4">Nº Tarea</th>
                 <th class="py-2 px-4">Usuario</th>
@@ -42,25 +33,25 @@
             <!-- Filas de inserción de datos -->
             <tr>
                 <td></td>
-                <td><input type='text' name='user' class='px-4 py-2 border border-blue-400 rounded'></td>
-                <td><input type='text' name='taskName' class='px-4 py-2 border border-blue-400 rounded'></td>
+                <td><input type='text' name='user' class='px-4 py-2 border border-blue-200 rounded'></td>
+                <td><input type='text' name='taskName' class='px-4 py-2 border border-blue-200 rounded'></td>
                 <td>
-                    <select name="taskType" id="taskType" class='px-4 py-2 border border-blue-400 rounded'>
+                    <select name="taskType" id="taskType" class='px-4 py-2 border border-blue-200 rounded'>
                         <option value="FrontEnd">FrontEnd</option>
                         <option value="BackEnd">BackEnd</option>
                         <option value="DataScience">Data Science</option>
                     </select>
                 </td>
-                <td><input type='text' name='creationDate' class='px-4 py-2 border border-blue-400 rounded'></td>
-                <td><input type='text' name='expectedEndDate' class='px-4 py-2 border border-blue-400 rounded'></td>
+                <td><input type='text' name='creationDate' class='px-4 py-2 border border-blue-200 rounded'></td>
+                <td><input type='text' name='expectedEndDate' class='px-4 py-2 border border-blue-200 rounded'></td>
                 <td>
-                    <select name="statusTask" id="statusTask" class='px-4 py-2 border border-blue-400 rounded'>
+                    <select name="statusTask" id="statusTask" class='px-4 py-2 border border-blue-200 rounded'>
                         <option value="En ejecucion">En ejecucion</option>
                         <option value="Pendiente">Pendiente</option>
                         <option value="Finalizada">Finalizada</option>
                     </select>
                 </td>
-                <td class='py-2 px-4'><input type='submit' name='cr' id='cr' value='Insertar' class='bg-blue-500 text-white px-4 py-2 rounded'></td>
+                <td class='py-2 px-4'><input type='submit' name='cr' id='cr' value='Insertar' class='bg-blue-200 text-white px-4 py-2 rounded hover:bg-blue-300'></td>
             </tr>
 
             <?php 
@@ -78,8 +69,8 @@
                 <td class="text-center"><?php echo $task['taskStatus']?></td>
                 <td class="py-2 px-4 text-center">
                     <td class="py-2 px-4">
-                        <a href="deleteTask?taskId=<?php echo $task['taskId']?>" onclick="return confirmDelete(<?php echo $task['taskId']?>);">
-                            <input type='button' name='del' id='del' value='Borrar' class='bg-red-500 text-white px-4 py-2 rounded'>
+                        <a href="..\..\app\models\actions\deleteTask.php?taskId=<?php echo $task['taskId']?>" onclick="return confirmDelete(<?php echo $task['taskId']?>);">
+                            <input type='button' name='del' id='del' value='Borrar' class='bg-red-500 text-white px-4 py-2 rounded hover:bg-red-300'>
                         </a>
                     </td>
                     <td class='py-2 px-4 text-center'>
