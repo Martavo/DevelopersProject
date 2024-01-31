@@ -10,18 +10,18 @@
     <div class="bg-white mt-10 rounded-lg shadow-md flex flex-col justify-center p-6 py-24 lg:px-36 mx-auto border-5">
         <div class="text-4xl mb-8 mt-10 text-center">INTRODUCE TUS DATOS DE REGISTRO</div>
 
-        <form action="insertUsersData" method="get" class="text-center ">
-            <div class="mb-4">
-                <label for="usuario"class="izq block" >Usuario:</label>
-                <input type="text" id="usuario" name="usuario" value="" class="w-80 text-xl px-4 py-2 border rounded text-center">
-            </div>
-            <div class="mb-4">
-                <label for="password" class="izq block">Password:</label>
-                <input type="password" id="password" name="password" value="" class="w-80 text-ml px-4 py-2 border rounded text-center">
-            </div>
-            <div>
-                <input type="submit" name="enviar" value="REGISTRARSE" class="bg-blue-400 text-white px-4 py-2 rounded hover:bg-blue-300">
-            </div>
-        </form>
+        <form action="createUser" method="POST" class="text-center">
+  <div class="mb-4">
+    <label for="usuario" class="izq block">Usuario:</label>
+    <input type="text" id="usuario" name="usuario" value="" class="w-80 text-xl px-4 py-2 border rounded text-center">
+  </div>
+  <div class="mb-4">
+    <label for="password" class="izq block">Password:</label>
+    <input type="password" id="password" name="password" value="" class="w-80 text-ml px-4 py-2 border rounded text-center">
+  </div>
+  <div>
+    <input type="submit" name="enviar" value="REGISTRARSE" class="bg-blue-400 text-white px-4 py-2 rounded hover:bg-blue-300">
+  </div>
+</form>
     </div>
 </body>
