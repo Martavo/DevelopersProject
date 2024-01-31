@@ -9,44 +9,14 @@
 
 <body class="bg-gray-100 flex items-center justify-center flex-col mc-auto ">
 <div class="text-4xl mb-8 mt-10 text-center">PANEL DE TAREAS</div>
-<?php
-require_once "../app/controllers/ApplicationController.php";
-
-// INSERTAR REGISTROS -------------------
-if(isset($_POST["cr"])){ //Si se ha pulsado el botón insertar
-    $user = $_POST["user"];
-    $taskName = $_POST["taskName"];
-    $taskType = $_POST["taskType"];
-    $creationDate = $_POST["creationDate"];
-    $expectedEndDate = $_POST["expectedEndDate"];
-    $statusTask = $_POST["statusTask"];
-
-    $toDo->createTask(new Task(
-        $taskName,
-        $taskType,
-        $creationDate,
-        $expectedEndDate,
-        $statusTask,
-    ),
-    $user);
-
-    // hacemos que se dirija a esta misma página para que actualice la página con los nuevos datos insertados
-    header("location:index.php");
-}
-
-// FIN INSERTAR REGISTROS --------------
-?>
 
 <div class="bg-gray-100 flex items-center justify-center flex-col">
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+    <form action="insertTask" method="post">
         <table class="w-full border-collapse border border-blue-200">
             <tr class="bg-gray-100">
 
-<body class="bg-blue-200">
-
 <div class="container mx-auto mt-4">
-    <form action="insertTask"> 
-        <table class="w-full border-collapse border border-blue-400">
+            
             <tr class="bg-blue-200">
                 <th class="py-2 px-4">Nº Tarea</th>
                 <th class="py-2 px-4">Usuario</th>
@@ -99,15 +69,13 @@ if(isset($_POST["cr"])){ //Si se ha pulsado el botón insertar
                 <td class="text-center"><?php echo $task['taskStatus']?></td>
                 <td class="py-2 px-4 text-center">
                     <td class="py-2 px-4">
-
                         <a href="..\..\app\models\actions\deleteTask.php?taskId=<?php echo $task['taskId']?>" onclick="return confirmDelete(<?php echo $task['taskId']?>);">
                             <input type='button' name='del' id='del' value='Borrar' class='bg-red-500 text-white px-4 py-2 rounded hover:bg-red-300'>
-
                         </a>
                     </td>
                     <td class='py-2 px-4 text-center'>
-                        <a href="../../app/models/actions/updateTask.php?taskId=<?php echo $task['taskId']?> & user=<?php echo $task['user']?> & taskName=<?php echo $task['taskName']?> & taskType=<?php echo $task['taskType']?> & creationDate=<?php echo $task['creationDate']?> & expectedEndDate=<?php echo $task['expectedEndDate']?> & taskStatus=<?php echo $task['taskStatus']?>">
-                            <input type='button' name='up' id='up' value='Actualizar' class='bg-green-500 text-white px-4 py-2 rounded hover:bg-green-300'>
+                        <a href="editTask?taskId=<?php echo $task['taskId']?> & user=<?php echo $task['user']?> & taskName=<?php echo $task['taskName']?> & taskType=<?php echo $task['taskType']?> & creationDate=<?php echo $task['creationDate']?> & expectedEndDate=<?php echo $task['expectedEndDate']?> & taskStatus=<?php echo $task['taskStatus']?>">
+                            <input type='button' name='up' id='up' value='Actualizar' class='bg-green-500 text-white px-4 py-2 rounded'>
                         </a>
                     </td>
                 </tr>
