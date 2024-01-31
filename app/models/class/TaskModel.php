@@ -1,5 +1,15 @@
 <?php
+enum TaskType: string {
+    case FrontEnd = 'FrontEnd';
+    case BackEnd = 'BackEnd';
+    case DataScience = 'DataScience';
+}
 
+enum TaskStatus: string {
+    case Pending = 'Pendiente';
+    case Finished = 'Finalizada';
+    case InProcess = 'En Ejecucion';
+}
 
 class Task
 {

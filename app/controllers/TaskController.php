@@ -72,7 +72,11 @@ class TaskController extends Controller
         }else{
             echo "Debe introducir todos los datos";
         }
+    }
 
+    public function editTaskAction()
+    {
+                
     }
 
 }
