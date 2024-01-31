@@ -19,7 +19,7 @@ $routes = array(
 		// Validacion login usuario
 		'/checkLogin'=> 'User#checkLogin',
 		// Cerrar sesion del usuario
-		'closeUserSession'=> 'User#closeUserSession',
+		'/closeUserSession'=> 'User#closeUserSession',
 	// TAREAS
 		// Listar todas las tareas
 		'/tasksList_View' => 'Task#tasksList_View',

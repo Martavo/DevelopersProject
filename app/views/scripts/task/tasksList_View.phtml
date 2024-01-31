@@ -70,6 +70,9 @@
             <td></td>
             <td></td>
             <td></td>
+            <td>
+                <a href="/tasksList_View" class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500">Panel principal</a>
+            </td>
         </tr>
 
             <!-- Filas de inserción de datos -->
@@ -93,7 +96,7 @@
                         <option value="Finalizada">Finalizada</option>
                     </select>
                 </td>
-                <td class='py-2 px-4'><input type='submit' name='cr' id='cr' value='Insertar' class='bg-blue-200 text-white px-4 py-2 rounded hover:bg-blue-300'></td>
+                <td class='py-2 px-4'><input type='submit' name='cr' id='cr' value='Insertar' class='bg-blue-200 text-white px-7 py-2 rounded hover:bg-blue-300'></td>
             </tr>
 
             <?php 
@@ -111,7 +114,7 @@
                 <td class="text-center"><?php echo $task['taskStatus']?></td>
                     <td class="py-2 px-4">
                         <a href="deleteTask?taskId=<?php echo $task['taskId']?>" onclick="return confirmDelete(<?php echo $task['taskId']?>);">
-                            <input type='button' name='del' id='del' value='Borrar' class='bg-red-500 text-white px-4 py-2 rounded hover:bg-red-300'>
+                            <input type='button' name='del' id='del' value='Borrar' class='bg-red-500 text-white px-8 py-2 rounded hover:bg-red-300'>
                         </a>
                     </td>
                     <td class='py-2 px-4 text-center'>
