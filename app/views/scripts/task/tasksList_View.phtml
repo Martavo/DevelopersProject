@@ -39,7 +39,6 @@
                 <th class="py-2 px-4"></th>
             </tr>
 
-
             <!-- Filas de inserción de datos -->
             <tr>
                 <td></td>
@@ -84,7 +83,7 @@
                         </a>
                     </td>
                     <td class='py-2 px-4 text-center'>
-                        <a href="../../app/models/actions/updateTask.php?taskId=<?php echo $task['taskId']?> & user=<?php echo $task['user']?> & taskName=<?php echo $task['taskName']?> & taskType=<?php echo $task['taskType']?> & creationDate=<?php echo $task['creationDate']?> & expectedEndDate=<?php echo $task['expectedEndDate']?> & taskStatus=<?php echo $task['taskStatus']?>">
+                        <a href="editTask?taskId=<?php echo $task['taskId']?> & user=<?php echo $task['user']?> & taskName=<?php echo $task['taskName']?> & taskType=<?php echo $task['taskType']?> & creationDate=<?php echo $task['creationDate']?> & expectedEndDate=<?php echo $task['expectedEndDate']?> & taskStatus=<?php echo $task['taskStatus']?>">
                             <input type='button' name='up' id='up' value='Actualizar' class='bg-green-500 text-white px-4 py-2 rounded'>
                         </a>
                     </td>

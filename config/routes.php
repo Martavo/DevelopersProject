@@ -22,7 +22,10 @@ $routes = array(
 	// Borrar Tarea
 	'/deleteTask' => 'Task#deleteTask',
 	// Insertar una nueva tarea
-	'/insertTask'=> 'Task#insertTask'
+	'/insertTask'=> 'Task#insertTask',
+	// Editar una tarea
+	'/editTask'=> 'editTask',
+
 	//Borrar un usuario
 	//login usuario
 	//Actualizar perfil de un usuario
