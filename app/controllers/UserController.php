@@ -130,8 +130,15 @@ class UserController extends Controller
         // cierra la sesion abierta
         session_destroy();
         // redirige a la pagina del login
-        header("location:login.html");
+        header("location:loginUsersForm_View");
 
+    }
+
+    public function userProfile_ViewAction()
+    {
+      
+         echo "Estas en el userProfile";
+      
     }
 }
 

@@ -28,7 +28,8 @@ $routes = array(
 		'/deleteUser' => 'User#deleteUser',
 		//Editar un usuario
 		'/updateUser' => 'User#updateUser',
-		
+		//Ver perfil de un usuario
+		'/userProfile_View'  => 'User#userProfile_View',
 		
 	// TAREAS
 		// Listar todas las tareas
@@ -39,9 +40,7 @@ $routes = array(
 		'/insertTask'=> 'Task#insertTask',
 		// Editar una tarea
 		'/editTask'=> 'editTask',
-	//login usuario
-	//Actualizar perfil de un usuario
-	//Ver perfil de un usuario
+
 	//Actualizar una tarea
 	//Valida el usuario existe en la BBDD
 	//Cierra la sesion del usuario
