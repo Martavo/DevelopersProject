@@ -43,23 +43,5 @@
         "creationDate": "2023-01-12",
         "expectedEndDate": "2023-01-15",
         "taskStatus": "Pendiente"
-    },
-    {
-        "taskId": 13,
-        "user": "prueba 18.43",
-        "taskName": "prueba 18.43",
-        "taskType": "prueba 18.43",
-        "creationDate": "prueba 18.43",
-        "expectedEndDate": "prueba 18.43",
-        "taskStatus": "prueba 18.43"
-    },
-    {
-        "taskId": 14,
-        "user": "prueba 18.21",
-        "taskName": "prueba 18.21",
-        "taskType": "BackEnd",
-        "creationDate": "prueba 18.21",
-        "expectedEndDate": "prueba 18.21",
-        "taskStatus": "Pendiente"
     }
 ]
