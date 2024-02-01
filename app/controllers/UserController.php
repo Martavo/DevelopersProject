@@ -61,15 +61,14 @@ class UserController extends Controller
 
     public function deleteUserAction()
     {
-        echo "esta dentro";
-
         if (isset($_GET["nickName"])) {
             $nickName = $_GET["nickName"];
+
             $this->userManager->deleteUser($nickName);
 
             header("location: userIndex");
-
-        }else{
+            exit(); 
+        } else {
             echo "Debe introducir todos los datos";
         }
     }
@@ -86,7 +85,7 @@ class UserController extends Controller
 
             header("location: userIndex");
         } else {
-            echo "Rellena todos los campos.";
+            echo "El usuario no se ha podido eliminar";
         }
     }
 
