@@ -79,8 +79,7 @@
 
             <!-- Filas de inserción de datos -->
             <tr>
-                <td class="px-4 py-2 border border-blue-200 rounded text-bold text-red-500 text-20"><?php echo $usuario?></td>
-                <td><input type='text' name='user' class='px-4 py-2 border border-blue-200 rounded'></td>
+                <td class='text-center text-red-500 font-bold text-2xl border-0'><input name="user" value="<?php echo $usuario; ?>"></td>
                 <td><input type='text' name='taskName' class='px-4 py-2 border border-blue-200 rounded'></td>
                 <td>
                     <select name="taskType" id="taskType" class='w-full px-4 py-2 border border-blue-200 rounded'>
@@ -113,16 +112,16 @@
                 <td class="text-center"><?php echo $task['creationDate']?></td>
                 <td class="text-center"><?php echo $task['expectedEndDate']?></td>
                 <td class="text-center"><?php echo $task['taskStatus']?></td>
-                    <td class="py-2 px-4">
-                        <a href="deleteTask?taskId=<?php echo $task['taskId']?>&taskName=<?php echo $task['taskName']?>" onclick="return confirmDelete('<?php echo $task['taskName']?>');">                        
-                            <input type='button' name='del' id='del' value='Borrar' class='bg-red-500 text-white px-8 py-2 rounded hover:bg-red-300'>
-                        </a>
-                    </td>
-                    <td class='py-2 px-4 text-center'>
-                        <a href="editTask?taskId=<?php echo $task['taskId']?> & user=<?php echo $task['user']?> & taskName=<?php echo $task['taskName']?> & taskType=<?php echo $task['taskType']?> & creationDate=<?php echo $task['creationDate']?> & expectedEndDate=<?php echo $task['expectedEndDate']?> & taskStatus=<?php echo $task['taskStatus']?>">
-                            <input type='button' name='up' id='up' value='Actualizar' class='bg-green-500 text-white px-4 py-2 rounded hover:bg-green-300'>
-                        </a>
-                    </td>
+                <td class="py-2 px-4">
+                    <a href="deleteTask?taskId=<?php echo $task['taskId']?>&taskName=<?php echo $task['taskName']?>" onclick="return confirmDelete('<?php echo $task['taskName']?>');">                        
+                        <input type='button' name='del' id='del' value='Borrar' class='bg-red-500 text-white px-8 py-2 rounded hover:bg-red-300'>
+                    </a>
+                </td>
+                <td class='py-2 px-4 text-center'>
+                    <a href="editTask?taskId=<?php echo $task['taskId']?> & user=<?php echo $task['user']?> & taskName=<?php echo $task['taskName']?> & taskType=<?php echo $task['taskType']?> & creationDate=<?php echo $task['creationDate']?> & expectedEndDate=<?php echo $task['expectedEndDate']?> & taskStatus=<?php echo $task['taskStatus']?>">
+                        <input type='button' name='up' id='up' value='Actualizar' class='bg-green-500 text-white px-4 py-2 rounded hover:bg-green-300'>
+                    </a>
+                </td>
                 </tr>
             <?php endforeach ?>
         </table>
