@@ -33,7 +33,7 @@ $routes = array(
 		
 	// TAREAS
 		// Listar todas las tareas
-		'/tasksList_View' => 'Task#tasksList_View',
+		'/tasksList_View' => 'Task#tasksList_View',                                                                                                                     
 		// Borrar Tarea
 		'/deleteTask' => 'Task#deleteTask',
 		// Insertar una nueva tarea
@@ -41,9 +41,7 @@ $routes = array(
 		// Editar una tarea
 		'/editTask'=> 'editTask',
 
-	//Actualizar una tarea
-	//Valida el usuario existe en la BBDD
-	//Cierra la sesion del usuario
+	
 	
 	
 );

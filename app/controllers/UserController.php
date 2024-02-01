@@ -61,19 +61,22 @@ class UserController extends Controller
 
     public function deleteUserAction()
     {
+        echo "esta dentro";
+
         if (isset($_GET["nickName"])) {
             $nickName = $_GET["nickName"];
             $this->userManager->deleteUser($nickName);
 
             header("location: userIndex");
-        } else {
-            echo "Introduce el nombre de usuario que quieres borrar.";
+
+        }else{
+            echo "Debe introducir todos los datos";
         }
     }
 
     public function updateUserAction()
     {
-        if (isset($_GET["nickName"]) && isset($_POST["newNickName"]) && isset($_POST["newPassword"])) {
+        if (isset($_GET["nickName"]) && isset($_POST["newNickName"]) || isset($_POST["newPassword"])) {
             $originalNickName = $_GET["nickName"];
             $newNickName = $_POST["newNickName"];
             $newPassword = $_POST["newPassword"];
@@ -137,8 +140,7 @@ class UserController extends Controller
     public function userProfile_ViewAction()
     {
       
-         echo "Estas en el userProfile";
-      
+
     }
 }
 
