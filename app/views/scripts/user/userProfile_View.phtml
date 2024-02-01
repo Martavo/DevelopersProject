@@ -7,41 +7,46 @@
     <title>Espacio del Usuario</title>
 
 </head>
-<body class="bg-blue-200 dark:bg-gray-900 flex items-center justify-center flex-col">
+<body class="bg-blue-200 dark:bg-gray-900 flex flex-col items-center justify-center flex-col">
     <div class="text-4xl mb-8 mt-10 text-center">PORTAL DEL USUARIO</div>
     <div>
-            <a href="tasksList_View" class=" bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500 mr-5 ">
-                Volver al tablón de tareas
-            </a>
+        <a href="tasksList_View" class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500 mr-5">
+            Volver al tablón de tareas
+        </a>
     </div>
-    
-<div class="bg-white mt-10 rounded-lg shadow-md flex flex-col justify-center p-6 py-10 lg:px-36 mx-auto border-5">
 
-        <div class="text-2xl mb-8 mt-10 text-center">Cambiar datos de usuario</div>
-        <div class="mb-4">
-            <label for="usuario" class="izq block">Usuario:</label>
-            <input type="text" id="usuario" name="usuario" value="" class=" w-80 text-2ml px-4 py-2 border rounded text-center">
+    <div class="flex justify-around">
+        <!-- Div "Cambiar datos de usuario" -->
+        <div class="bg-white mt-10 rounded-lg shadow-md flex flex-col justify-start p-6 py-10 lg:px-25 border-5">
+            <div class="text-2xl mb-8 mt-10 text-center">Cambiar datos de usuario</div>
+            <div class="mb-4">
+                <label for="usuario" class="block text-center">Usuario:</label>
+                <input type="text" id="usuario" name="usuario" value="" class="w-80 text-xl px-4 py-2 border rounded text-center">
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-center">Password:</label>
+                <input type="password" id="password" name="password" value="" class="w-80 text-xl px-4 py-2 border rounded text-center">
+            </div>
+            <div>
+                <a href="updateUser" class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500 mr-7 ml-10 flex items-center justify-center">
+                    Actualizar datos
+                </a>
+            </div>
         </div>
-        <div class="mb-4">
-            <label for="password" class="izq block">Password:</label>
-            <input type="password" id="password" name="password" value="" class="w-80 text-ml px-4 py-2 border rounded text-center">
-        </div>
-        <div>
-            <a href="updateUser" class=" bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500 mr-5 ">
-                Actualizar datos
-            </a>
-        </div>
-    </form>
 
-    </div class="mb-4">
+        <!-- Div "Borrar perfil del usuario" -->
+        <div class="bg-white mt-10 rounded-lg shadow-md flex flex-col justify-start p-6 py-10 lg:px-25 border-5">
+            <div class="text-2xl mb-8 mt-10 text-center">Borrar perfil del usuario</div>
             <a href="deleteUser?nickName=<?php echo $user['nickName']?>" onclick="return confirmDelete(<?php echo $user['nickName']?>);">
-                <input type='button' name='del' id='del' value='Borrar perfil' class="bg-blue-400 text-white px-4 py-2 rounded hover:bg-blue-300">
+                <input type="button" name="del" id="del" value="Eliminar" class="bg-blue-400 text-white px-4 py-2 rounded hover:bg-blue-300 flex items-center justify-center">
             </a>
-    <div>
+        </div>
+    </div>
 
-<script>
-    function confirmDelete(id) {
-    return confirm("¿Estás seguro de que deseas eliminar el perfil?");}
-</script>
+    <script>
+        function confirmDelete(id) {
+            return confirm("¿Estás seguro de que deseas eliminar el perfil?");
+        }
+    </script>
 </body>
 </html>
