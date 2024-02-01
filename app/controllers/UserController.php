@@ -44,14 +44,7 @@ class UserController extends Controller
             $newUser = new User($nickName, $password);
             $this->userManager->createUser($newUser);
     
-            $isValidated = true; 
-    
-            if ($isValidated) {
-                header("location: userIndex");
-            } else {
-                
-                echo "Error creando usuario";
-            }
+            header("location: userIndex");
         } else {
             
             echo "Debe introducir todos los datos";
