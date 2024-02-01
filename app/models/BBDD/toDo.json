@@ -151,5 +151,32 @@
         "creationDate": "",
         "expectedEndDate": "",
         "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 25,
+        "user": "pirpol",
+        "taskName": "",
+        "taskType": "FrontEnd",
+        "creationDate": "",
+        "expectedEndDate": "",
+        "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 26,
+        "user": "pirpol",
+        "taskName": "",
+        "taskType": "FrontEnd",
+        "creationDate": "",
+        "expectedEndDate": "",
+        "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 27,
+        "user": "pablito",
+        "taskName": "",
+        "taskType": "FrontEnd",
+        "creationDate": "",
+        "expectedEndDate": "",
+        "taskStatus": "En ejecucion"
     }
 ]
