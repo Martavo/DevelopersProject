@@ -27,30 +27,12 @@
         "taskStatus": "Pendiente"
     },
     {
-        "taskId": 10,
-        "user": "rasbil",
-        "taskName": "pruebaTarea",
-        "taskType": "DataScience",
-        "creationDate": "2020-03-12",
-        "expectedEndDate": "2020-03-17",
-        "taskStatus": "Pendiente"
-    },
-    {
         "taskId": 12,
         "user": "ana",
         "taskName": "crear boton",
         "taskType": "BackEnd",
         "creationDate": "2023-01-12",
         "expectedEndDate": "2023-01-15",
-        "taskStatus": "Pendiente"
-    },
-    {
-        "taskId": 13,
-        "user": "marta",
-        "taskName": "Crear base de datos",
-        "taskType": "BackEnd",
-        "creationDate": "2024-02-01",
-        "expectedEndDate": "2024-02-11",
         "taskStatus": "Pendiente"
     }
 ]
