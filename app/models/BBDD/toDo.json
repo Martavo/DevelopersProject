@@ -10,11 +10,11 @@
     },
     {
         "taskId": 6,
-        "user": "rasbil",
-        "taskName": "pruebaTarea",
-        "taskType": "DataScience",
-        "creationDate": "2020-03-12",
-        "expectedEndDate": "2020-03-17",
+        "user": "prueba 17.06",
+        "taskName": "prueba 17.06",
+        "taskType": "FrontEnd",
+        "creationDate": "prueba 17.06",
+        "expectedEndDate": "prueba 17.06",
         "taskStatus": "Pendiente"
     },
     {
