@@ -33,13 +33,15 @@ $routes = array(
 		
 	// TAREAS
 		// Listar todas las tareas
-		'/tasksList_View' => 'Task#tasksList_View',                                                                                                                     
+		'/tasksList_View'=> 'Task#tasksList_View',
 		// Borrar Tarea
 		'/deleteTask' => 'Task#deleteTask',
 		// Insertar una nueva tarea
 		'/insertTask'=> 'Task#insertTask',
-		// Editar una tarea
-		'/editTask'=> 'editTask',
+		// Pre-edicion de una tarea
+		'/preUpdateTask_View'=> 'Task#preUpdateTask_View',
+		// Edicion tarea
+		'/updateTask'=>'Task#updateTask'
 
 	
 	

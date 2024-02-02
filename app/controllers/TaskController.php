@@ -74,15 +74,73 @@ class TaskController extends Controller
         }
     }
 
-    public function editTaskAction()
+    public function preUpdateTask_viewAction()
     {
-                
+
+        if(isset($_GET["taskId"]))
+        {    
+            $taskId= (int) $_GET["taskId"];//casteamos el valor a int ya que el GET lo devuelve como string
+            $user= $_GET["user"];
+            $taskName= $_GET["taskName"];
+            $taskType= $_GET["taskType"];
+            $creationDate= $_GET["creationDate"];
+            $expectedEndDate= $_GET["expectedEndDate"];
+            $statusTask= $_GET["taskStatus"];
+    
+            $selectedTask =[
+                "taskId" =>$taskId,
+                "user" =>$user,
+                "taskName" =>$taskName,
+                "taskType" =>$taskType,
+                "creationDate" =>$creationDate,
+                "expectedEndDate" =>$expectedEndDate,
+                "taskStatus" =>$statusTask
+            ];
+            
+            return $selectedTask;
+        }
+    }
+
+    public function updateTaskAction()
+    {
+
+        if(isset($_POST["taskId"]))
+        {    
+            $toDo = $this->toDo;
+            $taskId= (int) $_POST["taskId"];//casteamos el valor a int ya que el POST lo devuelve como string
+            $user= $_POST["user"];
+            $taskName= $_POST["taskName"];
+            $taskType= $_POST["taskType"];
+            $creationDate= $_POST["creationDate"];
+            $expectedEndDate= $_POST["expectedEndDate"];
+            $statusTask= $_POST["taskStatus"];
+    
+            $updatedTask =[
+                "taskId" =>$taskId,
+                "user" =>$user,
+                "taskName" =>$taskName,
+                "taskType" =>$taskType,
+                "creationDate" =>$creationDate,
+                "expectedEndDate" =>$expectedEndDate,
+                "taskStatus" =>$statusTask
+            ];
+
+            // var_dump($updatedTask);
+
+            $toDo->updateTask($updatedTask);
+
+            header("location:tasksList_View");
+        }
+
+
     }
 
 }
 
-// $TaskController = new TaskController();
+$TaskController = new TaskController();
 // $arrayTasks = $TaskController->tasksList_ViewAction();
 // $TaskController->insertTaskAction("prueba 18.43","prueba 18.43","prueba 18.43","prueba 18.43","prueba 18.43","prueba 18.43");
+// $updateTask = ["taskId"=>1,"prueba 18.43","prueba 18.43","prueba 18.43","prueba 18.43","prueba 18.43", "prueba 18.43"];
+// $TaskController->editTaskAction($updateTask);
 
 // var_dump($arrayTasks);

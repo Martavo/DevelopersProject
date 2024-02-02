@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Tarea</title>
+</head>
+<body>
+    <h1>Actualizar Tarea</h1>
+    <?php
+    $TaskController = new TaskController();
+    global $selectedTask;
+    $selectedTask = $TaskController->preUpdateTask_viewAction();
+    var_dump($selectedTask);
+
+    ?>
+        <form action="updateTask" method="post">
+            <table>
+                <tr>
+                    <td>
+                        <input type="hidden" name="taskId" value="<?php echo $selectedTask["taskId"]; ?>">
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Usuario:</label>
+                        <input type="text" value="<?php echo htmlspecialchars($selectedTask["user"]); ?>">
+                    </td>
+                    <td>
+                        <label for="user">Cambiar por:</label>
+                        <input type="text" name="user">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Nombre de la Tarea:</label>
+                        <input type="text" value="<?php echo htmlspecialchars($selectedTask["taskName"]); ?>">
+                    </td>
+                    <td>
+                        <label for="taskName">Cambiar por:</label>
+                        <input type="text" name="taskName">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <label>Tipo de Tarea:</label>
+                        <input type="text" value="<?php echo htmlspecialchars($selectedTask["taskType"]); ?>">
+                    </td>
+                    <td>
+                        <select name="taskType">
+                            <option value="FrontEnd">FrontEnd</option>
+                            <option value="BackEnd">BackEnd</option>
+                            <option value="DataScience">DataScience</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Fecha creacion tarea:</label>
+                        <input type="text" value="<?php echo htmlspecialchars($selectedTask["creationDate"]); ?>">
+                    </td>
+                    <td>
+                        <label for="creationDate">Cambiar por:</label>
+                        <input type="text" name="creationDate">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Fecha fin prevista:</label>
+                        <input type="text" value="<?php echo htmlspecialchars($selectedTask["expectedEndDate"]); ?>">
+                    </td>
+                    <td>
+                        <label for="expectedEndDate">Cambiar por:</label>
+                        <input type="text" name="expectedEndDate">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="taskStatus">Estado de la Tarea:</label>
+                        <input type="text" value="<?php echo htmlspecialchars($selectedTask["taskStatus"]); ?>">
+                    </td>
+                    <td>
+                        <select name="taskStatus">
+                            <option value="Pendiente">Pending</option>
+                            <option value="Finalizada">Finished</option>
+                            <option value="En Proceso">InProgress</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="submit">Guardar Cambios</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+</body>
+</html>
