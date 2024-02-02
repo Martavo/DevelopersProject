@@ -3,14 +3,29 @@ require_once(__DIR__ . '../../models/class/ToDoModel.php');
 require_once(__DIR__ . '/../../lib/base/Controller.php');
 
 
+
+/*enum TaskType: string {
+    case FrontEnd = 'FrontEnd';
+    case BackEnd = 'BackEnd';
+    case DataScience = 'DataScience';
+}
+
+enum TaskStatus: string {
+    case Pending = 'Pendiente';
+    case Finished = 'Finalizada';
+    case InProcess = 'En Ejecucion';
+}*/
+
+
 class TaskController extends Controller
 {
 
     private $toDo;
+    
 
     public function __construct()
     {
-        $this->toDo = $toDo = new ToDo();  
+        $this->toDo = $toDo = new ToDo();
     }
 
     public function tasksList_ViewAction()
@@ -70,7 +85,54 @@ class TaskController extends Controller
 
     public function updateTaskAction()
 {
+<<<<<<< Updated upstream
     $taskId = $_POST["taskId"];
+=======
+    if (isset($_POST["taskId"])) {
+        $taskId = $_POST["taskId"];
+        $user = $_POST["user"];
+        $updatedTask = [
+            'user' => $_POST ['user'],
+            'taskName' => $_POST['taskName'],
+            'taskType' => $_POST['taskType'],
+            'creationDate' => $_POST['creationDate'],
+            'expectedEndDate' => $_POST['expectedEndDate'],
+            'taskStatus' => $_POST['taskStatus'],
+        ];
+
+        $toDo = $this->toDo;
+        $toDo->updateTask($updatedTask, $taskId, $user);
+
+        header("location:tasksList_View");  
+    } else {
+        echo "Error en la ruta.";  
+    }
+}
+
+    public function updateTask_ViewAction()
+{
+    if (isset($_GET["taskId"])) {
+        $taskId = $_GET["taskId"];
+        $task = $this->toDo->searchTask($taskId); 
+
+        if ($task) {
+            include_once 'C:\xampp\htdocs\DevelopersProject\app\views\scripts\task\updateTask_View.phtml'; 
+        } else {
+            
+            echo "Tarea no encontrada.";
+            return;
+        }
+    } else {
+        
+        echo "TaskID no encontrada.";
+        return;
+    }
+}
+
+
+
+    
+>>>>>>> Stashed changes
 
     if (!isset($taskId)) {
         header("location:error_404.php");

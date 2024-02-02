@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <?php
 
 enum TaskType: string {
@@ -13,6 +14,8 @@ enum TaskStatus: string {
 }
 
 ?>
+=======
+>>>>>>> Stashed changes
 
 
 <!DOCTYPE html>
@@ -20,8 +23,10 @@ enum TaskStatus: string {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css">
     <title>Actualizar Tarea</title>
 </head>
+<<<<<<< Updated upstream
 <body>
     <h1>Actualizar Tarea</h1>
     <?php if ($task): ?>
@@ -51,3 +56,64 @@ enum TaskStatus: string {
 </body>
 </html>
 
+=======
+<body class="bg-gray-100 flex items-center justify-center flex-col mc-auto">
+<div class="flex mt-4 ml-auto mr-5">
+    <a href="closeUserSession" class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500 mr-5">Cerrar sesión</a>
+    <a href="userProfile_View" class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500">Portal del Usuario</a>
+</div>
+<div class="text-4xl mb-8 mt-10 text-center">ACTUALIZAR TAREA</div>
+
+<form action="updateTask" method="post">
+    <input type="hidden" name="taskId" value="<?php echo htmlspecialchars($task['taskId']); ?>">
+    <table class="w-full border-collapse border border-blue-200">
+        <tbody>
+        <tr class="bg-gray-100">
+            <th class="py-2 px-4">Nº Tarea</th>
+            <td class="py-2 px-4"><?php echo htmlspecialchars($task['taskId']); ?></td>
+        </tr>
+        <tr class="bg-gray-100">
+            <th class="py-2 px-4">Usuario</th>
+            <td><input type='text' name='user' value="<?php echo htmlspecialchars($task['user']); ?>" class='px-4 py-2 border border-blue-200 rounded'></td>
+        </tr>
+        <tr class="bg-gray-100">
+            <th class="py-2 px-4">Tarea</th>
+            <td><input type='text' name='taskName' value="<?php echo htmlspecialchars($task['taskName']); ?>" class='px-4 py-2 border border-blue-200 rounded'></td>
+        </tr>
+        <tr class="bg-gray-100">
+            <th class="py-2 px-4">Tipo de Tarea</th>
+            <td>
+                <select name="taskType" id="taskType" class='w-full px-4 py-2 border border-blue-200 rounded'>
+                    <option value="FrontEnd" <?php if ($task['taskType'] == 'FrontEnd') echo 'selected'; ?>>FrontEnd</option>
+                    <option value="BackEnd" <?php if ($task['taskType'] == 'BackEnd') echo 'selected'; ?>>BackEnd</option>
+                    <option value="DataScience" <?php if ($task['taskType'] == 'DataScience') echo 'selected'; ?>>Data Science</option>
+                </select>
+            </td>
+        </tr>
+        <tr class="bg-gray-100">
+            <th class="py-2 px-4">Fecha de Creación</th>
+            <td><input type='date' name='creationDate' value="<?php echo htmlspecialchars($task['creationDate']); ?>" class='px-4 py-2 border border-blue-200 rounded'></td>
+        </tr>
+        <tr class="bg-gray-100">
+            <th class="py-2 px-4">Fecha Fin Prevista</th>
+            <td><input type='date' name='expectedEndDate' value="<?php echo htmlspecialchars($task['expectedEndDate']); ?>" class='px-4 py-2 border border-blue-200 rounded'></td>
+        </tr>
+        <tr class="bg-gray-100">
+            <th class="py-2 px-4">Estado de la Tarea</th>
+            <td>
+                <select name="taskStatus" id="taskStatus" class='w-full px-4 py-2 border border-blue-200 rounded'>
+                    <option value="Pendiente" <?php if ($task['taskStatus'] == 'Pendiente') echo 'selected'; ?>>Pendiente</option>
+                    <option value="En Ejecucion" <?php if ($task['taskStatus'] == 'En Ejecucion') echo 'selected'; ?>>En Ejecucion</option>
+                    <option value="Finalizada" <?php if ($task['taskStatus'] == 'Finalizada') echo 'selected'; ?>>Finalizada</option>
+                </select>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded mt-4">Actualizar Tarea</button>
+</form>
+
+</body>
+</html>
+        
+>>>>>>> Stashed changes

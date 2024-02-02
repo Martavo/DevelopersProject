@@ -53,6 +53,7 @@ $routes = array(
 		'/deleteTask' => 'Task#deleteTask',
 		// Insertar una nueva tarea
 		'/insertTask'=> 'Task#insertTask',
+<<<<<<< Updated upstream
 		// Editar una tarea
 		'/editTask'=> 'editTask',
 >>>>>>> Stashed changes
@@ -64,6 +65,14 @@ $routes = array(
 	//Actualizar una tarea
 	//Valida el usuario existe en la BBDD
 	//Cierra la sesion del usuario
+=======
+		'/updateTask_View' => 'Task#updateTask_View',  
+        '/updateTask' => 'Task#updateTask',
+		
+		
+
+	
+>>>>>>> Stashed changes
 	
 	
 );

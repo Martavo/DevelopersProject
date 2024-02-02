@@ -1,12 +1,12 @@
 [
     {
         "taskId": 1,
-        "user": "pirpol",
-        "taskName": "Creacion boton enviar",
+        "user": "papl",
+        "taskName": "Kek",
         "taskType": "FrontEnd",
-        "creationDate": "2013-11-03",
-        "expectedEndDate": "2013-11-07",
-        "taskStatus": "Pendiente"
+        "creationDate": "2013-11-28",
+        "expectedEndDate": "2013-11-30",
+        "taskStatus": "En Ejecucion"
     },
     {
         "taskId": 2,
@@ -37,12 +37,12 @@
     },
     {
         "taskId": 6,
-        "user": "rasbil",
+        "user": "rats",
         "taskName": "pruebaTarea",
         "taskType": "DataScience",
         "creationDate": "2020-03-12",
         "expectedEndDate": "2020-03-17",
-        "taskStatus": "Pendiente"
+        "taskStatus": "En Ejecucion"
     },
     {
         "taskId": 7,
@@ -64,8 +64,8 @@
     },
     {
         "taskId": 10,
-        "user": "rasbil",
-        "taskName": "pruebaTarea",
+        "user": "lole",
+        "taskName": "ActualizarTareas",
         "taskType": "DataScience",
         "creationDate": "2020-03-12",
         "expectedEndDate": "2020-03-17",

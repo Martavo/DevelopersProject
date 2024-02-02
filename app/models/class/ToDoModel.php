@@ -79,8 +79,9 @@ class ToDo
         return $taskFound;
     }
 
-    public function updateTask(array $updatedTask, int $taskId)
+    public function updateTask(array $updatedTask, int $taskId, string $user)
     {
+
         $tasks = $this->getTasks();
 
         $isFound = false;

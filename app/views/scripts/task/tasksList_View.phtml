@@ -96,9 +96,13 @@ if(isset($_POST["cr"])){ //Si se ha pulsado el botón insertar
                         </a>
                     </td>
                     <td class='py-2 px-4 text-center'>
+<<<<<<< Updated upstream
                         <a href="../../app/models/actions/updateTask.php?taskId=<?php echo $task['taskId']?> & user=<?php echo $task['user']?> & taskName=<?php echo $task['taskName']?> & taskType=<?php echo $task['taskType']?> & creationDate=<?php echo $task['creationDate']?> & expectedEndDate=<?php echo $task['expectedEndDate']?> & taskStatus=<?php echo $task['taskStatus']?>">
                             <input type='button' name='up' id='up' value='Actualizar' class='bg-green-500 text-white px-4 py-2 rounded'>
                         </a>
+=======
+                    <a href="updateTask_View?taskId=<?php echo $task['taskId'] ?>" class="bg-blue-500 text-white px-4 py-2 rounded">Actualizar</a>
+>>>>>>> Stashed changes
                     </td>
                 </tr>
             <?php endforeach ?>
