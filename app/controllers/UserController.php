@@ -125,7 +125,7 @@ class UserController extends Controller
         // cierra la sesion abierta
         session_destroy();
         // redirige a la pagina del login
-        header("location:loginUsersForm_View");
+        header("location:userIndex");
 
     }
 
