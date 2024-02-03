@@ -52,8 +52,7 @@ class TaskController extends Controller
         }    
     }
 
-<<<<<<< Updated upstream
-=======
+
     public function insertTaskAction()
     {
         if(isset($_POST["user"]))
@@ -85,9 +84,9 @@ class TaskController extends Controller
 
     public function updateTaskAction()
 {
-<<<<<<< Updated upstream
+
     $taskId = $_POST["taskId"];
-=======
+
     if (isset($_POST["taskId"])) {
         $taskId = $_POST["taskId"];
         $user = $_POST["user"];
@@ -109,34 +108,29 @@ class TaskController extends Controller
     }
 }
 
-    public function updateTask_ViewAction()
-{
-    if (isset($_GET["taskId"])) {
-        $taskId = $_GET["taskId"];
-        $task = $this->toDo->searchTask($taskId); 
+    public function updateTask_ViewAction(){
+        if (isset($_GET["taskId"])) {
+            $taskId = $_GET["taskId"];
+            $task = $this->toDo->searchTask($taskId); 
 
-        if ($task) {
-            include_once 'C:\xampp\htdocs\DevelopersProject\app\views\scripts\task\updateTask_View.phtml'; 
+            if ($task) {
+                include_once 'C:\xampp\htdocs\DevelopersProject\app\views\scripts\task\updateTask_View.phtml'; 
+            } else {
+                
+                echo "Tarea no encontrada.";
+                return;
+            }
         } else {
             
-            echo "Tarea no encontrada.";
+            echo "TaskID no encontrada.";
             return;
         }
-    } else {
-        
-        echo "TaskID no encontrada.";
-        return;
     }
-}
 
-
-
-    
->>>>>>> Stashed changes
 
     if (!isset($taskId)) {
         header("location:error_404.php");
-    } else {
+        } else {
         $toDo = $this->toDo;
         $task = $toDo->getTask($taskId);
 
@@ -157,8 +151,8 @@ class TaskController extends Controller
     }
 }
 
->>>>>>> Stashed changes
-}
+
+
 
 // $TaskController = new TaskController();
 // $arrayTasks = $TaskController->tasksList_ViewAction();
