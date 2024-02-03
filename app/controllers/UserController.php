@@ -65,20 +65,20 @@ class UserController extends Controller
             echo "Debe introducir todos los datos";
         }
     }
-
+    
     public function updateUserAction()
-    {
-        if (isset($_GET["nickName"]) && isset($_POST["newNickName"]) || isset($_POST["newPassword"])) {
-            $originalNickName = $_GET["nickName"];
+    {   
+        if (isset($_POST["nickName"]) && isset($_POST["newNickName"]) && isset($_POST["newPassword"])) {
+            $originalNickName = $_POST["nickName"];
             $newNickName = $_POST["newNickName"];
             $newPassword = $_POST["newPassword"];
-
+    
             $updatedUser = new User($newNickName, $newPassword);
             $this->userManager->updateUser($updatedUser, $originalNickName);
-
+    
             header("location: userIndex");
         } else {
-            echo "El usuario no se ha podido eliminar";
+            echo "No se proporcionaron todos los datos necesarios.";
         }
     }
 
