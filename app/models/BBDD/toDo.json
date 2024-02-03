@@ -10,18 +10,18 @@
     },
     {
         "taskId": 6,
-        "user": "prueba 17.06",
+        "user": "prueba 16.52",
         "taskName": "prueba 17.06",
         "taskType": "FrontEnd",
         "creationDate": "prueba 17.06",
-        "expectedEndDate": "prueba 17.06",
+        "expectedEndDate": "prueba 16.52",
         "taskStatus": "Pendiente"
     },
     {
         "taskId": 8,
         "user": "rasbil",
         "taskName": "pruebaTarea",
-        "taskType": "DataScience",
+        "taskType": "FrontEnd",
         "creationDate": "2020-03-12",
         "expectedEndDate": "2020-03-17",
         "taskStatus": "Pendiente"
@@ -34,5 +34,95 @@
         "creationDate": "2023-01-12",
         "expectedEndDate": "2023-01-15",
         "taskStatus": "Pendiente"
+    },
+    {
+        "taskId": 13,
+        "user": "",
+        "taskName": "",
+        "taskType": "FrontEnd",
+        "creationDate": "",
+        "expectedEndDate": "",
+        "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 14,
+        "user": "",
+        "taskName": "",
+        "taskType": "FrontEnd",
+        "creationDate": "",
+        "expectedEndDate": "",
+        "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 15,
+        "user": "",
+        "taskName": "",
+        "taskType": "FrontEnd",
+        "creationDate": "",
+        "expectedEndDate": "",
+        "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 16,
+        "user": "prueba",
+        "taskName": "",
+        "taskType": "FrontEnd",
+        "creationDate": "",
+        "expectedEndDate": "",
+        "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 17,
+        "user": "",
+        "taskName": "",
+        "taskType": "FrontEnd",
+        "creationDate": "",
+        "expectedEndDate": "",
+        "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 19,
+        "user": "prueba 21.20",
+        "taskName": "",
+        "taskType": "FrontEnd",
+        "creationDate": "",
+        "expectedEndDate": "",
+        "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 22,
+        "user": "prueba 21.39",
+        "taskName": "prueba 21.39",
+        "taskType": "FrontEnd",
+        "creationDate": "prueba 21.39",
+        "expectedEndDate": "prueba 21.39",
+        "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 23,
+        "user": "",
+        "taskName": "",
+        "taskType": "FrontEnd",
+        "creationDate": "",
+        "expectedEndDate": "",
+        "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 24,
+        "user": "",
+        "taskName": "",
+        "taskType": "--",
+        "creationDate": "",
+        "expectedEndDate": "",
+        "taskStatus": "--"
+    },
+    {
+        "taskId": 25,
+        "user": "",
+        "taskName": "",
+        "taskType": "--",
+        "creationDate": "",
+        "expectedEndDate": "",
+        "taskStatus": "--"
     }
 ]

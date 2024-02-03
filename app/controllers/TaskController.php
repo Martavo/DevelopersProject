@@ -76,28 +76,11 @@ class TaskController extends Controller
 
     public function preUpdateTask_viewAction()
     {
-
-        if(isset($_GET["taskId"]))
-        {    
-            $taskId= (int) $_GET["taskId"];//casteamos el valor a int ya que el GET lo devuelve como string
-            $user= $_GET["user"];
-            $taskName= $_GET["taskName"];
-            $taskType= $_GET["taskType"];
-            $creationDate= $_GET["creationDate"];
-            $expectedEndDate= $_GET["expectedEndDate"];
-            $statusTask= $_GET["taskStatus"];
-    
-            $selectedTask =[
-                "taskId" =>$taskId,
-                "user" =>$user,
-                "taskName" =>$taskName,
-                "taskType" =>$taskType,
-                "creationDate" =>$creationDate,
-                "expectedEndDate" =>$expectedEndDate,
-                "taskStatus" =>$statusTask
-            ];
-            
-            return $selectedTask;
+        if (isset($_GET["taskId"])) {
+            $taskId = $_GET["taskId"];
+            $tasksFound = $this->toDo->searchTask($taskId); 
+                
+            return $tasksFound;
         }
     }
 
@@ -131,9 +114,45 @@ class TaskController extends Controller
 
             header("location:tasksList_View");
         }
-
-
     }
+
+    // METODOS DE FILTRAR >>>>>>>>>>>>>>>>>
+    public function filterByUser_ViewAction()
+    {
+        if(isset($_GET["filteredUser"])){
+            $filteredUser = $_GET['filteredUser'];
+            // var_dump($filteredUser);
+            
+            $filteredTasks= $this->toDo->filterByUser($filteredUser);
+
+            return $filteredTasks;
+        }
+    }
+    public function filterByTaskName_ViewAction()
+    {
+        if(isset($_GET["filteredTaskName"])){
+            $filteredTaskName = $_GET['filteredTaskName'];
+            
+            $filteredTasks= $this->toDo->filterByTasksName($filteredTaskName);
+
+            // var_dump($filteredTasks);
+
+            return $filteredTasks;
+        }
+    }
+    public function filterByTaskType_ViewAction()
+    {
+        if(isset($_GET["filteredTaskType"])){
+            $filteredTaskType = $_GET['filteredTaskType'];
+            
+            $filteredTasks= $this->toDo->filterByTasksType($filteredTaskType);
+
+            // var_dump($filteredTasks);
+
+            return $filteredTasks;
+        }
+    }
+    
 
 }
 

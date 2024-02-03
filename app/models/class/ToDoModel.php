@@ -107,7 +107,7 @@ class ToDo
 
 
   // Método para buscar por usuario
-    public function listByUser(string $searchedUser){
+    public function filterByUser(string $searchedUser){
         $currentTasks = $this->getTasks();
         $filterTasks = array();
 
@@ -116,16 +116,28 @@ class ToDo
             $filterTasks[] = $task; // Almacena la información completa de la tarea
             }
         }
-
-        if(empty($filterTasks)){
-            // Si el array está vacío, gestion de errores
-        } else {
-            return $filterTasks;
-        }
+        return $filterTasks;
     }
 
-   // Método para obtener la información de usuarios y tareas por tipo
-   public function getUsersAndTasksByType(string $type){
+    // Método para filtrar la información por el nombre de la tarea sea mayusculas o minusculas
+    public function filterByTasksName($searchString){
+
+        $currentTasks = $this->getTasks();
+        $filteredTasksbyName = [];
+
+        foreach ($currentTasks as $task) {
+            // Buscamos la cadena de búsqueda en el nombre de la tarea
+            if (stripos($task['taskName'], $searchString) !== false) {
+            $filteredTasksbyName[] = $task;
+            }
+        }
+        // var_dump($filteredTasksbyName);
+
+        return $filteredTasksbyName;
+    }
+
+       // Método para obtener la información de usuarios y tareas por tipo
+   public function filterByTasksType(string $type){
     $currentTasks = $this->getTasks();
     $filteredTasks = [];
 
@@ -139,22 +151,6 @@ class ToDo
     return $filteredTasks;
     }
 
-
-    // Método para filtrar la información por el nombre de la tarea sea mayusculas o minusculas
-    public function getTasksByName($searchString){
-
-        $currentTasks = $this->getTasks();
-        $filteredTasksbyName = [];
-
-        foreach ($currentTasks as $task) {
-            // Buscamos la cadena de búsqueda en el nombre de la tarea
-            if (stripos($task['taskName'], $searchString) !== false) {
-            $filteredTasksbyName[] = $task;
-            }
-        }
-
-        return $filteredTasksbyName;
-    }
 
 }
 

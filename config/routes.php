@@ -9,9 +9,10 @@
  * '/calendar' => 'calendar#index'
  */
 $routes = array(
-	// Pagina principal
+	// PAGINA PRINCIPAL
 		'/' => 'User#index',
-	// USUARIOS
+
+	// USUARIOS:
 	    //index route
 		'/userIndex' => 'User#index',
 		// Formulario Login usuario
@@ -31,7 +32,7 @@ $routes = array(
 		//Ver perfil de un usuario
 		'/userProfile_View'  => 'User#userProfile_View',
 		
-	// TAREAS
+	// TAREAS:
 		// Listar todas las tareas
 		'/tasksList_View'=> 'Task#tasksList_View',
 		// Borrar Tarea
@@ -41,7 +42,14 @@ $routes = array(
 		// Pre-edicion de una tarea
 		'/preUpdateTask_View'=> 'Task#preUpdateTask_View',
 		// Edicion tarea
-		'/updateTask'=>'Task#updateTask'
+		'/updateTask'=>'Task#updateTask',
+		// FILTROS:
+			// Filtrar por usuario
+			'/filterByUser_View'=>'Task#filterByUser_View',
+			// Filtrar por nombre de tarea
+			'/filterByTaskName_View'=>'Task#filterByTaskName_View',
+			// Filtrar por tipo de tarea
+			'/filterByTaskType_View'=>'Task#filterByTaskType_View',
 
 	
 	
