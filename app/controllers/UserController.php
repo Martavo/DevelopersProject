@@ -20,8 +20,6 @@ class UserController extends Controller
     
 }
 
-    
-
     public function loginUsersForm_ViewAction()
     {
         
@@ -54,16 +52,13 @@ class UserController extends Controller
 
     public function deleteUserAction()
     {
-        if (isset($_GET["nickName"])) {
-            $nickName = $_GET["nickName"];
+        session_start();
+        $usuario = $_SESSION['user'];
+        $userFound = $this->userManager->searchByUser($usuario);
 
-            $this->userManager->deleteUser($nickName);
-
-            header("location: userIndex");
-            exit(); 
-        } else {
-            echo "Debe introducir todos los datos";
-        }
+        $this->userManager->deleteUser($userFound);
+        header("location: userIndex");
+       
     }
     
     public function updateUserAction()

@@ -67,11 +67,10 @@ class User
         $this->saveUsers();
     }
 
-    public function deleteUser(string $nickName)
+    public function deleteUser($userFound)
     {
-        $this->getUsers();
         foreach ($this->users as $key => $user) {
-            if ($user['nickName'] === $nickName) {
+            if ($user['nickName'] === $userFound['nickName']) {
                 array_splice($this->users, $key, 1);
                 $this->saveUsers();
                 return;
