@@ -67,18 +67,21 @@ class UserController extends Controller
     }
     
     public function updateUserAction()
-    {   
-        if (isset($_POST["nickName"]) && isset($_POST["newNickName"]) && isset($_POST["newPassword"])) {
-            $originalNickName = $_POST["nickName"];
+    {  
+        $usuario = $_SESSION['user'];
+
+        $userFound = $this->userManager->searchByUser($usuario);
+
+        if (isset($_POST["newNickName"]) || isset($_POST["newPassword"])) {
             $newNickName = $_POST["newNickName"];
             $newPassword = $_POST["newPassword"];
-    
-            $updatedUser = new User($newNickName, $newPassword);
-            $this->userManager->updateUser($updatedUser, $originalNickName);
-    
-            header("location: userIndex");
+        
+            $newDataUser = new User($newNickName, $newPassword);
+            $this->userManager->updateDataUser($newDataUser, $userFound);
+
+           header("location: userIndex");
         } else {
-            echo "No se proporcionaron todos los datos necesarios.";
+            header("location: userProfile_View");
         }
     }
 

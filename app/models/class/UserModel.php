@@ -80,17 +80,32 @@ class User
     }
 
 
-    public function updateUser(User $updatedUser, string $nickName)
+    public function updateDataUser(User $newDataUser, $userFound)
     {
-        $this->getUsers();
-        foreach ($this->users as $key => $user) {
-            if ($user['nickName'] === $nickName) {
-                $this->users[$key]['nickName'] = $updatedUser->getNickName();
-                $this->users[$key]['password'] = $updatedUser->getPassword();
-                $this->saveUsers();
-                return;
+    foreach ($this->users as $key => $user) {
+        if ($user['nickName'] === $userFound['nickName']) {
+            $this->users[$key]['nickName'] = $newDataUser->getNickName();
+            $this->users[$key]['password'] = $newDataUser->getPassword();
+            $this->saveUsers();
+            return;
+        }
+    }
+    }
+
+
+    public function searchByUser($searchedUser)
+    {
+        $users = $this->getUsers();
+        $userfound = null;
+    
+        foreach ($users as $user) {
+            if ($user['nickName'] === $searchedUser) {
+                $userfound = $user;
+                break;  // Salir del bucle una vez que se haya encontrado el usuario
             }
         }
+    
+        return $userfound;
     }
 
     
