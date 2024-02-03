@@ -136,22 +136,37 @@ class TaskController extends Controller
     public function filterByUser_ViewAction()
     {
         if(isset($_GET["filteredUser"])){
-        
-            $user = $_GET['filteredUser'];
-            // var_dump($taskFilterKey);
+            $filteredUser = $_GET['filteredUser'];
+            // var_dump($filteredUser);
             
-            $currentTasks = $this->toDo->getTasks();
+            $filteredTasks= $this->toDo->filterByUser($filteredUser);
 
-            foreach ($currentTasks as $key => $task) {
-                if($task["user"]===$user)
-                {
-                    $filteredArray []= $task;
-                }
-            }
-            // var_dump($filteredArray);
-            return $filteredArray;
+            return $filteredTasks;
         }
+    }
+    public function filterByTaskName_ViewAction()
+    {
+        if(isset($_GET["filteredTaskName"])){
+            $filteredTaskName = $_GET['filteredTaskName'];
+            
+            $filteredTasks= $this->toDo->filterByTasksName($filteredTaskName);
 
+            // var_dump($filteredTasks);
+
+            return $filteredTasks;
+        }
+    }
+    public function filterByTaskType_ViewAction()
+    {
+        if(isset($_GET["filteredTaskType"])){
+            $filteredTaskType = $_GET['filteredTaskType'];
+            
+            $filteredTasks= $this->toDo->filterByTasksType($filteredTaskType);
+
+            // var_dump($filteredTasks);
+
+            return $filteredTasks;
+        }
     }
     
 

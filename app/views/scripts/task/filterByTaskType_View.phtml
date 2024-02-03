@@ -28,10 +28,11 @@
 
     <?php
     $TaskController = new TaskController();
-    $filteredTasks = $TaskController->filterByUser_ViewAction();
+    $filteredTasks = $TaskController->filterByTaskType_ViewAction();
 
-    if (empty($filteredTasks)) {
-        echo "<h2 class='text-3xl text-red-500 font-bold'>El usuario introducido no se encuentra en nuestra BBDD</h2>";
+    // var_dump($filteredTasks);
+    if (is_null($filteredTasks)) {
+        echo "<h2 class='text-3xl text-red-500 font-bold'>La tarea introducida no se encuentra en nuestra BBDD</h2>";
     }
     ?>
 

@@ -45,7 +45,11 @@ $routes = array(
 		'/updateTask'=>'Task#updateTask',
 		// FILTROS:
 			// Filtrar por usuario
-			'/filterByUser_View'=>'Task#filterByUser_View'
+			'/filterByUser_View'=>'Task#filterByUser_View',
+			// Filtrar por nombre de tarea
+			'/filterByTaskName_View'=>'Task#filterByTaskName_View',
+			// Filtrar por tipo de tarea
+			'/filterByTaskType_View'=>'Task#filterByTaskType_View',
 
 	
 	
