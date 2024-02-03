@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css">
+    <title>Tareas Filtradas</title>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center flex-col mc-auto ">
+    <div class="flex mt-6 mr-auto ml-7">
+        <?php
+        $usuario = $_SESSION['user'];
+
+        echo "<p class='text-left text-2xl text-black'>Hola $usuario, bienvenido!!</p>"
+        ?>
+    </div>
+
+    <div class="flex mt-1 mr-4 ml-auto">
+        <a href="closeUserSession" class=" bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500 mr-5 ">
+            Cerrar sessión
+        </a>
+        <a href="userProfile_View" class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500">
+            Portal del Usuario
+        </a>
+    </div>
+
+    <div class="text-6xl font-bold text-black mb-8 mt-10 text-center">TAREAS FILTRADAS POR USUARIO</div>
+
+    <form action="insertTask" method="post">
+        <table class="w-full border-collapse border border-blue-200">
+            <tr class="bg-gray-100">
+                <!-- Filas de titulos de columnas -->
+                <th class="py-2 px-4">Usuario</th>
+                <th class="py-2 px-4">Tarea</th>
+                <th class="py-2 px-4">Tipo de Tarea</th>
+                <th class="py-2 px-4">Fecha de Creación</th>
+                <th class="py-2 px-4">Fecha Fin Prevista</th>
+                <th class="py-2 px-4">Estado de la tarea</th>
+                <th class="py-2 px-4"></th>
+                <th class="py-2 px-4"></th>
+            </tr>
+            <tr class="bg-gray-100">
+
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <a href="tasksList_View" class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500">Ir al Panel Principal</a>
+                </td>
+            </tr>
+
+
+            <?php
+            $TaskController = new TaskController();
+            $arrayTasks = $TaskController->filterByUser_ViewAction();
+
+            foreach ($arrayTasks as $task) : ?>
+                <tr>
+                    <td class="text-center"><?php echo $task['user'] ?></td>
+                    <td class="text-center"><?php echo $task['taskName'] ?></td>
+                    <td class="text-center"><?php echo $task['taskType'] ?></td>
+                    <td class="text-center"><?php echo $task['creationDate'] ?></td>
+                    <td class="text-center"><?php echo $task['expectedEndDate'] ?></td>
+                    <td class="text-center"><?php echo $task['taskStatus'] ?></td>
+                    <td class="py-2 px-4">
+                        <a href="deleteTask?taskId=<?php echo $task['taskId'] ?>&taskName=<?php echo $task['taskName'] ?>" onclick="return confirmDelete('<?php echo $task['taskName'] ?>');">
+                            <input type='button' name='del' id='del' value='Borrar' class='bg-red-500 text-white px-8 py-2 rounded hover:bg-red-300'>
+                        </a>
+                    </td>
+                    <td class='py-2 px-4 text-center'>
+                        <a href="preUpdateTask_View?taskId=<?php echo $task['taskId'] ?> & user=<?php echo $task['user'] ?> & taskName=<?php echo $task['taskName'] ?> & taskType=<?php echo $task['taskType'] ?> & creationDate=<?php echo $task['creationDate'] ?> & expectedEndDate=<?php echo $task['expectedEndDate'] ?> & taskStatus=<?php echo $task['taskStatus'] ?>">
+                            <input type='button' name='up' id='up' value='Actualizar' class='bg-green-500 text-white px-4 py-2 rounded hover:bg-green-300'>
+                        </a>
+                    </td>
+                </tr>
+            <?php endforeach ?>
+        </table>
+    </form>
+    </div>
+
+    <!-- Ventana emergente para confirmar borrado de registro -->
+    <script>
+        function confirmDelete(taskname) {
+            return confirm("¿Estás seguro de que deseas borrar la tarea: " + taskname + "?");
+        }
+
+        function filterDates() {
+            let filteredUser = document.getElementById("filteredUser").value;
+            let filteredTask = document.getElementById("filteredTask").value;
+            let filteredTaskType = document.getElementById("filteredTaskType").value;
+
+            if (filteredUser != "") {
+                window.location.href = "filterByUser?filteredUser=" + filteredUser;
+            } else if (filteredTask != "") {
+                window.location.href = "filterByTask?filteredTask=" + filteredTask;
+            } else if (filteredTaskType != "") {
+                window.location.href = "filterByTaskType?filteredTaskType=" + filteredTaskType;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

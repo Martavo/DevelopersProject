@@ -9,9 +9,8 @@
     <h1>Actualizar Tarea</h1>
     <?php
     $TaskController = new TaskController();
-    global $selectedTask;
     $selectedTask = $TaskController->preUpdateTask_viewAction();
-    var_dump($selectedTask);
+    // var_dump($selectedTask);
 
     ?>
         <form action="updateTask" method="post">

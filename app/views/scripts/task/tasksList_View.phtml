@@ -10,7 +10,6 @@
 <body class="bg-gray-100 flex items-center justify-center flex-col mc-auto ">
 <div class = "flex mt-6 mr-auto ml-7">
     <?php
-    global $usuario;
     $usuario = $_SESSION['user'];
 
     echo "<p class='text-left text-2xl text-black'>Hola $usuario, bienvenido!!</p>"
@@ -47,25 +46,25 @@
         <!-- Filas de filtrar datos -->
             <td>
                 <div class="flex items-center">
-                    <a href="tu_ruta_destino_user" title="Filtrar" class="mr-2">
+                    <a href="#" onclick="filterDates()" title="Filtrar" class="mr-2">
                         <img src="../web/images/filtrar.png" alt="Icono de filtro" class="w-5 h-5">
                     </a>
-                    <input type='text' id="user" name='user' class='px-0.5 py-2 border border-blue-200 rounded'>
+                    <input type='text' id='filteredUser' class='px-0.5 py-2 border border-blue-200 rounded'>
                 </div>
             </td>
             <td>
                 <div class="flex items-center">
-                    <a href="tu_ruta_destino_task" title="Filtrar" class="mr-2">
+                    <a href="#" onclick="filterDates()" title="Filtrar" class="mr-2">
                         <img src="../web/images/filtrar.png" alt="Icono de filtro" class="w-5 h-5">
                     </a>
-                    <input type='text' id="taskName" name='taskName' class='px-0.5 py-2 border border-blue-200 rounded'>
+                    <input type='text' id='filteredTask' class='px-0.5 py-2 border border-blue-200 rounded'>
                 </div>
             </td>
             <td class="flex items-center">
-                <a href="tu_ruta_destino_task_type" title="Filtrar" class="mr-2">
+                <a href="#" onclick="filterDates()" class="mr-2">
                     <img src="../web/images/filtrar.png" alt="Icono de filtro" class="w-5 h-5">
                 </a>
-                <select name="filterTaskType" id="filterTaskType" class='px-4 py-2 border border-blue-200 rounded'>
+                <select name="filteredTaskType" id="filteredTaskType" class='px-4 py-2 border border-blue-200 rounded'>
                     <option value="FrontEnd">FrontEnd</option>
                     <option value="BackEnd">BackEnd</option>
                     <option value="DataScience">Data Science</option>
@@ -134,6 +133,20 @@
 <script>
 function confirmDelete(taskname) {
     return confirm("¿Estás seguro de que deseas borrar la tarea: " + taskname + "?");
+}
+
+function filterDates(){
+    let filteredUser = document.getElementById("filteredUser").value;
+    let filteredTask = document.getElementById("filteredTask").value;
+    let filteredTaskType = document.getElementById("filteredTaskType").value;
+
+    if(filteredUser!=""){
+        window.location.href = "filterByUser_View?filteredUser=" + filteredUser;
+    }else if(filteredTask!=""){
+        window.location.href = "filterByTask?filteredTask=" + filteredTask;
+    }else if(filteredTaskType!=""){
+        window.location.href = "filterByTaskType?filteredTaskType=" + filteredTaskType;
+    }
 }
 </script>
 

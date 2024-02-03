@@ -76,7 +76,6 @@ class TaskController extends Controller
 
     public function preUpdateTask_viewAction()
     {
-
         if(isset($_GET["taskId"]))
         {    
             $taskId= (int) $_GET["taskId"];//casteamos el valor a int ya que el GET lo devuelve como string
@@ -131,9 +130,30 @@ class TaskController extends Controller
 
             header("location:tasksList_View");
         }
+    }
 
+    // METODOS DE FILTRAR >>>>>>>>>>>>>>>>>
+    public function filterByUser_ViewAction()
+    {
+        if(isset($_GET["filteredUser"])){
+        
+            $user = $_GET['filteredUser'];
+            // var_dump($taskFilterKey);
+            
+            $currentTasks = $this->toDo->getTasks();
+
+            foreach ($currentTasks as $key => $task) {
+                if($task["user"]===$user)
+                {
+                    $filteredArray []= $task;
+                }
+            }
+            // var_dump($filteredArray);
+            return $filteredArray;
+        }
 
     }
+    
 
 }
 

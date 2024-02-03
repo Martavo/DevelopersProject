@@ -34,5 +34,95 @@
         "creationDate": "2023-01-12",
         "expectedEndDate": "2023-01-15",
         "taskStatus": "Pendiente"
+    },
+    {
+        "taskId": 13,
+        "user": "",
+        "taskName": "",
+        "taskType": "FrontEnd",
+        "creationDate": "",
+        "expectedEndDate": "",
+        "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 14,
+        "user": "",
+        "taskName": "",
+        "taskType": "FrontEnd",
+        "creationDate": "",
+        "expectedEndDate": "",
+        "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 15,
+        "user": "",
+        "taskName": "",
+        "taskType": "FrontEnd",
+        "creationDate": "",
+        "expectedEndDate": "",
+        "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 16,
+        "user": "prueba",
+        "taskName": "",
+        "taskType": "FrontEnd",
+        "creationDate": "",
+        "expectedEndDate": "",
+        "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 17,
+        "user": "",
+        "taskName": "",
+        "taskType": "FrontEnd",
+        "creationDate": "",
+        "expectedEndDate": "",
+        "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 19,
+        "user": "prueba 21.20",
+        "taskName": "",
+        "taskType": "FrontEnd",
+        "creationDate": "",
+        "expectedEndDate": "",
+        "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 20,
+        "user": "prueba 21.38",
+        "taskName": "prueba 21.38",
+        "taskType": "FrontEnd",
+        "creationDate": "prueba 21.38",
+        "expectedEndDate": "prueba 21.38",
+        "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 21,
+        "user": "prueba 21.39",
+        "taskName": "prueba 21.39",
+        "taskType": "FrontEnd",
+        "creationDate": "prueba 21.39",
+        "expectedEndDate": "prueba 21.39",
+        "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 22,
+        "user": "prueba 21.39",
+        "taskName": "prueba 21.39",
+        "taskType": "FrontEnd",
+        "creationDate": "prueba 21.39",
+        "expectedEndDate": "prueba 21.39",
+        "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 23,
+        "user": "",
+        "taskName": "",
+        "taskType": "FrontEnd",
+        "creationDate": "",
+        "expectedEndDate": "",
+        "taskStatus": "En ejecucion"
     }
 ]
