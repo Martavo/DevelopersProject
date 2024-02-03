@@ -76,27 +76,11 @@ class TaskController extends Controller
 
     public function preUpdateTask_viewAction()
     {
-        if(isset($_GET["taskId"]))
-        {    
-            $taskId= (int) $_GET["taskId"];//casteamos el valor a int ya que el GET lo devuelve como string
-            $user= $_GET["user"];
-            $taskName= $_GET["taskName"];
-            $taskType= $_GET["taskType"];
-            $creationDate= $_GET["creationDate"];
-            $expectedEndDate= $_GET["expectedEndDate"];
-            $statusTask= $_GET["taskStatus"];
-    
-            $selectedTask =[
-                "taskId" =>$taskId,
-                "user" =>$user,
-                "taskName" =>$taskName,
-                "taskType" =>$taskType,
-                "creationDate" =>$creationDate,
-                "expectedEndDate" =>$expectedEndDate,
-                "taskStatus" =>$statusTask
-            ];
-            
-            return $selectedTask;
+        if (isset($_GET["taskId"])) {
+            $taskId = $_GET["taskId"];
+            $tasksFound = $this->toDo->searchTask($taskId); 
+                
+            return $tasksFound;
         }
     }
 

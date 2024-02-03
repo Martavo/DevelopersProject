@@ -10,18 +10,18 @@
     },
     {
         "taskId": 6,
-        "user": "prueba 17.06",
+        "user": "prueba 16.52",
         "taskName": "prueba 17.06",
         "taskType": "FrontEnd",
         "creationDate": "prueba 17.06",
-        "expectedEndDate": "prueba 17.06",
+        "expectedEndDate": "prueba 16.52",
         "taskStatus": "Pendiente"
     },
     {
         "taskId": 8,
         "user": "rasbil",
         "taskName": "pruebaTarea",
-        "taskType": "DataScience",
+        "taskType": "FrontEnd",
         "creationDate": "2020-03-12",
         "expectedEndDate": "2020-03-17",
         "taskStatus": "Pendiente"
@@ -87,15 +87,6 @@
         "taskType": "FrontEnd",
         "creationDate": "",
         "expectedEndDate": "",
-        "taskStatus": "En ejecucion"
-    },
-    {
-        "taskId": 21,
-        "user": "prueba 21.39",
-        "taskName": "prueba 21.39",
-        "taskType": "FrontEnd",
-        "creationDate": "prueba 21.39",
-        "expectedEndDate": "prueba 21.39",
         "taskStatus": "En ejecucion"
     },
     {

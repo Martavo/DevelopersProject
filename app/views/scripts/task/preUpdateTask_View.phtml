@@ -9,15 +9,15 @@
     <h1>Actualizar Tarea</h1>
     <?php
     $TaskController = new TaskController();
-    $selectedTask = $TaskController->preUpdateTask_viewAction();
-    // var_dump($selectedTask);
+    $tasksFound = $TaskController->preUpdateTask_viewAction();
+    // var_dump($tasksFound);
 
     ?>
         <form action="updateTask" method="post">
             <table>
                 <tr>
                     <td>
-                        <input type="hidden" name="taskId" value="<?php echo $selectedTask["taskId"]; ?>">
+                        <input type="hidden" name="taskId" value="<?php echo $tasksFound["taskId"]; ?>">
                     </td>
                     <td>
                     </td>
@@ -25,29 +25,18 @@
                 <tr>
                     <td>
                         <label>Usuario:</label>
-                        <input type="text" value="<?php echo htmlspecialchars($selectedTask["user"]); ?>">
-                    </td>
-                    <td>
-                        <label for="user">Cambiar por:</label>
-                        <input type="text" name="user">
+                        <input type="text" name="user" value="<?php echo htmlspecialchars($tasksFound["user"]); ?>">
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <label>Nombre de la Tarea:</label>
-                        <input type="text" value="<?php echo htmlspecialchars($selectedTask["taskName"]); ?>">
-                    </td>
-                    <td>
-                        <label for="taskName">Cambiar por:</label>
-                        <input type="text" name="taskName">
+                        <input type="text" name="taskName" value="<?php echo htmlspecialchars($tasksFound["taskName"]); ?>">
                     </td>
                 </tr>
                 <tr>
                     <td>
                     <label>Tipo de Tarea:</label>
-                        <input type="text" value="<?php echo htmlspecialchars($selectedTask["taskType"]); ?>">
-                    </td>
-                    <td>
                         <select name="taskType">
                             <option value="FrontEnd">FrontEnd</option>
                             <option value="BackEnd">BackEnd</option>
@@ -58,29 +47,18 @@
                 <tr>
                     <td>
                         <label>Fecha creacion tarea:</label>
-                        <input type="text" value="<?php echo htmlspecialchars($selectedTask["creationDate"]); ?>">
-                    </td>
-                    <td>
-                        <label for="creationDate">Cambiar por:</label>
-                        <input type="text" name="creationDate">
+                        <input type="text" name="creationDate" value="<?php echo htmlspecialchars($tasksFound["creationDate"]); ?>">
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <label>Fecha fin prevista:</label>
-                        <input type="text" value="<?php echo htmlspecialchars($selectedTask["expectedEndDate"]); ?>">
-                    </td>
-                    <td>
-                        <label for="expectedEndDate">Cambiar por:</label>
-                        <input type="text" name="expectedEndDate">
+                        <input type="text" name="expectedEndDate" value="<?php echo htmlspecialchars($tasksFound["expectedEndDate"]); ?>">
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <label for="taskStatus">Estado de la Tarea:</label>
-                        <input type="text" value="<?php echo htmlspecialchars($selectedTask["taskStatus"]); ?>">
-                    </td>
-                    <td>
                         <select name="taskStatus">
                             <option value="Pendiente">Pending</option>
                             <option value="Finalizada">Finished</option>

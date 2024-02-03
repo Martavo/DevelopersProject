@@ -100,6 +100,7 @@ class UserController extends Controller
                     }
                     $i++;
                 }
+                session_destroy();
 
                 if ($isValidated) {
                     // Usuario autenticado correctamente
