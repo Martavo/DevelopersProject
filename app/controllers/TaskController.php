@@ -22,7 +22,6 @@ class TaskController extends Controller
             header("location:loginUsersForm_View");
     
         }else{
-            // echo "estas en TaskController->tasksList_ViewAction()";
              $toDo = $this->toDo;
             return $arrayTasks = $toDo->getTasks();
             // var_dump($arrayTasks);
@@ -76,11 +75,12 @@ class TaskController extends Controller
 
     public function UpdateTask_viewAction()
     {
+
         if (isset($_GET["taskId"])) {
             $taskId = $_GET["taskId"];
             $tasksFound = $this->toDo->searchTask($taskId); 
                 
-            return $tasksFound;
+            return $tasksFound; //lo enviara a la vista para que imprima el registro elegido para modificar
         }
     }
 
@@ -90,13 +90,14 @@ class TaskController extends Controller
         if(isset($_POST["taskId"]))
         {    
             $toDo = $this->toDo;
-            $taskId= (int) $_POST["taskId"];//casteamos el valor a int ya que el POST lo devuelve como string
-            $user= $_POST["user"];
-            $taskName= $_POST["taskName"];
-            $taskType= $_POST["taskType"];
-            $creationDate= $_POST["creationDate"];
-            $expectedEndDate= $_POST["expectedEndDate"];
-            $statusTask= $_POST["taskStatus"];
+            // Recogemos todos los valores recibidos de la vista incluyendo los modificados para hacer el cambio en la BBDD
+                $taskId= (int) $_POST["taskId"];//casteamos el valor a int ya que el POST lo devuelve como string
+                $user= $_POST["user"];
+                $taskName= $_POST["taskName"];
+                $taskType= $_POST["taskType"];
+                $creationDate= $_POST["creationDate"];
+                $expectedEndDate= $_POST["expectedEndDate"];
+                $statusTask= $_POST["taskStatus"];
     
             $updatedTask =[
                 "taskId" =>$taskId,
@@ -116,7 +117,7 @@ class TaskController extends Controller
         }
     }
 
-    // METODOS DE FILTRAR >>>>>>>>>>>>>>>>>
+// METODOS DE FILTRAR >>>>>>>>>>>>>>>>>
     public function filterByUser_ViewAction()
     {
         if(isset($_GET["filteredUser"])){

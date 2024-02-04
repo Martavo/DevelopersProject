@@ -11,6 +11,12 @@
 <body class="bg-gray-100 flex items-center justify-center flex-col mc-auto ">
     <div class="flex mt-6 mr-auto ml-7">
         <?php
+        if(!isset($_SESSION["user"])){ //Impide copiado url paginas restringidas a usuarios validados: si no se ha iniciado una sesion validada redirigirá al usuario al formulario del login
+
+            header("location:loginUsersForm_View");
+
+        }
+
         $usuario = $_SESSION['user'];
 
         echo "<p class='text-left text-4xl text-black'>Sesion iniciado por: $usuario</p>"

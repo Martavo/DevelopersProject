@@ -27,31 +27,22 @@
         "taskStatus": "Pendiente"
     },
     {
-        "taskId": 12,
-        "user": "ana",
-        "taskName": "crear boton",
-        "taskType": "BackEnd",
-        "creationDate": "2023-01-12",
-        "expectedEndDate": "2023-01-15",
-        "taskStatus": "Pendiente"
-    },
-    {
         "taskId": 13,
         "user": "",
         "taskName": "",
         "taskType": "FrontEnd",
         "creationDate": "",
         "expectedEndDate": "",
-        "taskStatus": "En ejecucion"
+        "taskStatus": "Pendiente"
     },
     {
         "taskId": 14,
-        "user": "",
+        "user": "prueba 16.55",
         "taskName": "",
         "taskType": "FrontEnd",
         "creationDate": "",
         "expectedEndDate": "",
-        "taskStatus": "En ejecucion"
+        "taskStatus": "Pendiente"
     },
     {
         "taskId": 15,
