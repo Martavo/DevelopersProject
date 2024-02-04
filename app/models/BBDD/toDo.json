@@ -36,31 +36,13 @@
         "taskStatus": "Pendiente"
     },
     {
-        "taskId": 14,
-        "user": "prueba 16.55",
+        "taskId": 15,
+        "user": "prueba 20.48",
         "taskName": "",
         "taskType": "FrontEnd",
         "creationDate": "",
         "expectedEndDate": "",
         "taskStatus": "Pendiente"
-    },
-    {
-        "taskId": 15,
-        "user": "",
-        "taskName": "",
-        "taskType": "FrontEnd",
-        "creationDate": "",
-        "expectedEndDate": "",
-        "taskStatus": "En ejecucion"
-    },
-    {
-        "taskId": 16,
-        "user": "prueba",
-        "taskName": "",
-        "taskType": "FrontEnd",
-        "creationDate": "",
-        "expectedEndDate": "",
-        "taskStatus": "En ejecucion"
     },
     {
         "taskId": 17,
@@ -111,6 +93,15 @@
         "taskId": 25,
         "user": "",
         "taskName": "",
+        "taskType": "--",
+        "creationDate": "",
+        "expectedEndDate": "",
+        "taskStatus": "--"
+    },
+    {
+        "taskId": 26,
+        "user": "prueba 20.48",
+        "taskName": "prueba 20.48",
         "taskType": "--",
         "creationDate": "",
         "expectedEndDate": "",

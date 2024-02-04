@@ -52,7 +52,6 @@ class UserController extends Controller
 
     public function deleteUserAction()
     {
-        session_start();
         $usuario = $_SESSION['user'];
         $userFound = $this->userManager->searchByUser($usuario);
 
