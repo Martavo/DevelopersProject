@@ -14,6 +14,12 @@
     </div>
     <div class="text-4xl mb-8 mt-10 text-center">ACTUALIZAR TAREA</div>
     <?php
+    if(!isset($_SESSION["user"])){ //Impide copiado url paginas restringidas a usuarios validados: si no se ha iniciado una sesion validada redirigirá al usuario al formulario del login
+
+        header("location:loginUsersForm_View");
+
+    }
+    
     $TaskController = new TaskController();
     $tasksFound = $TaskController->UpdateTask_viewAction();
     
