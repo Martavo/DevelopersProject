@@ -15,9 +15,15 @@
             Volver al tablón de tareas
         </a>
     </div>
-    <?php
-    $usuario = $_SESSION['user'];
 
+    <?php
+    if(!isset($_SESSION["user"])){ //Impide copiado url paginas restringidas a usuarios validados: si no se ha iniciado una sesion validada redirigirá al usuario al formulario del login
+
+        header("location:loginUsersForm_View");
+
+    }
+    
+    $usuario = $_SESSION['user'];
     ?>
 
     <div class="text-5xl mb-8 mt-10 text-center">PORTAL DEL USUARIO</div>
