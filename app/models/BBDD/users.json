@@ -1,7 +1,7 @@
 [
     {
         "nickName": "pepe",
-        "password": "paco"
+        "password": "pepe"
     },
     {
         "nickName": "lelo",
@@ -30,9 +30,5 @@
     {
         "nickName": "marta",
         "password": "1234"
-    },
-    {
-        "nickName": "marta",
-        "password": "123"
     }
 ]
