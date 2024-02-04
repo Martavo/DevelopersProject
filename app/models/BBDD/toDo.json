@@ -1,110 +1,29 @@
 [
     {
-        "taskId": 1,
-        "user": "pirpol",
-        "taskName": "Creacion boton enviar",
-        "taskType": "FrontEnd",
-        "creationDate": "2013-11-03",
-        "expectedEndDate": "2013-11-07",
-        "taskStatus": "Pendiente"
-    },
-    {
-        "taskId": 2,
-        "user": "diegdar",
-        "taskName": "Creacion clase conexion datos",
-        "taskType": "BackEnd",
-        "creationDate": "2013-08-07",
-        "expectedEndDate": "2013-08-14",
-        "taskStatus": "En ejecucion"
-    },
-    {
-        "taskId": 3,
-        "user": "lirvel",
-        "taskName": "Analisis datos ingresos marzo",
-        "taskType": "DataScience",
-        "creationDate": "2013-03-09",
-        "expectedEndDate": "2013-03-15",
-        "taskStatus": "Finalizada"
-    },
-    {
-        "taskId": 4,
-        "user": "ribol",
-        "taskName": "Crear funcion sumar",
-        "taskType": "BackEnd",
-        "creationDate": "2022-11-04",
-        "expectedEndDate": "2022-12-15",
-        "taskStatus": "En ejecucion"
-    },
-    {
-        "taskId": 5,
-        "user": "ribol",
-        "taskName": "Crear funcion sumar",
-        "taskType": "BackEnd",
-        "creationDate": "2022-11-04",
-        "expectedEndDate": "2022-12-15",
-        "taskStatus": "En ejecucion"
-    },
-    {
-        "taskId": 6,
-        "user": "rasbil",
-        "taskName": "pruebaTarea",
-        "taskType": "DataScience",
-        "creationDate": "2020-03-12",
-        "expectedEndDate": "2020-03-17",
-        "taskStatus": "Pendiente"
-    },
-    {
-        "taskId": 7,
-        "user": "ribol",
-        "taskName": "Crear funcion sumar",
-        "taskType": "BackEnd",
-        "creationDate": "2022-11-04",
-        "expectedEndDate": "2022-12-15",
-        "taskStatus": "En ejecucion"
-    },
-    {
         "taskId": 8,
         "user": "rasbil",
-        "taskName": "pruebaTarea",
-        "taskType": "DataScience",
-        "creationDate": "2020-03-12",
-        "expectedEndDate": "2020-03-17",
+        "taskName": "Maquetar login usuario",
+        "taskType": "FrontEnd",
+        "creationDate": "2024-01-16",
+        "expectedEndDate": "2024-01-20",
         "taskStatus": "Pendiente"
     },
     {
         "taskId": 9,
-        "user": "ribol",
-        "taskName": "Crear funcion sumar",
-        "taskType": "BackEnd",
-        "creationDate": "2022-11-04",
-        "expectedEndDate": "2022-12-15",
-        "taskStatus": "En ejecucion"
+        "user": "pol45",
+        "taskName": "Exportar datos",
+        "taskType": "FrontEnd",
+        "creationDate": "2024-01-15",
+        "expectedEndDate": "2024-01-17",
+        "taskStatus": "En ejecuci\u00f3n"
     },
     {
         "taskId": 10,
-        "user": "rasbil",
-        "taskName": "pruebaTarea",
-        "taskType": "DataScience",
-        "creationDate": "2020-03-12",
-        "expectedEndDate": "2020-03-17",
-        "taskStatus": "Pendiente"
-    },
-    {
-        "taskId": 11,
-        "user": "Xavi",
-        "taskName": "crear archivo Actualizar Tarea",
+        "user": "lole",
+        "taskName": "Crear metodos usuario",
         "taskType": "BackEnd",
-        "creationDate": "2013-11-05",
-        "expectedEndDate": "2013-11-09",
-        "taskStatus": "Pendiente"
-    },
-    {
-        "taskId": 12,
-        "user": "ana",
-        "taskName": "crear boton",
-        "taskType": "BackEnd",
-        "creationDate": "2023-01-12",
-        "expectedEndDate": "2023-01-15",
-        "taskStatus": "Pendiente"
+        "creationDate": "2024-01-02",
+        "expectedEndDate": "2024-01-07",
+        "taskStatus": "Finalizada"
     }
 ]

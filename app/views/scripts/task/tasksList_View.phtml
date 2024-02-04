@@ -1,117 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="hoja.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css">
     <title>Lista de Tareas</title>
 </head>
-<body>
-    
-<?php
-require_once "../app/controllers/ApplicationController.php";
 
-    // INSERTAR REGISTROS -------------------
-    if(isset($_POST["cr"])){ //Si se ha pulsado el boton insertar
-        $user= $_POST["user"];
-        $taskName= $_POST["taskName"];
-        $taskType= $_POST["taskType"];
-        $creationDate= $_POST["creationDate"];
-        $expectedEndDate= $_POST["expectedEndDate"];
-        $statusTask= $_POST["statusTask"];
+<body class="bg-gray-100 flex items-center justify-center flex-col mc-auto ">
+    <div class="flex mt-6 mr-auto ml-7">
+        <?php
 
-        $toDo->createTask(new Task(
-            $taskName,
-            $taskType,
-            $creationDate,
-            $expectedEndDate,
-            $statusTask,
-        ),
-        $user);
+        $usuario = $_SESSION['user'];
 
-        // hacemos que se dirija a esta misma pagina para que actualice la página con los nuevo datos insertados
-        header("location:index.php");
-    }
-    
-    // FIN INSERTAR REGISTROS --------------
-    
-?>
+        echo "<p class='text-left text-4xl text-black'>Hola $usuario, bienvenid@!!</p>"
+        ?>
+    </div>
 
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"> 
-  <table width="50%">
-    <tr >
-      <td class="primera_fila">Nº Tarea</td>
-      <td class="primera_fila">Usuario</td>
-      <td class="primera_fila">Tarea</td>
-      <td class="primera_fila">Tipo de Tarea</td>
-      <td class="primera_fila">Fecha de Creacion</td>
-      <td class="primera_fila">Fecha Fin Prevista</td>
-      <td class="primera_fila">Estado de la tarea</td>
-      <td class="sin">&nbsp;</td>
-      <td class="sin">&nbsp;</td>
-      <td class="sin">&nbsp;</td>
-    </tr> 
+    <div class="flex mt-1 mr-4 ml-auto">
+        <a href="closeUserSession" class=" bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500 mr-5 ">
+            Cerrar sessión
+        </a>
+        <a href="userProfile_View" class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500">
+            Portal del Usuario
+        </a>
+    </div>
 
-<!--filas de inserccion datos  -->    
-    <tr>
-      <td></td>
-        <td><input type='text' name='user' size='10' class='centrado'></td>
-        <td><input type='text' name='taskName' size='10' class='centrado'></td>
-        <td>
-            <select name="taskType" id="taskType" size='10' class='centrado'>
-                <option value="FrontEnd">FrontEnd</option>
-                <option value="BackEnd">BackEnd</option>
-                <option value="DataScience">Data Science</option>
-            </select>
-        </td>
-        <td><input type='text' name='creationDate' size='10' class='centrado'></td>
-        <td><input type='text' name='expectedEndDate' size='10' class='centrado'></td>
-        <td>
-            <select name="statusTask" id="statusTask" size='10' class='centrado'>
-                <option value="En ejecucion">En ejecucion</option>
-                <option value="Pendiente">Pendiente</option>
-                <option value="Finalizada">Finalizada</option>
-            </select>
-        </td>
-        <td class='bot'><input type='submit' name='cr' id='cr' value='Insertar'></td>
-    </tr>    
+    <div class="text-6xl font-bold text-black mb-8 mt-10 text-center">PANEL DE TAREAS</div>
 
-		<?php 
-      $TaskController = new TaskController();
-      $arrayTasks = $TaskController->tasksList_ViewAction();
+    <!-- Filas de titulos de columnas -->
 
-      foreach($arrayTasks as $task): ?>
-   	<tr>
-     <td><?php echo $task['taskId']?></td>
-      <td><?php echo $task['user']?></td>
-      <td><?php echo $task['taskName']?></td>
-      <td><?php echo $task['taskType']?></td>
-      <td><?php echo $task['creationDate']?></td>
-      <td><?php echo $task['expectedEndDate']?></td>
-      <td><?php echo $task['taskStatus']?></td>
-      <td class="bot">
-        <a href="..\..\app\models\actions\deleteTask.php?taskId=<?php echo $task['taskId']?>" onclick="return confirmDelete(<?php echo $task['taskId']?>);">
-        <input type='button' name='del' id='del' value='Borrar'>
-      </a>
-      </td>
-      <td class='bot'>
-        <a href="../../app/models/actions/updateTask.php?taskId=<?php echo $task['taskId']?> & user=<?php echo $task['user']?> & taskName=<?php echo $task['taskName']?> & taskType=<?php echo $task['taskType']?> & creationDate=<?php echo $task['creationDate']?> & expectedEndDate=<?php echo $task['expectedEndDate']?> & taskStatus=<?php echo $task['taskStatus']?>">
-        <input type='button' name='up' id='up' value='Actualizar'>
-      </a>
-      </td>
-    </tr>
-    <?php
-    endforeach
-    ?>
-  </table>
-</form>
+    <form action="insertTask" method="post">
+        <table class="w-full border-collapse border border-blue-200">
+            <tr class="bg-gray-100">
+                <th class="py-2 px-4">Usuario</th>
+                <th class="py-2 px-4">Tarea</th>
+                <th class="py-2 px-4">Tipo de Tarea</th>
+                <th class="py-2 px-4">Fecha de Creación</th>
+                <th class="py-2 px-4">Fecha Fin Prevista</th>
+                <th class="py-2 px-4">Estado de la tarea</th>
+                <th class="py-2 px-4"></th>
+                <th class="py-2 px-4"></th>
+            </tr>
+            <tr class="bg-gray-100">
 
-<!-- Ventana emergente para confirmar borrado de registro -->
-<script>
-function confirmDelete(id) {
-  return confirm("¿Estás seguro de que deseas borrar la tarea numero: " + id + "?");
-}
-</script>
+                <!-- Filas de filtrar datos -->
+                <td>
+                    <div class="flex items-center">
+                        <a href="#" onclick="filterByUser()" title="Filtrar" class="mr-2">
+                            <img src="../web/images/filtrar.png" alt="Icono de filtro" class="w-5 h-5">
+                        </a>
+                        <input type='text' id='filteredUser' class='px-0.5 py-2 border border-blue-200 rounded'>
+                    </div>
+                </td>
+                <td>
+                    <div class="flex items-center">
+                        <a href="#" onclick="filterByTaskName()" title="Filtrar" class="mr-2">
+                            <img src="../web/images/filtrar.png" alt="Icono de filtro" class="w-5 h-5">
+                        </a>
+                        <input type='text' id='filteredTaskName' class='px-0.5 py-2 border border-blue-200 rounded'>
+                    </div>
+                </td>
+                <td class="flex items-center">
+                    <a href="#" onclick="filterByTaskType()" class="mr-2">
+                        <img src="../web/images/filtrar.png" alt="Icono de filtro" class="w-5 h-5">
+                    </a>
+                    <select name="filteredTaskType" id="filteredTaskType" class='px-4 py-2 border border-blue-200 rounded'>
+                        <option value="--">--Escoje un valor--</option>
+                        <option value="FrontEnd">FrontEnd</option>
+                        <option value="BackEnd">BackEnd</option>
+                        <option value="DataScience">Data Science</option>
+                    </select>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <!-- Filas de inserción de datos -->
+            <tr>
+                <td><input type='text' name='user' class='px-4 py-2 border border-blue-200 rounded'></td>
+                <td><input type='text' name='taskName' class='px-4 py-2 border border-blue-200 rounded'></td>
+                <td>
+                    <select name="taskType" id="taskType" class='w-full px-4 py-2 border border-blue-200 rounded'>
+                        <option value="--">--Escoje un valor--</option>
+                        <option value="FrontEnd">FrontEnd</option>
+                        <option value="BackEnd">BackEnd</option>
+                        <option value="DataScience">Data Science</option>
+                    </select>
+                </td>
+                <td><input type='text' name='creationDate' class='px-4 py-2 border border-blue-200 rounded'></td>
+                <td><input type='text' name='expectedEndDate' class='px-4 py-2 border border-blue-200 rounded'></td>
+                <td>
+                    <select name="statusTask" id="statusTask" class='px-4 py-2 border border-blue-200 rounded'>
+                        <option value="--">--Escoje un valor--</option>
+                        <option value="En ejecucion">En ejecucion</option>
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="Finalizada">Finalizada</option>
+                    </select>
+                </td>
+                <td class='py-2 px-4'><input type='submit' name='cr' id='cr' value='Insertar' class='bg-blue-200 text-white px-7 py-2 rounded hover:bg-blue-300'></td>
+            </tr>
+
+            <?php
+            $TaskController = new TaskController();
+            $arrayTasks = $TaskController->tasksList_ViewAction();
+            if ($arrayTasks !== null) :
+                foreach ($arrayTasks as $task) : ?>
+                    <tr>
+                        <td class="text-center"><?php echo $task['user'] ?></td>
+                        <td class="text-center"><?php echo $task['taskName'] ?></td>
+                        <td class="text-center"><?php echo $task['taskType'] ?></td>
+                        <td class="text-center"><?php echo $task['creationDate'] ?></td>
+                        <td class="text-center"><?php echo $task['expectedEndDate'] ?></td>
+                        <td class="text-center"><?php echo $task['taskStatus'] ?></td>
+                        <td class="py-2 px-4">
+                            <a href="deleteTask?taskId=<?php echo $task['taskId'] ?>&taskName=<?php echo $task['taskName'] ?>" onclick="return confirmDelete('<?php echo $task['taskName'] ?>');">
+                                <input type='button' name='del' id='del' value='Borrar' class='bg-red-500 text-white px-8 py-2 rounded hover:bg-red-300'>
+                            </a>
+                        </td>
+                        <td class='py-2 px-4 text-center'>
+                            <a href="UpdateTask_View?taskId=<?php echo $task['taskId'] ?> & user=<?php echo $task['user'] ?> & taskName=<?php echo $task['taskName'] ?> & taskType=<?php echo $task['taskType'] ?> & creationDate=<?php echo $task['creationDate'] ?> & expectedEndDate=<?php echo $task['expectedEndDate'] ?> & taskStatus=<?php echo $task['taskStatus'] ?>">
+                                <input type='button' name='up' id='up' value='Actualizar' class='bg-green-500 text-white px-4 py-2 rounded hover:bg-green-300'>
+                            </a>
+                        </td>
+                    </tr>
+            <?php endforeach;
+            endif; ?>
+        </table>
+    </form>
+    </div>
+
+    <!-- Ventana emergente para confirmar borrado de registro -->
+    <script>
+        function confirmDelete(taskname) {
+            return confirm("¿Estás seguro de que deseas borrar la tarea: " + taskname + "?");
+        }
+
+        function filterByUser() {
+            let filteredUser = document.getElementById("filteredUser").value;
+
+            if (filteredUser != "") {
+                window.location.href = "filterByUser_View?filteredUser=" + filteredUser;
+            } else {
+                alert("Para filtrar debes introducir algun dato!");
+            }
+        }
+
+        function filterByTaskName() {
+            let filteredTaskName = document.getElementById("filteredTaskName").value;
+
+            if (filteredTaskName != "") {
+                window.location.href = "filterByTaskName_View?filteredTaskName=" + filteredTaskName;
+            } else {
+                alert("Para filtrar debes introducir algun dato!");
+            }
+        }
+
+        function filterByTaskType() {
+            let filteredTaskType = document.getElementById("filteredTaskType").value;
+
+            if (filteredTaskType != "--") {
+                window.location.href = "filterByTaskType_View?filteredTaskType=" + filteredTaskType;
+            } else {
+                alert("Para filtrar debes introducir algun dato!");
+            }
+        }
+    </script>
 
 </body>
+
 </html>

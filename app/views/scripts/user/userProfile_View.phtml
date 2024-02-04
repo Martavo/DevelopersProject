@@ -1,52 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css">
     <title>Espacio del Usuario</title>
-    <style>
-        h1 {
-            text-align: center;
-        }
-        table {
-            width: 25%;
-            background-color: #FFC;
-            border: 2px dotted #F00;
-            margin: auto;
-        }
-        .izq {
-            text-align: right;
-        }
-        .der {
-            text-align: left;
-        }
-        td {
-            text-align: center;
-            padding: 10px;
-        }
-    </style>
+
 </head>
-<body>
-    <h1>Espacio del Usuario</h1>
 
-    <table>
-        <tr>
-            <td colspan="2">
-            <a href="/updateUserProfile> <input type=" button" value=">Actualizar Perfil"></a>
+<body class="bg-blue-200 dark:bg-gray-900 flex flex-col items-center justify-center flex-col">
+    <div class="mr-auto mt-4 ml-4">
+        <a href="tasksList_View" class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500">
+            Volver al tablón de tareas
+        </a>
+    </div>
 
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-               <a href="deleteUser" =<?php echo $task['taskId']?>" onclick="return confirmDelete(<?php echo $task['taskId']?>);">
-                <input type='button' name='del' id='del' value='Borrar'></a>
+    <?php
+    if(!isset($_SESSION["user"])){ //Impide copiado url paginas restringidas a usuarios validados: si no se ha iniciado una sesion validada redirigirá al usuario al formulario del login
 
-            </td>
-        </tr>
-    </table>
+        header("location:loginUsersForm_View");
+
+    }
+    
+    $usuario = $_SESSION['user'];
+    ?>
+
+    <div class="text-5xl mb-8 mt-10 text-center">PORTAL DEL USUARIO</div>
+
+    <div class="flex justify-around">
+        <!-- Div "Cambiar datos de usuario" -->
+        <form action="updateUser" method="post">
+            <div class="bg-white mt-10 mr-12 rounded-lg shadow-md flex flex-col justify-start p-6 py-10 lg:px-25 border-5">
+                <div class="text-2xl mb-8 mt-15 text-center">Cambiar datos de usuario</div>
+                <div class="mb-4">
+                    <label for="newNickName" class="block text-center">Nuevo Usuario:</label>
+                    <input type="text" id="newNickName" name="newNickName" value="" class="w-80 text-xl px-4 py-2 border rounded text-center">
+                </div>
+                <div class="mb-4">
+                    <label for="newPassword" class="block text-center">Nueva Contraseña:</label>
+                    <input type="password" id="newPassword" name="newPassword" value="" class="w-80 text-xl px-4 py-2 border rounded text-center">
+                </div>
+                <!-- Agrega el input oculto con el nickName actual -->
+                <input type="hidden" name="nickName" value="<?php echo $usuario; ?>">
+                <div>
+                    <button type="submit" class="bg-blue-300 text-white w-40 py-2 rounded hover:bg-blue-500 mx-auto flex items-center justify-center">
+                        Actualizar datos
+                    </button>
+                </div>
+            </div>
+        </form>
+
+
+        <!-- Div "Borrar perfil del usuario" -->
+        <div class="bg-white mt-10 ml-12 rounded-lg shadow-md flex flex-col text-center p-6 py-10 lg:px-25 border-5">
+            <div class="text-2xl mb-8 mt-10 text-center flex items-center justify-center">Borrar perfil del usuario</div>
+            <a href="deleteUser" onclick="return confirmDelete('<?php echo $usuario; ?>');" class="flex items-center justify-center">
+                <input type="button" name="del" id="del" value="Eliminar" class="bg-blue-300 text-white w-15 px-4 py-2 rounded hover:bg-blue-500 mx-auto ">
+            </a>
+        </div>
+    </div>
+
     <script>
-    function confirmDelete(id) {
-    return confirm("¿Estás seguro de que deseas eliminar el perfil?");}
-</script>
+        function confirmDelete(id) {
+            return confirm("¿Estás seguro de que deseas eliminar el perfil?");
+        }
+    </script>
 </body>
+
 </html>

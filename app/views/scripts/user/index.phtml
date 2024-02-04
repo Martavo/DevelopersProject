@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>Welcome to ToDoList</title>
-    <link rel="stylesheet"  href="mystyle.css"/>
-  </head>
-  <body class="bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
-    <div class="bg-white rounded-lg shadow-md flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+
+</head>
+
+<body class="bg-blue-200 dark:bg-gray-900 flex items-center justify-center">
+    <div class="bg-white mt-10 rounded-lg shadow-md flex flex-col justify-center p-6 py-24 lg:px-36 mx-auto border-5">
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-            <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">To Do List Manager</h2>
+            <h2 class="mt-10 text-center text-4xl font-bold leading-9 tracking-tight text-gray-900">GESTOR DE TAREAS</h2>
         </div>
         <br><br>
 
-        <div>
-            <a href="createUsersForm_View" class="flex w-full justify-center rounded-md bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 px-3 py-1.5 text-sm font-semibold leading-6 text-black shadow-sm group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400">Register</a>
-            <br><br>
-            <a href="loginUsersForm_View" class="flex w-full justify-center rounded-md bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 px-3 py-1.5 text-sm font-semibold leading-6 text-black shadow-sm group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400">Log in</a>
+        <div class="text-xl">
+            <a href="loginUsersForm_View" class="flex w-full justify-center rounded-sm bg-gray-300 py-2 font-semibold leading-6 hover:bg-blue-300 mb-7">Inicio de sesión</a>
+            <a href="createUsersForm_View" class="flex w-full justify-center rounded-sm bg-gray-300 py-2 font-semibold leading-6 hover:bg-blue-300 mt-5">Registro</a>
         </div>
-
-
     </div>
+</body>
 
 </html>

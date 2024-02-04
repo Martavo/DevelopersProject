@@ -1,22 +1,38 @@
 [
     {
-        "userId":1,
-        "nickName": "pirpol",
+        "nickName": "pepe",
+        "password": "pepe"
+    },
+    {
+        "nickName": "lelo",
+        "password": "kaka"
+    },
+    {
+        "nickName": "Lole",
+        "password": "12345"
+    },
+    {
+        "nickName": "pablito",
+        "password": "1245"
+    },
+    {
+        "nickName": "piropi",
         "password": "1234"
     },
     {
-        "userId":2,
-        "nickName": "diegdar",
-        "password": "h45Xl"
+        "nickName": "maria",
+        "password": "1234"
     },
     {
-        "userId":3,
-        "nickName": "lirvel",
-        "password": "mmv11L"
+        "nickName": "marta",
+        "password": "1234"
     },
     {
-        "userId":4,
-        "nickName": "ribol",
-        "password": "nns42l"
+        "nickName": "marta",
+        "password": "12"
+    },
+    {
+        "nickName": "pol45",
+        "password": "1997"
     }
 ]

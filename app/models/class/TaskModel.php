@@ -1,5 +1,15 @@
 <?php
+enum TaskType: string {
+    case FrontEnd = 'FrontEnd';
+    case BackEnd = 'BackEnd';
+    case DataScience = 'DataScience';
+}
 
+enum TaskStatus: string {
+    case Pending = 'Pendiente';
+    case Finished = 'Finalizada';
+    case InProcess = 'En Ejecucion';
+}
 
 class Task
 {
@@ -27,7 +37,7 @@ class Task
 
     public function getLastTaskId(): int
     {
-        $tasks = json_decode(file_get_contents('../app/models/BBDD/toDo.json'), true);
+        $tasks = json_decode(file_get_contents(__DIR__ . '../../BBDD/toDo.json'), true);
 
         $lastTask = end($tasks);
         $lastTaskId = $lastTask["taskId"];
