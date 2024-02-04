@@ -64,20 +64,20 @@ class UserController extends Controller
     public function updateUserAction()
     {  
         $usuario = $_SESSION['user'];
-
+    
         $userFound = $this->userManager->searchByUser($usuario);
-
-        if (isset($_POST["newNickName"]) || isset($_POST["newPassword"])) {
-            $newNickName = $_POST["newNickName"];
-            $newPassword = $_POST["newPassword"];
-        
-            $newDataUser = new User($newNickName, $newPassword);
-            $this->userManager->updateDataUser($newDataUser, $userFound);
-
-           header("location: userIndex");
-        } else {
-            header("location: userProfile_View");
-        }
+    
+        $currentNickName = isset($userFound['nickName']) ? $userFound['nickName'] : '';
+        $currentPassword = isset($userFound['password']) ? $userFound['password'] : '';
+    
+        $newNickName = isset($_POST["newNickName"]) && !empty($_POST["newNickName"]) ? $_POST["newNickName"] : $currentNickName;
+        $newPassword = isset($_POST["newPassword"]) && !empty($_POST["newPassword"]) ? $_POST["newPassword"] : $currentPassword;
+    
+    
+        $newDataUser = new User($newNickName, $newPassword);
+        $this->userManager->updateDataUser($newDataUser, $userFound);
+    
+        header("location: userIndex");
     }
 
     public function checkLoginAction()
