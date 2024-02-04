@@ -107,6 +107,24 @@ class User
         return $userfound;
     }
 
+    public function checkLogin($nickName, $password): bool
+    {
+        $users = $this->getUsers();
+
+        $isValidated = false;
+        $longArray = count($users);
+        $i = 0;
+        while ($isValidated == false && $i < $longArray) {
+            if ($users[$i]['nickName'] === $nickName && $users[$i]['password'] === $password) {
+                $isValidated = true;
+            }
+            $i++;
+        }
+
+        return $isValidated;
+
+    }
+
     
 
 

@@ -87,28 +87,20 @@ class UserController extends Controller
                 $nickName = isset($_POST['usuario']) ? $_POST['usuario'] : '';
                 $password = isset($_POST['password']) ? $_POST['password'] : '';
                 // Obtener la lista de usuarios
-                $users = $this->userManager->getUsers();
 
-                $isValidated = false;
-                $longArray = count($users);
-                $i = 0;
-                while ($isValidated == false && $i < $longArray) {
-                    if ($users[$i]['nickName'] === $nickName && $users[$i]['password'] === $password) {
-                        $isValidated = true;
-                    }
-                    $i++;
-                }
-                session_destroy();
+                $isValidated = $this->userManager->checkLogin($nickName, $password);
 
                 if ($isValidated) {
-                    // Usuario autenticado correctamente
+                    // destruye cualquier sesion antigua iniciada
+                    session_destroy();
+                    // Inicia una nueva sesion
                     session_start();
                     $_SESSION["user"] = $nickName;
                     header("location: tasksList_View");
                 } else {
                     // Usuario no autenticado, redirigir a la página de inicio de sesión
-                    header("location: loginUsersForm_View");
-                    echo "usuario incorrecto";
+                    header("location: loginUsersForm_View?error");
+
                 }
             } catch (Exception $e) {
 
@@ -119,8 +111,6 @@ class UserController extends Controller
 
     public function closeUserSessionAction()
     {
-        // Reanuda la sesion que esta abierta, para que identifique que sesion tiene que cerrar
-        session_start();
         // cierra la sesion abierta
         session_destroy();
         // redirige a la pagina del login
