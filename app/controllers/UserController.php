@@ -16,9 +16,9 @@ class UserController extends Controller
     }
 
     public function indexAction()
-{
-    
-}
+    {
+        
+    }
 
     public function loginUsersForm_ViewAction()
     {
