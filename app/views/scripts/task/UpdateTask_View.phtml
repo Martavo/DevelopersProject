@@ -7,6 +7,11 @@
     <title>Actualizar Tarea</title>
 </head>
 <body class="bg-gray-100 flex items-center justify-center flex-col mc-auto">
+    <div class = "mr-auto mt-4 ml-4">
+            <a href="tasksList_View" class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500">
+                Volver al tablón de tareas
+            </a>
+    </div>
     <div class="text-4xl mb-8 mt-10 text-center">ACTUALIZAR TAREA</div>
     <?php
     if(!isset($_SESSION["user"])){ //Impide copiado url paginas restringidas a usuarios validados: si no se ha iniciado una sesion validada redirigirá al usuario al formulario del login
