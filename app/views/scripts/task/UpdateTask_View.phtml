@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css">
+    <title>Actualizar Tarea</title>
+</head>
+<body class="bg-gray-100 flex items-center justify-center flex-col mc-auto">
+    <div class="text-4xl mb-8 mt-10 text-center">ACTUALIZAR TAREA</div>
+    <?php
+    $TaskController = new TaskController();
+    $tasksFound = $TaskController->UpdateTask_viewAction();
+    
+
+    ?>
+    <form action="updateTask" method="post" class="w-full max-w-lg">
+        <input type="hidden" name="taskId" value="<?php echo htmlspecialchars($tasksFound['taskId']); ?>">
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="user">Usuario:</label>
+            <input type="text" name="user" value="<?php echo htmlspecialchars($tasksFound['user']); ?>" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="taskName">Nombre de la Tarea:</label>
+            <input type="text" name="taskName" value="<?php echo htmlspecialchars($tasksFound['taskName']); ?>" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="taskType">Tipo de Tarea:</label>
+            <select name="taskType" class="block appearance-none w-full bg-white border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="taskType">
+                <option value="FrontEnd">FrontEnd</option>
+                <option value="BackEnd">BackEnd</option>
+                <option value="DataScience">DataScience</option>
+            </select>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="creationDate">Fecha creacion tarea:</label>
+            <input type="date" name="creationDate" value="<?php echo htmlspecialchars($tasksFound['creationDate']); ?>" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="expectedEndDate">Fecha fin prevista:</label>
+            <input type="date" name="expectedEndDate" value="<?php echo htmlspecialchars($tasksFound['expectedEndDate']); ?>" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="taskStatus">Estado de la Tarea:</label>
+            <select name="taskStatus" class="block appearance-none w-full bg-white border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="taskStatus">
+                <option value="Pendiente">Pendiente</option>
+                <option value="Finalizada">Finalizada</option>
+                <option value="En Proceso">En Proceso</option>
+            </select>
+        </div>
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Guardar Cambios</button>
+    </form>
+</body>
+</html>

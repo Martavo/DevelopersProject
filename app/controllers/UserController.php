@@ -20,8 +20,6 @@ class UserController extends Controller
     
 }
 
-    
-
     public function loginUsersForm_ViewAction()
     {
         
@@ -54,31 +52,31 @@ class UserController extends Controller
 
     public function deleteUserAction()
     {
-        if (isset($_GET["nickName"])) {
-            $nickName = $_GET["nickName"];
+        session_start();
+        $usuario = $_SESSION['user'];
+        $userFound = $this->userManager->searchByUser($usuario);
 
-            $this->userManager->deleteUser($nickName);
-
-            header("location: userIndex");
-            exit(); 
-        } else {
-            echo "Debe introducir todos los datos";
-        }
+        $this->userManager->deleteUser($userFound);
+        header("location: userIndex");
+       
     }
-
+    
     public function updateUserAction()
-    {
-        if (isset($_GET["nickName"]) && isset($_POST["newNickName"]) || isset($_POST["newPassword"])) {
-            $originalNickName = $_GET["nickName"];
+    {  
+        $usuario = $_SESSION['user'];
+
+        $userFound = $this->userManager->searchByUser($usuario);
+
+        if (isset($_POST["newNickName"]) || isset($_POST["newPassword"])) {
             $newNickName = $_POST["newNickName"];
             $newPassword = $_POST["newPassword"];
+        
+            $newDataUser = new User($newNickName, $newPassword);
+            $this->userManager->updateDataUser($newDataUser, $userFound);
 
-            $updatedUser = new User($newNickName, $newPassword);
-            $this->userManager->updateUser($updatedUser, $originalNickName);
-
-            header("location: userIndex");
+           header("location: userIndex");
         } else {
-            echo "El usuario no se ha podido eliminar";
+            header("location: userProfile_View");
         }
     }
 

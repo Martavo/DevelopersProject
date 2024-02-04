@@ -74,7 +74,7 @@ class TaskController extends Controller
         }
     }
 
-    public function preUpdateTask_viewAction()
+    public function UpdateTask_viewAction()
     {
         if (isset($_GET["taskId"])) {
             $taskId = $_GET["taskId"];

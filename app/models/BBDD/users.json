@@ -1,8 +1,8 @@
 [
     {
         "userId": 1,
-        "nickName": "pirpol",
-        "password": "1234"
+        "nickName": "pepe",
+        "password": "pepe"
     },
     {
         "userId": 2,
@@ -36,11 +36,19 @@
         "password": "1245"
     },
     {
+        "nickName": "piropi",
+        "password": "1234"
+    },
+    {
+        "nickName": "maria",
+        "password": "1234"
+    },
+    {
         "nickName": "marta",
         "password": "1234"
     },
     {
-        "nickName": "piropi",
+        "nickName": "marta",
         "password": "1234"
     }
 ]

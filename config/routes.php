@@ -40,7 +40,7 @@ $routes = array(
 		// Insertar una nueva tarea
 		'/insertTask'=> 'Task#insertTask',
 		// Pre-edicion de una tarea
-		'/preUpdateTask_View'=> 'Task#preUpdateTask_View',
+		'/UpdateTask_View'=> 'Task#UpdateTask_View',
 		// Edicion tarea
 		'/updateTask'=>'Task#updateTask',
 		// FILTROS:

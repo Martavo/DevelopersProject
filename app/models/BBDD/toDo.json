@@ -1,21 +1,21 @@
 [
     {
         "taskId": 1,
-        "user": "pirpol",
-        "taskName": "Creacion boton enviar",
+        "user": "lole",
+        "taskName": "Creacion boton lole",
         "taskType": "FrontEnd",
         "creationDate": "2013-11-03",
-        "expectedEndDate": "2013-11-07",
-        "taskStatus": "Pendiente"
+        "expectedEndDate": "2013-11-21",
+        "taskStatus": "Finalizada"
     },
     {
         "taskId": 6,
-        "user": "prueba 16.52",
-        "taskName": "prueba 17.06",
-        "taskType": "FrontEnd",
-        "creationDate": "prueba 17.06",
-        "expectedEndDate": "prueba 16.52",
-        "taskStatus": "Pendiente"
+        "user": "Xavier",
+        "taskName": "Prueba2",
+        "taskType": "BackEnd",
+        "creationDate": "2024-02-15",
+        "expectedEndDate": "",
+        "taskStatus": "En Proceso"
     },
     {
         "taskId": 8,
@@ -73,12 +73,12 @@
     },
     {
         "taskId": 17,
-        "user": "",
-        "taskName": "",
-        "taskType": "FrontEnd",
-        "creationDate": "",
-        "expectedEndDate": "",
-        "taskStatus": "En ejecucion"
+        "user": "Hola",
+        "taskName": "Boton",
+        "taskType": "BackEnd",
+        "creationDate": "2024-02-17",
+        "expectedEndDate": "2024-02-29",
+        "taskStatus": "En Proceso"
     },
     {
         "taskId": 19,
