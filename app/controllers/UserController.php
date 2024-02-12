@@ -38,7 +38,9 @@ class UserController extends Controller
             $password = $_POST["password"];
     
             if ($this->userManager->userExists($nickName)) {
-                echo "El usuario ya existe. Por favor, elija otro nombre de usuario.";
+                // echo "El usuario ya existe. Por favor, elija otro nombre de usuario.";
+                header("location: loginUsersForm_View?duplicatedUser");
+
             } else {
                 $newUser = new User($nickName, $password);
                 $this->userManager->createUser($newUser);
