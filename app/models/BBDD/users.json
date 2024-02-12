@@ -29,6 +29,38 @@
     },
     {
         "nickName": "marta",
+        "password": "12"
+    },
+    {
+        "nickName": "pol45",
+        "password": "1997"
+    },
+    {
+        "nickName": "lolo",
         "password": "1234"
+    },
+    {
+        "nickName": "kaka",
+        "password": "1234"
+    },
+    {
+        "nickName": "lololo",
+        "password": "yuyu"
+    },
+    {
+        "nickName": "luis",
+        "password": "6789"
+    },
+    {
+        "nickName": "lupita",
+        "password": "2345"
+    },
+    {
+        "nickName": "frijolito",
+        "password": "1111"
+    },
+    {
+        "nickName": "anais",
+        "password": "1111"
     }
 ]

@@ -31,20 +31,23 @@ class UserController extends Controller
     }
 
     
-    
-    public function createUserAction()
-    {
-        if (isset($_POST["usuario"]) && isset($_POST["password"])) {
+
+    public function createUserAction() {
+        if (isset($_POST["usuario"]) && !empty($_POST["usuario"]) && isset($_POST["password"]) && !empty($_POST["password"])) {
             $nickName = $_POST["usuario"];
             $password = $_POST["password"];
-            
     
-            $newUser = new User($nickName, $password);
-            $this->userManager->createUser($newUser);
+            if ($this->userManager->userExists($nickName)) {
+                // echo "El usuario ya existe. Por favor, elija otro nombre de usuario.";
+                header("location: createUsersForm_View?duplicatedUser");
+
+            } else {
+                $newUser = new User($nickName, $password);
+                $this->userManager->createUser($newUser);
     
-            header("location: userIndex");
+                header("location: userIndex?createdUser");
+            }
         } else {
-            
             echo "Debe introducir todos los datos";
         }
     }
@@ -107,6 +110,8 @@ class UserController extends Controller
             }
         }
     }
+
+    
 
     public function closeUserSessionAction()
     {

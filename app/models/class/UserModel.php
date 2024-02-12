@@ -125,6 +125,16 @@ class User
 
     }
 
+    public function userExists($nickName): bool {
+        $users = $this->getUsers();
+        foreach ($users as $user) {
+            if ($user['nickName'] === $nickName) {
+                return true; 
+            }
+        }
+        return false; 
+    }
+
     
 
 
