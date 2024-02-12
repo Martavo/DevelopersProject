@@ -12,9 +12,9 @@
     <div class="flex mt-6 mr-auto ml-7">
         <?php
 
-        $usuario = $_SESSION['user'];
+        $user = $_SESSION['user'];
 
-        echo "<p class='text-left text-4xl text-black'>Hola $usuario, bienvenid@!!</p>"
+        echo "<p class='text-left text-4xl text-black'>Hola $user, bienvenid@!!</p>"
         ?>
     </div>
 
@@ -80,7 +80,7 @@
 
             <!-- Filas de inserción de datos -->
             <tr>
-                <td><input type='text' name='user' class='px-4 py-2 border border-blue-200 rounded'></td>
+                <td><input type='text' name='user' class='px-4 py-2 border border-blue-200 rounded text-center' value="<?php echo $user?>" readonly></td>
                 <td><input type='text' name='taskName' class='px-4 py-2 border border-blue-200 rounded'></td>
                 <td>
                     <select name="taskType" id="taskType" class='w-full px-4 py-2 border border-blue-200 rounded'>

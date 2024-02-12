@@ -20,8 +20,17 @@
     {
         "taskId": 10,
         "user": "lole",
-        "taskName": "Crear metodos usuario",
+        "taskName": "Conectar con la BBDD",
         "taskType": "BackEnd",
+        "creationDate": "2024-01-02",
+        "expectedEndDate": "2024-01-07",
+        "taskStatus": "Finalizada"
+    },
+    {
+        "taskId": 12,
+        "user": "rasbil",
+        "taskName": "Pintar fondo index",
+        "taskType": "FrontEnd",
         "creationDate": "2024-01-02",
         "expectedEndDate": "2024-01-07",
         "taskStatus": "Finalizada"

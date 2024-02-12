@@ -23,8 +23,7 @@ class TaskController extends Controller
     
         }else{
              $toDo = $this->toDo;
-            return $arrayTasks = $toDo->getTasks();
-            // var_dump($arrayTasks);
+            return $arrayTasks = $toDo->getUserTasks();
         }
     
     }
