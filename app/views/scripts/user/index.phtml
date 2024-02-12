@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
 
 </head>
+<style>
+    .invalidUser {
+        color: red;
+        text-align: center;
+        font-size: 1.3em;
+    }
+</style>
 
 <body class="bg-blue-200 dark:bg-gray-900 flex items-center justify-center">
     <div class="bg-white mt-10 rounded-lg shadow-md flex flex-col justify-center p-6 py-24 lg:px-36 mx-auto border-5">
@@ -21,6 +28,13 @@
             <a href="loginUsersForm_View" class="flex w-full justify-center rounded-sm bg-gray-300 py-2 font-semibold leading-6 hover:bg-blue-300 mb-7">Inicio de sesión</a>
             <a href="createUsersForm_View" class="flex w-full justify-center rounded-sm bg-gray-300 py-2 font-semibold leading-6 hover:bg-blue-300 mt-5">Registro</a>
         </div>
+    </div>
+    <div>
+        <?php
+        if (isset($_GET['createdUser'])) {
+            echo "<p class='invalidUser'>Se ha creado el usuario correctamente!</p>";
+        }
+        ?>
     </div>
 </body>
 

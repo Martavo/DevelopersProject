@@ -39,13 +39,13 @@ class UserController extends Controller
     
             if ($this->userManager->userExists($nickName)) {
                 // echo "El usuario ya existe. Por favor, elija otro nombre de usuario.";
-                header("location: loginUsersForm_View?duplicatedUser");
+                header("location: createUsersForm_View?duplicatedUser");
 
             } else {
                 $newUser = new User($nickName, $password);
                 $this->userManager->createUser($newUser);
     
-                header("location: userIndex");
+                header("location: userIndex?createdUser");
             }
         } else {
             echo "Debe introducir todos los datos";
