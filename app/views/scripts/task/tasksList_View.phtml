@@ -90,8 +90,8 @@
                         <option value="DataScience">Data Science</option>
                     </select>
                 </td>
-                <td><input type='text' name='creationDate' class='px-4 py-2 border border-blue-200 rounded'></td>
-                <td><input type='text' name='expectedEndDate' class='px-4 py-2 border border-blue-200 rounded'></td>
+                <td><input type='date' name='creationDate' class='px-4 py-2 border border-blue-200 rounded'></td>
+                <td><input type='date' name='expectedEndDate' class='px-4 py-2 border border-blue-200 rounded'></td>
                 <td>
                     <select name="statusTask" id="statusTask" class='px-4 py-2 border border-blue-200 rounded'>
                         <option value="--">--Escoje un valor--</option>
@@ -129,7 +129,12 @@
             <?php endforeach;
             endif; ?>
         </table>
+
+       
     </form>
+    <a href="typetasklist_view" class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500 mt-5">
+            Listado de tareas
+        </a>
     </div>
 
     <!-- Ventana emergente para confirmar borrado de registro -->

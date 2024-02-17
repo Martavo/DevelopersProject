@@ -153,9 +153,13 @@ class TaskController extends Controller
             return $filteredTasks;
         }
     }
-    
 
+    public function typetasklist_viewAction()
+    {
+        return $this->toDo->getTasks(); // Obtener todas las tareas sin filtrar
+    }
 }
+    
 
 $TaskController = new TaskController();
 // $arrayTasks = $TaskController->tasksList_ViewAction();
