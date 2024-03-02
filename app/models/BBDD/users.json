@@ -62,5 +62,9 @@
     {
         "nickName": "anais",
         "password": "1111"
+    },
+    {
+        "nickName": "pepito",
+        "password": "$2y$10$GWLapbvC1aSQpmPux6KqWeU4Omd7n\/OpXx4Gvmn4vd7qTBSvb8.uK"
     }
 ]

@@ -59,9 +59,10 @@ class User
     public function createUser(User $user)
     {
         $this->getUsers();
+        $hashedPassword = password_hash($user->getPassword(), PASSWORD_DEFAULT);
         $newUser = [
             "nickName" => $user->getNickName(),
-            "password" => $user->getPassword()
+            "password" => $hashedPassword
         ];
         $this->users[] = $newUser;
         $this->saveUsers();
@@ -111,17 +112,13 @@ class User
     {
         $users = $this->getUsers();
 
-        $isValidated = false;
-        $longArray = count($users);
-        $i = 0;
-        while ($isValidated == false && $i < $longArray) {
-            if ($users[$i]['nickName'] === $nickName && $users[$i]['password'] === $password) {
-                $isValidated = true;
+        foreach ($users as $user) {
+            if ($user['nickName'] === $nickName && password_verify($password, $user['password'])) {
+                return true; 
             }
-            $i++;
         }
-
-        return $isValidated;
+    
+        return false; 
 
     }
 
