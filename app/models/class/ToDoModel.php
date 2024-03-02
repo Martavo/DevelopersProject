@@ -3,6 +3,8 @@
 class ToDo 
 {
     protected array $currentTasks;
+    protected array $currentLists;
+
 
     public function getTasks()
     {   
@@ -150,6 +152,20 @@ class ToDo
 
         return $filteredTasks;
     }
+
+    //Metodos para la gestion de las listas
+    public function getLists()
+    {   
+        $currentLists = json_decode(file_get_contents( __DIR__ . '../../BBDD/list.json'), true);
+
+        return $this->currentLists = $currentLists;
+    }
+
+    public function addListJson($currentLists)
+    {
+        file_put_contents(__DIR__ . '../../BBDD/list.json', json_encode($currentLists, JSON_PRETTY_PRINT));
+    }
+
 
 
 }
