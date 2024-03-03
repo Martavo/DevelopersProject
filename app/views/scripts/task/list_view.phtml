@@ -87,10 +87,10 @@
                 <thead>
                     <tr>
                         <th class="border border-gray-400 p-2 relative" id="listTitle${tableCounter}" colspan="3" contenteditable="true">Título de la lista
-                            <button onclick="addRow(${tableCounter})" class="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-300 absolute top-0 left-0">
+                            <button onclick="addRow(${tableCounter})" class="bg-blue-300 text-white px-2 py-1 rounded hover:bg-green-300 absolute top-0 left-0 mt-1 ml-1">
                                 +
                             </button>
-                            <button onclick="removeTable(${tableCounter})" class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-300 absolute top-0 right-0">
+                            <button onclick="removeTable(${tableCounter})" class="bg-gray-500 text-white px-2 py-1 rounded hover:bg-red-300 absolute top-0 right-0 mt-1 mr-1">
                                 -
                             </button>
                         </th>
@@ -98,14 +98,17 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="border border-gray-400 p-2">
-                        <select class="taskContent bg-gray-100" name="taskContent[]" id="taskContent${tableCounter}">
-                            <?php if (!empty($arrayTasks)) : ?>
-                                <?php foreach ($arrayTasks as $task) : ?>
-                                    <option value="<?php echo $task['taskName']; ?>"><?php echo $task['taskName']; ?></option>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </select>
+                        <td class="border border-gray-400 p-2 relative">
+                            <select class="taskContent bg-gray-100" name="taskContent[]" id="taskContent${tableCounter}">
+                                <?php if (!empty($arrayTasks)) : ?>
+                                    <?php foreach ($arrayTasks as $task) : ?>
+                                        <option value="<?php echo $task['taskName']; ?>"><?php echo $task['taskName']; ?></option>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </select>
+                            <button onclick="removeCell(this)" class="absolute top-0 right-0 bg-gray-500 text-white px-2 py-1 rounded hover:bg-red-300 mt-1 mr-1">
+                                -
+                            </button>
                         </td>
                     </tr>
                 </tbody>
@@ -121,7 +124,7 @@
 
             const newRow = document.createElement('tr');
             newRow.innerHTML = `
-                <td class="border border-gray-400 p-2">
+                <td class="border border-gray-400 p-2 relative">
                     <select class="taskContent bg-gray-100" name="taskContent[]" id="taskContent${tableId}_1">
                         <?php if (!empty($arrayTasks)) : ?>
                             <?php foreach ($arrayTasks as $task) : ?>
@@ -129,6 +132,9 @@
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </select>
+                    <button onclick="removeCell(this)" class="absolute top-0 right-0 bg-gray-500 text-white px-2 py-1 rounded hover:bg-gray-300 mt-1 mr-1">
+                        -
+                    </button>
                 </td>
             `;
 
@@ -142,6 +148,12 @@
             if (tableToRemove) {
                 tablesContainer.removeChild(tableToRemove);
             }
+            saveTablesToLocalStorage();
+        }
+
+        function removeCell(button) { //eliminar una celda
+            const cellToRemove = button.closest('td');
+            cellToRemove.remove();
             saveTablesToLocalStorage();
         }
 
