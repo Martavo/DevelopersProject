@@ -70,5 +70,9 @@
     {
         "nickName": "Marta1",
         "password": "1234"
+    },
+    {
+        "nickName": "robert",
+        "password": "robert"
     }
 ]
