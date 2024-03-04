@@ -50,7 +50,9 @@ $routes = array(
 			'/filterByTaskName_View'=>'Task#filterByTaskName_View',
 			// Filtrar por tipo de tarea
 			'/filterByTaskType_View'=>'Task#filterByTaskType_View',
-
+		// Listas de tareas
+		'/list_view'=>'Task#list_view',
+	
 	
 	
 	

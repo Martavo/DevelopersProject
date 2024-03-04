@@ -3,6 +3,8 @@
 class ToDo 
 {
     protected array $currentTasks;
+    protected array $currentLists;
+
 
     public function getTasks()
     {   
@@ -138,18 +140,20 @@ class ToDo
 
        // Método para obtener la información de usuarios y tareas por tipo
    public function filterByTasksType(string $type){
-    $currentTasks = $this->getTasks();
-    $filteredTasks = [];
+        $currentTasks = $this->getTasks();
+        $filteredTasks = [];
 
-    foreach ($currentTasks as $task) {
-        // recogemos en el array asosiciativo el valor que hay del taskType en la task actual y asi podemos compararlo con el que intrudujo el usuario
-        if ($task["taskType"] === $type) {
-            $filteredTasks[] = $task; // Almacena la información completa de la tarea
+        foreach ($currentTasks as $task) {
+            // recogemos en el array asosiciativo el valor que hay del taskType en la task actual y asi podemos compararlo con el que intrudujo el usuario
+            if ($task["taskType"] === $type) {
+                $filteredTasks[] = $task; // Almacena la información completa de la tarea
+            }
         }
+
+        return $filteredTasks;
     }
 
-    return $filteredTasks;
-    }
+    
 
 
 }
