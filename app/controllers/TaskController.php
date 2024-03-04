@@ -157,23 +157,6 @@ class TaskController extends Controller
     public function list_viewAction()
 {
     
-    $toDo = $this->toDo;
-    $lists = $toDo->getLists();
-
-    
-    foreach ($lists as &$list) {
-        $tasksInfo = [];
-        foreach ($list['tasks'] as $taskId) {
-            $task = $toDo->searchTask($taskId);
-            if ($task) {
-                $tasksInfo[] = $task['taskName'];
-            }
-        }
-        $list['tasksInfo'] = $tasksInfo;
-    }
-
-    // Pasar las listas a la vista
-    return $lists;
 }
 
 }
