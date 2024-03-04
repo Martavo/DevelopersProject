@@ -64,6 +64,7 @@
         "password": "1111"
     },
     {
+
         "nickName": "Marta",
         "password": "1234"
     },
@@ -74,5 +75,11 @@
     {
         "nickName": "robert",
         "password": "robert"
+    },
+    {
+
+        "nickName": "pepito",
+        "password": "$2y$10$GWLapbvC1aSQpmPux6KqWeU4Omd7n\/OpXx4Gvmn4vd7qTBSvb8.uK"
+
     }
 ]
