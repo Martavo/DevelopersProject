@@ -17,7 +17,12 @@ class User
         $users = json_decode(file_get_contents(__DIR__ . '../../BBDD/users.json'), true);
 
         $lastUser = end($users); //toma el ultimo user
-        return $lastUser["userId"]; 
+        if(empty($lastUser["userId"])){
+            return 0;
+        }else{
+
+            return $lastUser["userId"]; 
+        }
     }
 
         /**
@@ -89,7 +94,7 @@ class User
     {
         $this->getUsers();
         $newUser = [
-            "userId" => $user->getLastUserId(),
+            "userId" => $user->getUserId(),
             "nickName" => $user->getNickName(),
             "password" => $user->getPassword()
         ];
