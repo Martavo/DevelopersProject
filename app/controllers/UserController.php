@@ -17,8 +17,7 @@ class UserController extends Controller
 
     public function indexAction()
     {
-        
-        
+
     }
 
     public function loginUsersForm_ViewAction()
@@ -112,9 +111,7 @@ class UserController extends Controller
                 die("ERROR: " . $e->getMessage());
             }
         }
-    }
-
-    
+    }    
 
     public function closeUserSessionAction()
     {

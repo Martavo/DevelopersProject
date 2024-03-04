@@ -165,15 +165,17 @@ class ToDo
                 $currentTasks = $this->getAllUsersTasks();
                 $filteredTasks = [];
 
+
                 foreach ($currentTasks as $task) {
                     // recogemos en el array asosiciativo el valor que hay del taskType en la task actual y asi podemos compararlo con el que intrudujo el usuario
                     if ($task["taskType"] === $type) {
                         $filteredTasks[] = $task; // Almacena la información completa de la tarea
                     }
                 }
-
-                return $filteredTasks;
             }
+
+            return $filteredTasks;
+
         }
     }
 }

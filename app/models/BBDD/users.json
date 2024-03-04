@@ -1,11 +1,13 @@
 [
     {
-        "nickName": "pepe",
-        "password": "pepe"
+        "userId": 1,
+        "nickName": "lorena",
+        "password": "lolo"
     },
     {
-        "nickName": "lelo",
-        "password": "kaka"
+        "userId": 2,
+        "nickName": "xavi",
+        "password": "xavi"
     },
     {
         "nickName": "lole",

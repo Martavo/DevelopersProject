@@ -4,11 +4,45 @@ class User
 {
     protected string $nickName;
     protected string $password;
+    protected int $userId;
 
     public function __construct(string $nickName, string $password)
     {
+        $this->userId =  $this->getLastUserId() + 1 ;//le da el valor a $taskId con el valor del ultimo taskId  + 1
         $this->nickName = $nickName;
         $this->password = $password;
+    }
+    public function getLastUserId(): int
+    {
+        $users = json_decode(file_get_contents(__DIR__ . '../../BBDD/users.json'), true);
+
+        $lastUser = end($users); //toma el ultimo user
+        if(empty($lastUser["userId"])){
+            return 0;
+        }else{
+
+            return $lastUser["userId"]; 
+        }
+    }
+
+        /**
+     * Get the value of userId
+     */ 
+    public function getUserId()
+    {
+        return $this->userId;
+    }
+
+    /**
+     * Set the value of userId
+     *
+     * @return  self
+     */ 
+    public function setUserId($userId)
+    {
+        $this->userId = $userId;
+
+        return $this;
     }
 
     // getters and setters 
@@ -61,6 +95,7 @@ class User
         $this->getUsers();
         $hashedPassword = password_hash($user->getPassword(), PASSWORD_DEFAULT);
         $newUser = [
+            "userId" => $user->getUserId(),
             "nickName" => $user->getNickName(),
             "password" => $hashedPassword
         ];
@@ -138,6 +173,7 @@ class User
 
 
     
+
 }
 
 
