@@ -102,7 +102,7 @@
                 </td>
                 <td class='py-2 px-4'><input type='submit' name='cr' id='cr' value='Insertar' class='bg-blue-200 text-white px-7 py-2 rounded hover:bg-blue-300'></td>
             </tr>
-
+            <!-- Listado tareas ya creadas -->
             <?php
             $TaskController = new TaskController();
             $arrayTasks = $TaskController->tasksList_ViewAction();
@@ -115,11 +115,13 @@
                         <td class="text-center"><?php echo $task['creationDate'] ?></td>
                         <td class="text-center"><?php echo $task['expectedEndDate'] ?></td>
                         <td class="text-center"><?php echo $task['taskStatus'] ?></td>
+                        <!-- boton borrar -->   
                         <td class="py-2 px-4">
                             <a href="deleteTask?taskId=<?php echo $task['taskId'] ?>&taskName=<?php echo $task['taskName'] ?>" onclick="return confirmDelete('<?php echo $task['taskName'] ?>');">
                                 <input type='button' name='del' id='del' value='Borrar' class='bg-red-500 text-white px-8 py-2 rounded hover:bg-red-300'>
                             </a>
                         </td>
+                        <!-- boton actualizar -->
                         <td class='py-2 px-4 text-center'>
                             <a href="UpdateTask_View?taskId=<?php echo $task['taskId'] ?> & user=<?php echo $task['user'] ?> & taskName=<?php echo $task['taskName'] ?> & taskType=<?php echo $task['taskType'] ?> & creationDate=<?php echo $task['creationDate'] ?> & expectedEndDate=<?php echo $task['expectedEndDate'] ?> & taskStatus=<?php echo $task['taskStatus'] ?>">
                                 <input type='button' name='up' id='up' value='Actualizar' class='bg-green-500 text-white px-4 py-2 rounded hover:bg-green-300'>

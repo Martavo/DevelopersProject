@@ -156,7 +156,7 @@ class TaskController extends Controller
 
 }
 
-$TaskController = new TaskController();
+// $TaskController = new TaskController();
 // $arrayTasks = $TaskController->tasksList_ViewAction();
 // $TaskController->insertTaskAction("prueba 18.43","prueba 18.43","prueba 18.43","prueba 18.43","prueba 18.43","prueba 18.43");
 // $updateTask = ["taskId"=>1,"prueba 18.43","prueba 18.43","prueba 18.43","prueba 18.43","prueba 18.43", "prueba 18.43"];
