@@ -20,11 +20,37 @@
     {
         "taskId": 10,
         "user": "lole",
-        "taskName": "Crear metodos usuario",
+        "taskName": "Conectar con la BBDD",
         "taskType": "BackEnd",
         "creationDate": "2024-01-02",
         "expectedEndDate": "2024-01-07",
         "taskStatus": "Finalizada"
+    },
+    {
+        "taskId": 12,
+        "user": "rasbil",
+        "taskName": "Pintar fondo index",
+        "taskType": "FrontEnd",
+        "creationDate": "2024-01-02",
+        "expectedEndDate": "2024-01-07",
+        "taskStatus": "Finalizada"
+    },
+    {
+        "taskId": 13,
+        "user": "lola",
+        "taskName": "PRUEBA",
+        "taskType": "--",
+        "creationDate": "2024-03-09",
+        "expectedEndDate": "2024-03-15",
+        "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 14,
+        "user": "lola",
+        "taskName": "PRUEBA2",
+        "taskType": "BackEnd",
+        "creationDate": "2024-03-14",
+        "expectedEndDate": "2024-03-15",
+        "taskStatus": "En ejecucion"
     }
-
 ]
