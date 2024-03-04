@@ -152,9 +152,14 @@ class TaskController extends Controller
             return $filteredTasks;
         }
     }
+
+    public function list_viewAction()
+{
     
+}
 
 }
+    
 
 // $TaskController = new TaskController();
 // $arrayTasks = $TaskController->tasksList_ViewAction();
