@@ -23,10 +23,12 @@ class UserController extends Controller
     public function loginUsersForm_ViewAction()
     {
         
+        
     }
 
     public function createUsersForm_ViewAction()
     {
+        
         
     }
 
