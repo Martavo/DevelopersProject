@@ -52,5 +52,23 @@
         "creationDate": "2024-03-14",
         "expectedEndDate": "2024-03-15",
         "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 16,
+        "user": "rut",
+        "taskName": "",
+        "taskType": "--",
+        "creationDate": "",
+        "expectedEndDate": "",
+        "taskStatus": "--"
+    },
+    {
+        "taskId": 18,
+        "user": "rut",
+        "taskName": "77777",
+        "taskType": "--",
+        "creationDate": "",
+        "expectedEndDate": "",
+        "taskStatus": "--"
     }
 ]

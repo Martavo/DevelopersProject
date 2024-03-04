@@ -14,42 +14,42 @@ $routes = array(
 
 	// USUARIOS:
 	    //index route
-		'/userIndex' => 'User#index',
+		'/user-index' => 'User#index',
 		// Formulario Login usuario
-		'/loginUsersForm_View'=> 'User#loginUsersForm_View',
+		'/login-users-form_view'=> 'User#loginUsersForm_View',
 		//Crear un usuario
-		'/createUsersForm_View' => 'User#createUsersForm_View',
+		'/create-users-form_view' => 'User#createUsersForm_View',
 		// Validacion login usuario
-		'/checkLogin'=> 'User#checkLogin',
+		'/check-login'=> 'User#checkLogin',
 		// Cerrar sesion del usuario
-		'/closeUserSession'=> 'User#closeUserSession',
+		'/close-user-session'=> 'User#closeUserSession',
 		//Crear un nuevo usuario
-		'/createUser' => 'User#createUser',
+		'/create-user' => 'User#createUser',
 		//Borrar un usuario
-		'/deleteUser' => 'User#deleteUser',
+		'/delete-user' => 'User#deleteUser',
 		//Editar un usuario
-		'/updateUser' => 'User#updateUser',
+		'/update-user' => 'User#updateUser',
 		//Ver perfil de un usuario
-		'/userProfile_View'  => 'User#userProfile_View',
+		'/user-profile_view'  => 'User#userProfile_View',
 		
 	// TAREAS:
 		// Listar todas las tareas
-		'/tasksList_View'=> 'Task#tasksList_View',
+		'/tasks-list_view'=> 'Task#tasksList_View',
 		// Borrar Tarea
-		'/deleteTask' => 'Task#deleteTask',
+		'/delete-task' => 'Task#deleteTask',
 		// Insertar una nueva tarea
-		'/insertTask'=> 'Task#insertTask',
+		'/insert-task'=> 'Task#insertTask',
 		// Pre-edicion de una tarea
-		'/UpdateTask_View'=> 'Task#UpdateTask_View',
+		'/update-task_View'=> 'Task#UpdateTask_View',
 		// Edicion tarea
-		'/updateTask'=>'Task#updateTask',
+		'/update-task'=>'Task#updateTask',
 		// FILTROS:
 			// Filtrar por usuario
-			'/filterByUser_View'=>'Task#filterByUser_View',
+			'/filter-by-user_view'=>'Task#filterByUser_View',
 			// Filtrar por nombre de tarea
-			'/filterByTaskName_View'=>'Task#filterByTaskName_View',
+			'/filter-by-task-name_view'=>'Task#filterByTaskName_View',
 			// Filtrar por tipo de tarea
-			'/filterByTaskType_View'=>'Task#filterByTaskType_View',
+			'/filter-by-task-type_view'=>'Task#filterByTaskType_View',
 		// Listas de tareas
 		'/list_view'=>'Task#list_view',
 	

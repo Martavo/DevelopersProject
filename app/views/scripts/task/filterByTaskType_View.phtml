@@ -13,7 +13,7 @@
         <?php
         if(!isset($_SESSION["user"])){ //Impide copiado url paginas restringidas a usuarios validados: si no se ha iniciado una sesion validada redirigirá al usuario al formulario del login
 
-            header("location:loginUsersForm_View");
+            header("location:login-users-form_view");
 
         }
 
@@ -24,10 +24,10 @@
     </div>
 
     <div class="flex mt-1 mr-4 ml-auto">
-        <a href="closeUserSession" class=" bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500 mr-5 ">
+        <a href="close-user-session" class=" bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500 mr-5 ">
             Cerrar sessión
         </a>
-        <a href="userProfile_View" class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500">
+        <a href="user-profile_view" class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500">
             Portal del Usuario
         </a>
     </div>
@@ -44,7 +44,7 @@
 
     <div class="text-6xl font-bold text-black mb-8 mt-10 text-center">TAREAS FILTRADAS POR USUARIO</div>
 
-    <form action="insertTask" method="post">
+    <form action="insert-task" method="post">
         <table class="w-full border-collapse border border-blue-200">
             <tr class="bg-gray-100">
                 <!-- Filas de titulos de columnas -->
@@ -66,7 +66,7 @@
                 <td></td>
                 <td></td>
                 <td>
-                    <a href="tasksList_View" class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500">Volver al Panel Principal</a>
+                    <a href="tasks-list_view" class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500">Volver al Panel Principal</a>
                 </td>
             </tr>
 
@@ -82,12 +82,12 @@
                         <td class="text-center"><?php echo $task['expectedEndDate'] ?></td>
                         <td class="text-center"><?php echo $task['taskStatus'] ?></td>
                         <td class="py-2 px-4">
-                            <a href="deleteTask?taskId=<?php echo $task['taskId'] ?>&taskName=<?php echo $task['taskName'] ?>" onclick="return confirmDelete('<?php echo $task['taskName'] ?>');">
+                            <a href="delete-task?taskId=<?php echo $task['taskId'] ?>&taskName=<?php echo $task['taskName'] ?>" onclick="return confirmDelete('<?php echo $task['taskName'] ?>');">
                                 <input type='button' name='del' id='del' value='Borrar' class='bg-red-500 text-white px-8 py-2 rounded hover:bg-red-300'>
                             </a>
                         </td>
                         <td class='py-2 px-4 text-center'>
-                            <a href="UpdateTask_View?taskId=<?php echo $task['taskId'] ?> & user=<?php echo $task['user'] ?> & taskName=<?php echo $task['taskName'] ?> & taskType=<?php echo $task['taskType'] ?> & creationDate=<?php echo $task['creationDate'] ?> & expectedEndDate=<?php echo $task['expectedEndDate'] ?> & taskStatus=<?php echo $task['taskStatus'] ?>">
+                            <a href="update-task_View?taskId=<?php echo $task['taskId'] ?> & user=<?php echo $task['user'] ?> & taskName=<?php echo $task['taskName'] ?> & taskType=<?php echo $task['taskType'] ?> & creationDate=<?php echo $task['creationDate'] ?> & expectedEndDate=<?php echo $task['expectedEndDate'] ?> & taskStatus=<?php echo $task['taskStatus'] ?>">
                                 <input type='button' name='up' id='up' value='Actualizar' class='bg-green-500 text-white px-4 py-2 rounded hover:bg-green-300'>
                             </a>
                         </td>

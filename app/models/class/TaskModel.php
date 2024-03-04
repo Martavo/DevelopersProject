@@ -42,12 +42,14 @@ class Task
         $lastTask = end($tasks);
         $lastTaskId = $lastTask["taskId"];
 
-        if(empty($lastTaskId["userId"])){
+        if (empty($tasks)) {
             return 0;
-        }else{
-
-            return $lastTaskId["userId"]; 
         }
+        
+        $lastTask = end($tasks);
+        $lastTaskId = $lastTask["taskId"];
+    
+        return $lastTaskId;
     }
     public function getTaskId()
     {

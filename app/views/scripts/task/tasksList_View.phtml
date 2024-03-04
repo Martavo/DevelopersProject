@@ -19,10 +19,10 @@
     </div>
 
     <div class="flex mt-1 mr-4 ml-auto">
-        <a href="closeUserSession" class=" bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500 mr-5 ">
+        <a href="close-user-session" class=" bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500 mr-5 ">
             Cerrar sessión
         </a>
-        <a href="userProfile_View" class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500">
+        <a href="user-profile_view" class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500">
             Portal del Usuario
         </a>
     </div>
@@ -31,7 +31,7 @@
 
     <!-- Filas de titulos de columnas -->
 
-    <form action="insertTask" method="post">
+    <form action="insert-task" method="post">
         <table class="w-full border-collapse border border-blue-200">
             <tr class="bg-gray-100">
                 <th class="py-2 px-4">Usuario</th>
@@ -117,13 +117,13 @@
                         <td class="text-center"><?php echo $task['taskStatus'] ?></td>
                         <!-- boton borrar -->   
                         <td class="py-2 px-4">
-                            <a href="deleteTask?taskId=<?php echo $task['taskId'] ?>&taskName=<?php echo $task['taskName'] ?>" onclick="return confirmDelete('<?php echo $task['taskName'] ?>');">
+                            <a href="delete-task?taskId=<?php echo $task['taskId'] ?>&taskName=<?php echo $task['taskName'] ?>" onclick="return confirmDelete('<?php echo $task['taskName'] ?>');">
                                 <input type='button' name='del' id='del' value='Borrar' class='bg-red-500 text-white px-8 py-2 rounded hover:bg-red-300'>
                             </a>
                         </td>
                         <!-- boton actualizar -->
                         <td class='py-2 px-4 text-center'>
-                            <a href="UpdateTask_View?taskId=<?php echo $task['taskId'] ?> & user=<?php echo $task['user'] ?> & taskName=<?php echo $task['taskName'] ?> & taskType=<?php echo $task['taskType'] ?> & creationDate=<?php echo $task['creationDate'] ?> & expectedEndDate=<?php echo $task['expectedEndDate'] ?> & taskStatus=<?php echo $task['taskStatus'] ?>">
+                            <a href="update-task_View?taskId=<?php echo $task['taskId'] ?> & user=<?php echo $task['user'] ?> & taskName=<?php echo $task['taskName'] ?> & taskType=<?php echo $task['taskType'] ?> & creationDate=<?php echo $task['creationDate'] ?> & expectedEndDate=<?php echo $task['expectedEndDate'] ?> & taskStatus=<?php echo $task['taskStatus'] ?>">
                                 <input type='button' name='up' id='up' value='Actualizar' class='bg-green-500 text-white px-4 py-2 rounded hover:bg-green-300'>
                             </a>
                         </td>
@@ -149,7 +149,7 @@
             let filteredUser = document.getElementById("filteredUser").value;
 
             if (filteredUser != "") {
-                window.location.href = "filterByUser_View?filteredUser=" + filteredUser;
+                window.location.href = "filter-by-user_view?filteredUser=" + filteredUser;
             } else {
                 alert("Para filtrar debes introducir algun dato!");
             }
@@ -159,7 +159,7 @@
             let filteredTaskName = document.getElementById("filteredTaskName").value;
 
             if (filteredTaskName != "") {
-                window.location.href = "filterByTaskName_View?filteredTaskName=" + filteredTaskName;
+                window.location.href = "filter-by-task-name_view?filteredTaskName=" + filteredTaskName;
             } else {
                 alert("Para filtrar debes introducir algun dato!");
             }
@@ -169,7 +169,7 @@
             let filteredTaskType = document.getElementById("filteredTaskType").value;
 
             if (filteredTaskType != "--") {
-                window.location.href = "filterByTaskType_View?filteredTaskType=" + filteredTaskType;
+                window.location.href = "filter-by-task-type_view?filteredTaskType=" + filteredTaskType;
             } else {
                 alert("Para filtrar debes introducir algun dato!");
             }

@@ -19,7 +19,7 @@ class TaskController extends Controller
         // !isset comprueba si NO se almaceno algo en la variable superglobal "user", si se cumple esta condición es porque no se valido el usuario por lo que sera redirigido al formulario de login
         if(!isset($_SESSION["user"])){
 
-            header("location:loginUsersForm_View");
+            header("location:login-users-form_view");
     
         }else{
              $toDo = $this->toDo;
@@ -38,7 +38,7 @@ class TaskController extends Controller
     
             $toDo->deleteTask($taskId);
     
-            header("location:tasksList_View");
+            header("location:tasks-list_view");
         }else{
             echo "Hay un error en la ruta";
         }    
@@ -66,7 +66,7 @@ class TaskController extends Controller
             $user);
 
             // Redirigimos a la página de listado de tareas con los nuevo datos insertados.
-            header("location:tasksList_View");
+            header("location:tasks-list_view");
         }else{
             echo "Debe introducir todos los datos";
         }
@@ -112,7 +112,7 @@ class TaskController extends Controller
 
             $toDo->updateTask($updatedTask);
 
-            header("location:tasksList_View");
+            header("location:tasks-list_view");
         }
     }
 
