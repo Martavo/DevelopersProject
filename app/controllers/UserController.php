@@ -41,13 +41,13 @@ class UserController extends Controller
     
             if ($this->userManager->userExists($nickName)) {
                 // echo "El usuario ya existe. Por favor, elija otro nombre de usuario.";
-                header("location: createUsersForm_View?duplicatedUser");
+                header("location: create-users-form_view?duplicatedUser");
 
             } else {
                 $newUser = new User($nickName, $password);
                 $this->userManager->createUser($newUser);
     
-                header("location: userIndex?createdUser");
+                header("location: user-index?createdUser");
             }
         } else {
             echo "Debe introducir todos los datos";
@@ -61,7 +61,7 @@ class UserController extends Controller
         $userFound = $this->userManager->searchByUser($usuario);
 
         $this->userManager->deleteUser($userFound);
-        header("location: userIndex");
+        header("location: user-index");
        
     }
     
@@ -81,7 +81,7 @@ class UserController extends Controller
         $newDataUser = new User($newNickName, $newPassword);
         $this->userManager->updateDataUser($newDataUser, $userFound);
     
-        header("location: userIndex");
+        header("location: user-index");
     }
 
     public function checkLoginAction()
@@ -100,10 +100,10 @@ class UserController extends Controller
                     // Inicia una nueva sesion
                     session_start();
                     $_SESSION["user"] = $nickName;
-                    header("location: tasksList_View");
+                    header("location: tasks-list_view");
                 } else {
                     // Usuario no autenticado, redirigir a la página de inicio de sesión
-                    header("location: loginUsersForm_View?error");
+                    header("location: login-users-form_view?error");
 
                 }
             } catch (Exception $e) {
@@ -118,7 +118,7 @@ class UserController extends Controller
         // cierra la sesion abierta
         session_destroy();
         // redirige a la pagina del login
-        header("location:userIndex");
+        header("location:user-index");
 
     }
 
@@ -131,4 +131,4 @@ class UserController extends Controller
 }
 
 // $userController = new UserController();
-// $userController->loginUsersForm_ViewAction("pirpol", "klkl23P");
+// $userController->login-users-form_view"Action("pirpol", "klkl23P");
