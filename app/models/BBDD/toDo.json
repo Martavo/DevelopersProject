@@ -70,5 +70,14 @@
         "creationDate": "",
         "expectedEndDate": "",
         "taskStatus": "--"
+    },
+    {
+        "taskId": 19,
+        "user": "lolo",
+        "taskName": "klklk",
+        "taskType": "DataScience",
+        "creationDate": "2024-03-13",
+        "expectedEndDate": "2024-03-20",
+        "taskStatus": "En ejecucion"
     }
 ]

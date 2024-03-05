@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css">
     <title>Actualizar Tarea</title>
 </head>
+
 <body class="bg-gray-100 flex items-center justify-center flex-col mc-auto">
-    <div class = "mr-auto mt-4 ml-4">
-            <a href="tasks-list_view" class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500">
-                Volver al tablón de tareas
-            </a>
+    <div class="mr-auto mt-4 ml-4">
+        <a href="tasks-list_view" class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500">
+            Volver al tablón de tareas
+        </a>
     </div>
     <div class="text-4xl mb-8 mt-10 text-center">ACTUALIZAR TAREA</div>
     <?php
-    if(!isset($_SESSION["user"])){ //Impide copiado url paginas restringidas a usuarios validados: si no se ha iniciado una sesion validada redirigirá al usuario al formulario del login
+    if (!isset($_SESSION["user"])) { //Impide copiado url paginas restringidas a usuarios validados: si no se ha iniciado una sesion validada redirigirá al usuario al formulario del login
 
         header("location:login-users-form_view");
-
     }
-    
+
     $TaskController = new TaskController();
     $tasksFound = $TaskController->UpdateTask_viewAction();
-    
+
 
     ?>
     <form action="update-task" method="post" class="w-full max-w-lg">
@@ -38,9 +39,17 @@
         <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="taskType">Tipo de Tarea:</label>
             <select name="taskType" class="block appearance-none w-full bg-white border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="taskType">
-                <option value="FrontEnd">FrontEnd</option>
-                <option value="BackEnd">BackEnd</option>
-                <option value="DataScience">DataScience</option>
+                <option value="<?php echo htmlspecialchars($tasksFound['taskType']); ?>">
+                    <?php echo htmlspecialchars($tasksFound['taskType']); ?>
+                </option>
+                <?php
+                $options = ["FrontEnd", "BackEnd", "DataScience"];
+                foreach ($options as $option) {
+                    if ($option !== $tasksFound['taskType']) {
+                        echo '<option value="' . $option . '">' . $option . '</option>';
+                    }
+                }
+                ?>
             </select>
         </div>
         <div class="mb-4">
@@ -54,12 +63,21 @@
         <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="taskStatus">Estado de la Tarea:</label>
             <select name="taskStatus" class="block appearance-none w-full bg-white border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="taskStatus">
-                <option value="Pendiente">Pendiente</option>
-                <option value="Finalizada">Finalizada</option>
-                <option value="En ejecución">En ejecución</option>
+            <option value="<?php echo htmlspecialchars($tasksFound['taskStatus']); ?>">
+                    <?php echo htmlspecialchars($tasksFound['taskStatus']); ?>
+                </option>
+                <?php
+                $options = ["Pendiente", "Finalizada", "En ejecucion"];
+                foreach ($options as $option) {
+                    if ($option !== $tasksFound['taskStatus']) {
+                        echo '<option value="' . $option . '">' . $option . '</option>';
+                    }
+                }
+                ?>
             </select>
         </div>
         <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Guardar Cambios</button>
     </form>
 </body>
+
 </html>

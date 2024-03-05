@@ -3,5 +3,10 @@
         "userId": 2,
         "nickName": "kaka",
         "password": "$2y$10$DdA3PVKv.FApqi7RZgsM5uIXN6nZ48GsYkoxIo7xkq06w\/8.G9p6G"
+    },
+    {
+        "userId": 3,
+        "nickName": "lolo",
+        "password": "$2y$10$nG8aKMcUJ7XPTOSHLmLx9emnX.7CKxEmWDdm6x.Hi1d7LooSvoqQ6"
     }
 ]
