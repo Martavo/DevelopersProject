@@ -1,29 +1,29 @@
 [
     {
-        "taskId": 8,
-        "user": "rasbil",
-        "taskName": "Maquetar login usuario",
+        "taskId": 2,
+        "user": "pepe",
+        "taskName": "Lole",
         "taskType": "FrontEnd",
-        "creationDate": "2024-01-16",
-        "expectedEndDate": "2024-01-20",
+        "creationDate": "2024-03-27",
+        "expectedEndDate": "2024-03-22",
+        "taskStatus": "Finalizada"
+    },
+    {
+        "taskId": 3,
+        "user": "paco",
+        "taskName": "Boton",
+        "taskType": "FrontEnd",
+        "creationDate": "2024-03-12",
+        "expectedEndDate": "2024-03-18",
         "taskStatus": "Pendiente"
     },
     {
-        "taskId": 9,
-        "user": "pol45",
-        "taskName": "Exportar datos",
-        "taskType": "FrontEnd",
-        "creationDate": "2024-01-15",
-        "expectedEndDate": "2024-01-17",
-        "taskStatus": "En ejecuci\u00f3n"
-    },
-    {
-        "taskId": 10,
-        "user": "lole",
-        "taskName": "Crear metodos usuario",
+        "taskId": 4,
+        "user": "pepe",
+        "taskName": "Boton2",
         "taskType": "BackEnd",
-        "creationDate": "2024-01-02",
-        "expectedEndDate": "2024-01-07",
+        "creationDate": "2024-03-27",
+        "expectedEndDate": "2024-03-13",
         "taskStatus": "Finalizada"
     }
 ]

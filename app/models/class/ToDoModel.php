@@ -1,11 +1,11 @@
 <?php
 
-class ToDo 
+class ToDo
 {
     protected array $currentTasks;
 
     public function getTasks()
-    {   
+    {
         $currentTasks = json_decode(file_get_contents( __DIR__ . '../../BBDD/toDo.json'), true);
 
         return $this->currentTasks = $currentTasks;
@@ -18,11 +18,11 @@ class ToDo
         // creamos la tarea nueva con los valores de cada campo
         $newTask = [
             // recogemos los valores de los getters y lo pasamos a la clave del array asociativo
-            "taskId"=>$task->getTaskId(), 
+            "taskId"=>$task->getTaskId(),
             "user"=>$nickName,
-            "taskName"=>$task->getTaskName(), 
-            "taskType"=>$task->getTaskType(), 
-            "creationDate"=>$task->getCreationDate(), 
+            "taskName"=>$task->getTaskName(),
+            "taskType"=>$task->getTaskType(),
+            "creationDate"=>$task->getCreationDate(),
             "expectedEndDate"=>$task->getExpectedEndDate(), "taskStatus"=>$task->gettaskStatus()
         ];
 
@@ -47,7 +47,7 @@ class ToDo
         $isFound = false;
         $longArray = count($currentTasks);
         $i=0;
-        while($isFound==false && $i<$longArray)             
+        while($isFound==false && $i<$longArray)
         {
             if($currentTasks[$i]["taskId"]==$taskId)
             {//elimina la posicion de la tarea dentro del array $currentTasks
@@ -67,7 +67,7 @@ class ToDo
         $isFound = false;
         $longArray = count($currentTasks);
         $i=0;
-        while($isFound==false && $i<$longArray)             
+        while($isFound==false && $i<$longArray)
         {
             if($currentTasks[$i]["taskId"]==$taskId)
             {
@@ -88,7 +88,7 @@ class ToDo
         $isFound = false;
         $longArray = count($currentTasks);
         $i=0;
-        while($isFound==false && $i<$longArray)             
+        while($isFound==false && $i<$longArray)
         {
 
             if($currentTasks[$i]["taskId"]==$updatedTask["taskId"])
@@ -106,52 +106,52 @@ class ToDo
 
 
 
-  // Método para buscar por usuario
-    public function filterByUser(string $searchedUser){
-        $currentTasks = $this->getTasks();
+    // Método para buscar por usuario
+    /*public function filterByUser(string $searchedUser)
+    {
+        $allUsersTasks = $this->getAllUsersTasks();
         $filterTasks = array();
+        $currentUser = $_SESSION["user"];
 
-        foreach ($currentTasks as $task){
-            if($task["user"] == $searchedUser){   
-            $filterTasks[] = $task; // Almacena la información completa de la tarea
+        foreach ($allUsersTasks as $task) {
+            if (stripos($task["user"], $searchedUser) !== false && $task["user"] == $currentUser) {
+                $filterTasks[] = $task; // Almacena la información completa de la tarea
             }
         }
         return $filterTasks;
-    }
+    }*/
 
     // Método para filtrar la información por el nombre de la tarea sea mayusculas o minusculas
     public function filterByTasksName($searchString){
 
         $currentTasks = $this->getTasks();
         $filteredTasksbyName = [];
+        $currentUser = $_SESSION["user"];
 
-        foreach ($currentTasks as $task) {
-            // Buscamos la cadena de búsqueda en el nombre de la tarea
-            if (stripos($task['taskName'], $searchString) !== false) {
-            $filteredTasksbyName[] = $task;
+        foreach ($allUsersTasks as $task) {
+            if (stripos($task['taskName'], $searchString) !== false && $task["user"] == $currentUser) {
+                $filteredTasksbyName[] = $task;
             }
         }
-        // var_dump($filteredTasksbyName);
 
         return $filteredTasksbyName;
     }
 
-       // Método para obtener la información de usuarios y tareas por tipo
-   public function filterByTasksType(string $type){
-    $currentTasks = $this->getTasks();
-    $filteredTasks = [];
+    // Método para obtener la información de usuarios y tareas por tipo
+    public function filterByTasksType(string $type)
+{
+       $allUsersTasks = $this->getAllUsersTasks();
+       $filteredTasks = [];
+       $currentUser = $_SESSION["user"];
 
-    foreach ($currentTasks as $task) {
-        // recogemos en el array asosiciativo el valor que hay del taskType en la task actual y asi podemos compararlo con el que intrudujo el usuario
-        if ($task["taskType"] === $type) {
-            $filteredTasks[] = $task; // Almacena la información completa de la tarea
+       foreach ($allUsersTasks as $task) {
+           if ($task["taskType"] === $type && $task["user"] === $currentUser) {
+                $filteredTasks[] = $task;
         }
     }
 
-    return $filteredTasks;
-    }
-
-
+       return $filteredTasks;
+}
 }
 
 // $toDo = new ToDo();
@@ -159,6 +159,3 @@ class ToDo
 // $arrayTasks = $toDo->getTasks();
 
 // var_dump($arrayTasks);
-
-
-

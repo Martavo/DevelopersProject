@@ -41,30 +41,16 @@
     },
     {
         "nickName": "kaka",
-        "password": "1234"
+        "password": "$2y$10$DdA3PVKv.FApqi7RZgsM5uIXN6nZ48GsYkoxIo7xkq06w\/8.G9p6G"
     },
     {
-        "nickName": "lololo",
-        "password": "yuyu"
+        "userId": 3,
+        "nickName": "pepe",
+        "password": "$2y$10$IrrRCJ3day4EswxLLH4eXeDwtgSUG9W2utXfCM5JlhkkAY89lZpjq"
     },
     {
-        "nickName": "luis",
-        "password": "6789"
-    },
-    {
-        "nickName": "lupita",
-        "password": "2345"
-    },
-    {
-        "nickName": "frijolito",
-        "password": "1111"
-    },
-    {
-        "nickName": "anais",
-        "password": "1111"
-    },
-    {
-        "nickName": "pepito",
-        "password": "$2y$10$GWLapbvC1aSQpmPux6KqWeU4Omd7n\/OpXx4Gvmn4vd7qTBSvb8.uK"
+        "userId": 4,
+        "nickName": "paco",
+        "password": "$2y$10$S3b26B1.ineENtYlDKSR\/exs\/gV71ylIBcreETRq6CLQ.Ab6ECrPq"
     }
 ]
