@@ -15,6 +15,13 @@ class ToDo
         return $allUsersTask;
     }
 
+    public function getTasks()
+    {
+        $currentTasks = json_decode(file_get_contents( __DIR__ . '../../BBDD/toDo.json'), true);
+
+        return $this->currentTasks = $currentTasks;
+    }
+
     public function getUserTasks()
     {
         $allUsersTask = $this->getAllUsersTasks();
@@ -120,7 +127,7 @@ class ToDo
 
 
     // Método para buscar por usuario
-    public function filterByUser(string $searchedUser)
+    /*public function filterByUser(string $searchedUser)
     {
         $allUsersTasks = $this->getAllUsersTasks();
         $filterTasks = array();
@@ -131,54 +138,42 @@ class ToDo
             }
         }
         return $filterTasks;
-    }
+    }*/
 
     // Método para filtrar la información por el nombre de la tarea sea mayusculas o minusculas
-    public function filterByTasksName($searchString)
-    {
-
+    public function filterByTasksName($searchString){
+        
         $allUsersTasks = $this->getAllUsersTasks();
+        $currentTasks = $this->getTasks();
         $filteredTasksbyName = [];
+        $currentUser = $_SESSION["user"];
 
         foreach ($allUsersTasks as $task) {
-            // Buscamos la cadena de búsqueda en el nombre de la tarea
-            if (stripos($task['taskName'], $searchString) !== false) {
+            if (stripos($task['taskName'], $searchString) !== false && $task["user"] == $currentUser) {
                 $filteredTasksbyName[] = $task;
             }
         }
-        // var_dump($filteredTasksbyName);
 
         return $filteredTasksbyName;
     }
 
     // Método para obtener la información de usuarios y tareas por tipo
     public function filterByTasksType(string $type)
-    {
+{
+       $allUsersTasks = $this->getAllUsersTasks();
+       $filteredTasks = [];
+       $currentUser = $_SESSION["user"];
 
-        $allUsersTasks = $this->getAllUsersTasks();
-        $filteredTasks = [];
-
-        foreach ($allUsersTasks as $task) {
-            // recogemos en el array asosiciativo el valor que hay del taskType en la task actual y asi podemos compararlo con el que intrudujo el usuario
-            if ($task["taskType"] === $type) {
-                $filteredTasks[] = $task; // Almacena la información completa de la tarea
-                $currentTasks = $this->getAllUsersTasks();
-                $filteredTasks = [];
-
-
-                foreach ($currentTasks as $task) {
-                    // recogemos en el array asosiciativo el valor que hay del taskType en la task actual y asi podemos compararlo con el que intrudujo el usuario
-                    if ($task["taskType"] === $type) {
-                        $filteredTasks[] = $task; // Almacena la información completa de la tarea
-                    }
-                }
-            }
-
-            return $filteredTasks;
-
+       foreach ($allUsersTasks as $task) {
+           if ($task["taskType"] === $type && $task["user"] === $currentUser) {
+                $filteredTasks[] = $task;
         }
     }
+
+       return $filteredTasks;
 }
+    }
+
 // $toDo = new ToDo();
 
 // $toDo->createTask(new Task('prueba', 'prueba', 'prueba', 'prueba', 'prueba'),'pol45');
