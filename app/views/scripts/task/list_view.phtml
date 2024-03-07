@@ -86,10 +86,8 @@
             newTable.innerHTML = `
                 <thead>
                     <tr>
-                        <th class="border border-gray-400 p-2 relative" id="listTitle${tableCounter}" colspan="3" contenteditable="true">Título de la lista
-                            <button onclick="addRow(${tableCounter})" class="bg-blue-300 text-white px-2 py-1 rounded hover:bg-green-300 absolute top-0 left-0 mt-1 ml-1">
-                                +
-                            </button>
+                    <th class="border border-gray-400 p-2 relative" id="listTitle${tableCounter}" colspan="3" contenteditable="true">Título de la lista
+
                             <button onclick="removeTable(${tableCounter})" class="bg-gray-500 text-white px-2 py-1 rounded hover:bg-red-300 absolute top-0 right-0 mt-1 mr-1">
                                 -
                             </button>
@@ -99,6 +97,9 @@
                 <tbody>
                     <tr>
                         <td class="border border-gray-400 p-2 relative">
+                            <button onclick="addRow(${tableCounter})" class="bg-blue-300 text-white px-2 py-1 rounded hover:bg-green-300 absolute top-0 left-0 mt-1 ml-1">
+                                +
+                            </button>
                             <select class="taskContent bg-gray-100" name="taskContent[]" id="taskContent${tableCounter}">
                                 <?php if (!empty($arrayTasks)) : ?>
                                     <?php foreach ($arrayTasks as $task) : ?>
