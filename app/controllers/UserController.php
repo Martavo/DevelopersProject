@@ -100,7 +100,7 @@ class UserController extends Controller
                     // Inicia una nueva sesion
                     session_start();
                     $_SESSION["user"] = $nickName;
-                    header("location: tasks-list_view");
+                    header("location: all-tasks_view");
                 } else {
                     // Usuario no autenticado, redirigir a la página de inicio de sesión
                     header("location: login-users-form_view?error");

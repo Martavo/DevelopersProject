@@ -106,5 +106,23 @@
         "creationDate": "2024-03-14",
         "expectedEndDate": "2024-03-23",
         "taskStatus": "Pendiente"
+    },
+    {
+        "taskId": 24,
+        "user": "indi",
+        "taskName": "jjjj",
+        "taskType": "BackEnd",
+        "creationDate": "2024-03-11",
+        "expectedEndDate": "2024-03-26",
+        "taskStatus": "Pendiente"
+    },
+    {
+        "taskId": 25,
+        "user": "indi",
+        "taskName": "YUYUYU",
+        "taskType": "FrontEnd",
+        "creationDate": "2024-03-19",
+        "expectedEndDate": "2024-03-29",
+        "taskStatus": "Pendiente"
     }
 ]

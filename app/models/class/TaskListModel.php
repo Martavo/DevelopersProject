@@ -1,5 +1,10 @@
 <?php
+/*
+🗒️NOTAS:
+1: Para generar el ID utiliza la hora actual en microsegundos como base para el ID. El unico incoveniente es que si se generan IDs simultáneamente en diferentes servidores, existe la posibilidad de que se generen IDs duplicados.
+2: El símbolo & se utiliza para pasar la variable $list por referencia dentro del bucle foreach, Gracias al uso de &, las modificaciones realizadas a $list['listName'] y $list['tasks'] dentro del bucle foreach se reflejan directamente en el array original $allTaskLists. Sin &, se estarían modificando copias temporales de los elementos del array y los cambios no se guardarían.
 
+*/
 
 class TaskListModel
 {
@@ -9,13 +14,13 @@ class TaskListModel
     
     public function __construct()
     {
-        $this->taskLists = $this->getUserTaskLists(); 
+        $this->taskLists = $this->getUserTaskLists();
     }
 
     
     protected function getAllTaskLists()
     {
-        $taskLists = json_decode(file_get_contents(__DIR__ . '/../../BBDD/taskLists.json'), true);
+        $taskLists = json_decode(file_get_contents(__DIR__ . '../../BBDD/taskLists.json'), true);
         
         return $taskLists;
     }
@@ -23,11 +28,11 @@ class TaskListModel
     
     protected function saveTaskLists($taskLists)
     {
-        file_put_contents(__DIR__ . '/../../BBDD/taskLists.json', json_encode($taskLists, JSON_PRETTY_PRINT));
+        file_put_contents(__DIR__ . '../../BBDD/taskLists.json', json_encode($taskLists, JSON_PRETTY_PRINT));
     }
 
     
-    protected function getUserTaskLists()
+    public function getUserTaskLists()
     {
         $allTaskLists = $this->getAllTaskLists();
         $currentUser = $_SESSION["user"]; 
@@ -48,7 +53,7 @@ class TaskListModel
         $currentUser = $_SESSION["user"]; 
 
         $newList = [
-            'listId' => uniqid(), 
+            'listId' => uniqid()/*nota 1*/, 
             'user' => $currentUser,
             'listName' => $listName,
             'tasks' => $tasks,
@@ -62,7 +67,7 @@ class TaskListModel
     {
         $allTaskLists = $this->getAllTaskLists();
         
-        foreach ($allTaskLists as &$list) {
+        foreach ($allTaskLists as /*nota 2*/&$list) {
             if ($list['listId'] === $listId && $list['user'] === $_SESSION["user"]) {
                 $list['listName'] = $listName;
                 $list['tasks'] = $tasks; 
@@ -94,3 +99,4 @@ class TaskListModel
     }
 }
 }
+

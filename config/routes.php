@@ -34,7 +34,7 @@ $routes = array(
 		
 	// TAREAS:
 		// Listar todas las tareas
-		'/tasks-list_view'=> 'Task#tasksList_View',
+		'/all-tasks_view'=> 'Task#allTasks_View',
 		// Borrar Tarea
 		'/delete-task' => 'Task#deleteTask',
 		// Insertar una nueva tarea
@@ -44,15 +44,15 @@ $routes = array(
 		// Edicion tarea
 		'/update-task'=>'Task#updateTask',
 		// FILTROS:
-			// Filtrar por usuario
-			'/filter-by-user_view'=>'Task#filterByUser_View',
 			// Filtrar por nombre de tarea
 			'/filter-by-task-name_view'=>'Task#filterByTaskName_View',
 			// Filtrar por tipo de tarea
 			'/filter-by-task-type_view'=>'Task#filterByTaskType_View',
 		// Listas de tareas
 		'/list_view'=>'Task#list_view',
-	
+
+	// LISTA DE TAREAS:
+		'/task-list_view'=> 'TaskList#TaskList_View'
 	
 	
 	
