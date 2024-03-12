@@ -151,5 +151,14 @@
         "creationDate": "2024-03-14",
         "expectedEndDate": "2024-03-23",
         "taskStatus": "Pendiente"
+    },
+    {
+        "taskId": 30,
+        "user": "lolo",
+        "taskName": "",
+        "taskType": "--",
+        "creationDate": "",
+        "expectedEndDate": "",
+        "taskStatus": "--"
     }
 ]

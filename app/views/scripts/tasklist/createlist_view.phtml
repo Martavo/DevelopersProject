@@ -22,38 +22,27 @@
 
         <div class="mb-4">
             <label class="block text-gray-700 text-ml font-bold mb-2" for="listName">Nombre de la Lista:</label>
-            <input type="text" name="listName" required
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <input type="text" name="listName" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         </div>
 
         <div id="cellsContainer" class="mb-4">
-            <label class="block text-gray-700 text-ml font-bold mb-2">Tareas:</label>
+            <h3 class="block text-gray-700 text-ml font-bold mb-2">Tareas:</h3>
+            <?php
+            // Verifica la sesión del usuario
+            if (!isset($_SESSION["user"])) {
+                header("location:login-users-form_view");
+            }
 
-            <div class="cell">
-                <label for="taskContent">Tarea:</label>
-                <select class="bg-gray-100" name="taskContent[]">
-                    <?php
-                    $TaskController = new TaskController();
-                    $arrayTasks = $TaskController->allTasks_ViewAction();
-                    if ($arrayTasks !== null) :
-                        foreach ($arrayTasks as $task) : ?>
-                            <option value="<?php echo $task['taskName']; ?>"><?php echo $task['taskName']; ?></option>
-                        <?php endforeach;
-                    endif; ?>
-                </select>
-                <button type="button" onclick="removeCell(this)"
-                    class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-300">
-                    Eliminar celda
-                </button>
-            </div>
+            $TaskController = new TaskController();
+            $arrayTasks = $TaskController->allTasks_ViewAction();
+            ?>
         </div>
+        <div class="mt-10">
+            <button type="button" onclick="addCell()" class="ml-2 px-4 py-1 bg-red-500 text-white rounded hover:bg-red-300 w-auto">Agregar Tarea</button>
 
-        <button type="button" onclick="addCell()"
-            class="px-4 py-1 bg-blue-500 text-white rounded hover:bg-blue-300">Agregar Tarea</button>
-
-        <button type="submit" class="bg-gray-500 text-white px-4 py-1 rounded hover:bg-gray-300">Crear Lista</button>
+            <button type="submit" class="bg-gray-500 text-white px-4 py-1 rounded hover:bg-gray-300">Crear Lista</button>
+        </div>
     </form>
-
     <script>
         function addCell() {
 
@@ -62,19 +51,19 @@
             newCell.className = 'cell';
 
             newCell.innerHTML = `
-                <label for="taskContent">Tarea:</label>
-                <select class="bg-gray-100" name="taskContent[]">
+            <div class="flex items-center mb-2 task-field justify-between gap-3">
+                <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="taskContent[]">
                     <?php
                     if ($arrayTasks !== null) :
                         foreach ($arrayTasks as $task) : ?>
-                            <option value="<?php echo $task['taskName']; ?>"><?php echo $task['taskName']; ?></option>
+                        <option value="<?php echo $task['taskName']; ?>"><?php echo $task['taskName']; ?></option>
                         <?php endforeach;
                     endif; ?>
                 </select>
-                <button type="button" onclick="removeCell(this)"
-                    class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-300">
-                    Eliminar celda
+                <button type="button" onclick="removeCell(this)" class="ml-2 px-4 py-1 bg-red-500 text-white rounded hover:bg-red-300 w-auto">
+                    Eliminar
                 </button>
+            </div>
             `;
 
             cellsContainer.appendChild(newCell);
