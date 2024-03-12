@@ -8,18 +8,12 @@
             "Hablar con equipo de data"
         ]
     },
-    "2": {
-        "listId": "65f031e7274aa",
+    "8": {
+        "listId": "65f0a10811420",
         "user": "lolo",
         "listName": "Proyecto Damm",
         "tasks": [
-            "Hablar con equipo de data"
+            "Maquetar login usuario"
         ]
-    },
-    "3": {
-        "listId": "65f08a7a216da",
-        "user": "lolo",
-        "listName": "prueba",
-        "tasks": []
     }
 }
