@@ -81,15 +81,16 @@ class TaskListController extends Controller
     public function updateListAction()
 {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (isset($_POST['listId'], $_POST['listName'], $_POST['tasks'])) {
+        if (isset($_POST['listId'], $_POST['listName'])) {
             $listId = $_POST['listId'];
             $listName = $_POST['listName'];
-            $tasks = $_POST['tasks'];
 
-            
-
+            if($_POST['tasks']!=null){//impide que se intente guardar un valor null cuando no hay tareas asignadas 
+                $tasks = $_POST['tasks'];            
+            }else{
+                $tasks = [];
+            }
             $this->taskList->updateTaskList($listId, $listName, $tasks);
-
             
             header("Location: task-list_view");
             exit();
