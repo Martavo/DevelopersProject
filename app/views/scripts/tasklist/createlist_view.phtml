@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css">
+    <title>Listas de Tareas</title>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center flex-col mc-auto">
+
+    <div class="mr-auto mt-4 ml-4">
+        <a href="task-list_view" class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500">
+            Volver atrás
+        </a>
+    </div>
+
+    <div class="text-4xl mb-8 mt-10 text-center">CREAR LISTA</div>
+
+    <form action="create-list" method="post" class="w-full max-w-lg">
+
+        <div class="mb-4">
+            <label class="block text-gray-700 text-ml font-bold mb-2" for="listName">Nombre de la Lista:</label>
+            <input type="text" name="listName" required
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+
+        <div id="cellsContainer" class="mb-4">
+            <label class="block text-gray-700 text-ml font-bold mb-2">Tareas:</label>
+
+            <div class="cell">
+                <label for="taskContent">Tarea:</label>
+                <select class="bg-gray-100" name="taskContent[]">
+                    <?php
+                    $TaskController = new TaskController();
+                    $arrayTasks = $TaskController->allTasks_ViewAction();
+                    if ($arrayTasks !== null) :
+                        foreach ($arrayTasks as $task) : ?>
+                            <option value="<?php echo $task['taskName']; ?>"><?php echo $task['taskName']; ?></option>
+                        <?php endforeach;
+                    endif; ?>
+                </select>
+                <button type="button" onclick="removeCell(this)"
+                    class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-300">
+                    Eliminar celda
+                </button>
+            </div>
+        </div>
+
+        <button type="button" onclick="addCell()"
+            class="px-4 py-1 bg-blue-500 text-white rounded hover:bg-blue-300">Agregar Tarea</button>
+
+        <button type="submit" class="bg-gray-500 text-white px-4 py-1 rounded hover:bg-gray-300">Crear Lista</button>
+    </form>
+
+    <script>
+        function addCell() {
+
+            const cellsContainer = document.getElementById('cellsContainer');
+            const newCell = document.createElement('div');
+            newCell.className = 'cell';
+
+            newCell.innerHTML = `
+                <label for="taskContent">Tarea:</label>
+                <select class="bg-gray-100" name="taskContent[]">
+                    <?php
+                    if ($arrayTasks !== null) :
+                        foreach ($arrayTasks as $task) : ?>
+                            <option value="<?php echo $task['taskName']; ?>"><?php echo $task['taskName']; ?></option>
+                        <?php endforeach;
+                    endif; ?>
+                </select>
+                <button type="button" onclick="removeCell(this)"
+                    class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-300">
+                    Eliminar celda
+                </button>
+            `;
+
+            cellsContainer.appendChild(newCell);
+        }
+
+        function removeCell(button) {
+            // Elimina la celda correspondiente al botón
+            const cellToRemove = button.closest('.cell');
+            cellToRemove.remove();
+        }
+    </script>
+
+</body>
+
+</html>

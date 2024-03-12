@@ -72,15 +72,6 @@
         "taskStatus": "--"
     },
     {
-        "taskId": 19,
-        "user": "lolo",
-        "taskName": "klklk",
-        "taskType": "DataScience",
-        "creationDate": "2024-03-13",
-        "expectedEndDate": "2024-03-20",
-        "taskStatus": "En ejecucion"
-    },
-    {
         "taskId": 20,
         "user": "kaka",
         "taskName": "boton",
@@ -103,6 +94,60 @@
         "user": "kaka",
         "taskName": "boton3",
         "taskType": "DataScience",
+        "creationDate": "2024-03-14",
+        "expectedEndDate": "2024-03-23",
+        "taskStatus": "Pendiente"
+    },
+    {
+        "taskId": 24,
+        "user": "indi",
+        "taskName": "jjjj",
+        "taskType": "BackEnd",
+        "creationDate": "2024-03-11",
+        "expectedEndDate": "2024-03-26",
+        "taskStatus": "Pendiente"
+    },
+    {
+        "taskId": 25,
+        "user": "indi",
+        "taskName": "YUYUYU",
+        "taskType": "FrontEnd",
+        "creationDate": "2024-03-19",
+        "expectedEndDate": "2024-03-29",
+        "taskStatus": "Pendiente"
+    },
+    {
+        "taskId": 26,
+        "user": "lolo",
+        "taskName": "Metodos CRUD",
+        "taskType": "BackEnd",
+        "creationDate": "2024-03-14",
+        "expectedEndDate": "2024-03-24",
+        "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 27,
+        "user": "lolo",
+        "taskName": "Crear user controller",
+        "taskType": "BackEnd",
+        "creationDate": "2024-03-12",
+        "expectedEndDate": "2024-03-14",
+        "taskStatus": "Finalizada"
+    },
+    {
+        "taskId": 28,
+        "user": "lolo",
+        "taskName": "Hablar con equipo de data",
+        "taskType": "DataScience",
+        "creationDate": "2024-03-29",
+        "expectedEndDate": "2024-03-31",
+        "taskStatus": "Pendiente"
+    },
+    {
+        "taskId": 29,
+        "user": "lolo",
+        "taskName": "Revisar metodos model",
+        "taskType": "BackEnd",
         "creationDate": "2024-03-14",
         "expectedEndDate": "2024-03-23",
         "taskStatus": "Pendiente"
