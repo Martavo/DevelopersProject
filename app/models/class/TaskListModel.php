@@ -40,7 +40,12 @@ class TaskListModel
 
         foreach ($allTaskLists as $list) {
             if ($list['user'] === $currentUser) {
-                $userTaskLists[] = $list;
+                $userTaskLists[] = [
+                    'user' => $list['user'],
+                    'listName' => $list['listName'],
+                    'listId' => $list['listId'],
+                    'tasks' => $list['tasks'],
+                ];
             }
         }
 
@@ -64,39 +69,50 @@ class TaskListModel
     }
 
     public function updateTaskList($listId, $listName, $tasks)
-    {
-        $allTaskLists = $this->getAllTaskLists();
-        
-        foreach ($allTaskLists as /*nota 2*/&$list) {
-            if ($list['listId'] === $listId && $list['user'] === $_SESSION["user"]) {
-                $list['listName'] = $listName;
-                $list['tasks'] = $tasks; 
-                break;
-            }
+{
+    $allTaskLists = $this->getAllTaskLists();
+    
+    foreach ($allTaskLists as &$list) {
+        if ($list['listId'] === $listId && $list['user'] === $_SESSION["user"]) {
+            $list['listName'] = $listName;
+            $list['tasks'] = $tasks;
+            break;
         }
-
-        $this->saveTaskLists($allTaskLists); 
     }
 
-    public function deleteTaskList($listId)
+    $this->saveTaskLists($allTaskLists);
+}
+
+    public function deleteList($listId)
 {
     $allTaskLists = $this->getAllTaskLists();
     $currentUser = $_SESSION["user"];
-    $isFound = false; 
-    $i = 0; 
 
-    while (!$isFound && $i < count($allTaskLists)) {
-        if ($allTaskLists[$i]["listId"] === $listId && $allTaskLists[$i]["user"] === $currentUser) {
-            array_splice($allTaskLists, $i, 1);
-            $isFound = true; 
-        } else {
-            $i++; 
+    foreach ($allTaskLists as $index => $taskList) {
+        if ($taskList["listId"] === $listId && $taskList["user"] === $currentUser) {
+            unset($allTaskLists[$index]);
+            break;
         }
     }
 
-    if ($isFound) {
-        $this->saveTaskLists($allTaskLists);
-    }
+    $this->saveTaskLists($allTaskLists);
 }
+
+public function searchList($listId): array
+{
+    $allTaskLists = $this->getAllTaskLists();
+    $currentUser = isset($_SESSION["user"]) ? $_SESSION["user"] : null;
+    $listDetails = [];
+
+    foreach ($allTaskLists as $list ) {
+        if ($list["listId"] === $listId && $list["user"] === $currentUser) {
+            $listDetails = $list;
+            break;
+        }
+    }
+
+    return [$listDetails];
+}
+
 }
 

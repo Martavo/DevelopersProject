@@ -52,8 +52,21 @@ $routes = array(
 		'/list_view'=>'Task#list_view',
 
 	// LISTA DE TAREAS:
-		'/task-list_view'=> 'TaskList#TaskList_View'
+		//vista de la lista de tareas
+		'/task-list_view'=> 'TaskList#TaskList_View',
+		//vista para crear lista
+		'/createlist_view'=> 'TaskList#createlist_View',
+		//crear una lista
+		'/create-list'=> 'TaskList#createTaskList',
+		//eliminar una lista
+		'/delete-list' => 'TaskList#deleteList',
+		//modificar una lista
+		'/updateList'=> 'TaskList#updateList',
+		//vista para modificar una lista
+		'/update-list_view' => 'TaskList#updatelist_View',
 	
+		
+		
 	
 	
 );

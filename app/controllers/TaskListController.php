@@ -12,63 +12,108 @@ require_once(__DIR__ . '/../../lib/base/Controller.php');
 
 class TaskListController extends Controller
 {
-    private $taskList;
+    protected $taskList;
 
-    public function __construct(){
-
+    public function __construct()
+    {
         $this->taskList = new TaskListModel();
-     }
+    }
 
     // Devuelve todas las listas de tareas creadas por el usuario
     public function TaskList_ViewAction()
     {
-
-        if (!isset($_SESSION["user"])) {/*nota 1 */
-
+        if (!isset($_SESSION["user"])) {
             header("location:login-users-form_view");
         } else {
             $taskList = $this->taskList;
-
-            return $userTaskLists = $taskList->getUserTaskLists();
+            return $taskList->getUserTaskLists();
         }
     }
 
     // Borra una lista de tareas
-    public function deleteTaskListAction()
+    public function deleteListAction()
+{
+    if (isset($_GET["listId"])) {
+        $listId = $_GET["listId"];
+
+        $this->taskList->deleteList($listId);
+
+        header("location:task-list_view");
+    } else {
+        echo "Hay un error en la ruta";
+    }
+}
+
+
+    public function createTaskListAction()
     {
-        if(isset($_GET["listId"]))
-        {
-            $listId = $_GET["listId"];
-    
-            $this->taskList->deleteTaskList($listId);
-    
-            header("location:task-list_view");
-        }else{
-            echo "Hay un error en la ruta";
-        }    
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Verifica si el campo 'listName' está presente en la solicitud
+            if (isset($_POST['listName'])) {
+                $listName = $_POST['listName'];
+                
+                // Verifica si el campo 'taskContent' está presente en la solicitud
+                if (isset($_POST['taskContent']) && is_array($_POST['taskContent'])) {
+                    $tasks = $_POST['taskContent'];
+                } else {
+                    // Si 'taskContent' no está presente o no es un array, asigna un array vacío
+                    $tasks = [];
+                }
+
+                $this->taskList->createTaskList($listName, $tasks);
+
+                header("location: task-list_view");
+                exit(); 
+            } else {
+                // Si 'listName' no está presente en la solicitud POST
+                echo "Error: El campo 'listName' no está presente en la solicitud POST.";
+            }
+        } else {
+            // Si la solicitud no es de tipo POST
+            echo "Error: La solicitud no es de tipo POST.";
+        }
+    }
+    public function createlist_ViewAction()
+    {
+        
     }
 
-    // Crea una lista de tareas
-    public function createTaskListAction(string $listName)
-    {
-            $this->taskList->createTaskList($listName);
+    public function updateListAction()
+{
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (isset($_POST['listId'], $_POST['listName'], $_POST['tasks'])) {
+            $listId = $_POST['listId'];
+            $listName = $_POST['listName'];
+            $tasks = $_POST['tasks'];
 
-            header("location:task-list_view");
+            
 
+            $this->taskList->updateTaskList($listId, $listName, $tasks);
+
+            
+            header("Location: task-list_view");
+            exit();
+        } else {
+            echo "Error: Campos faltantes en la solicitud POST.";
+        }
+    } else {
+        echo "Error: La solicitud no es de tipo POST.";
     }
+}
 
-    // Agrega una tarea a una lista
-    public function insertTasktoListAction()
-    {
-        //⚠️pendiente xavi cree el metodo para agregar tarea a una lista del usuario, puede ser que se utilice el metodo updateTaskList() para agregar una tarea?
-    }
+    public function updatelist_ViewAction()
+{
+    if (isset($_GET["listId"])) {
+        $listId = $_GET["listId"];
 
-    public function updateTask_ViewAction($listId, $listName, $task)
-    {
-            $this->taskList->updateTaskList($listId, $listName, $task);
+        $listFound = $this->taskList->searchList($listId);
 
-            header("location:task-list_view");
-    }
+    } 
+
+    return $listFound;
+}
 
     
 }
+
+
