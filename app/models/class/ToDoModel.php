@@ -17,7 +17,7 @@ class ToDo
 
     public function getTasks()
     {
-        $currentTasks = json_decode(file_get_contents( __DIR__ . '../../BBDD/toDo.json'), true);
+        $currentTasks = json_decode(file_get_contents(__DIR__ . '../../BBDD/toDo.json'), true);
 
         return $this->currentTasks = $currentTasks;
     }
@@ -141,8 +141,9 @@ class ToDo
     }*/
 
     // Método para filtrar la información por el nombre de la tarea sea mayusculas o minusculas
-    public function filterByTasksName($searchString){
-        
+    public function filterByTasksName($searchString)
+    {
+
         $allUsersTasks = $this->getAllUsersTasks();
         $currentTasks = $this->getTasks();
         $filteredTasksbyName = [];
@@ -159,20 +160,20 @@ class ToDo
 
     // Método para obtener la información de usuarios y tareas por tipo
     public function filterByTasksType(string $type)
-{
-       $allUsersTasks = $this->getAllUsersTasks();
-       $filteredTasks = [];
-       $currentUser = $_SESSION["user"];
+    {
+        $allUsersTasks = $this->getAllUsersTasks();
+        $filteredTasks = [];
+        $currentUser = $_SESSION["user"];
 
-       foreach ($allUsersTasks as $task) {
-           if ($task["taskType"] === $type && $task["user"] === $currentUser) {
+        foreach ($allUsersTasks as $task) {
+            if ($task["taskType"] === $type && $task["user"] === $currentUser) {
                 $filteredTasks[] = $task;
+            }
         }
-    }
 
-       return $filteredTasks;
-}
+        return $filteredTasks;
     }
+}
 
 // $toDo = new ToDo();
 
