@@ -1,7 +1,7 @@
 [
     {
         "taskId": 8,
-        "user": "rasbil",
+        "user": "lolo",
         "taskName": "Maquetar login usuario",
         "taskType": "FrontEnd",
         "creationDate": "2024-01-16",
@@ -20,10 +20,145 @@
     {
         "taskId": 10,
         "user": "lole",
-        "taskName": "Crear metodos usuario",
+        "taskName": "Conectar con la BBDD",
         "taskType": "BackEnd",
         "creationDate": "2024-01-02",
         "expectedEndDate": "2024-01-07",
         "taskStatus": "Finalizada"
+    },
+    {
+        "taskId": 12,
+        "user": "rasbil",
+        "taskName": "Pintar fondo index",
+        "taskType": "FrontEnd",
+        "creationDate": "2024-01-02",
+        "expectedEndDate": "2024-01-07",
+        "taskStatus": "Finalizada"
+    },
+    {
+        "taskId": 13,
+        "user": "lola",
+        "taskName": "PRUEBA",
+        "taskType": "--",
+        "creationDate": "2024-03-09",
+        "expectedEndDate": "2024-03-15",
+        "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 14,
+        "user": "lola",
+        "taskName": "PRUEBA2",
+        "taskType": "BackEnd",
+        "creationDate": "2024-03-14",
+        "expectedEndDate": "2024-03-15",
+        "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 16,
+        "user": "rut",
+        "taskName": "",
+        "taskType": "--",
+        "creationDate": "",
+        "expectedEndDate": "",
+        "taskStatus": "--"
+    },
+    {
+        "taskId": 18,
+        "user": "rut",
+        "taskName": "77777",
+        "taskType": "--",
+        "creationDate": "",
+        "expectedEndDate": "",
+        "taskStatus": "--"
+    },
+    {
+        "taskId": 20,
+        "user": "kaka",
+        "taskName": "boton",
+        "taskType": "FrontEnd",
+        "creationDate": "2024-03-07",
+        "expectedEndDate": "2024-03-22",
+        "taskStatus": "Finalizada"
+    },
+    {
+        "taskId": 21,
+        "user": "kaka",
+        "taskName": "boton2",
+        "taskType": "BackEnd",
+        "creationDate": "2024-03-07",
+        "expectedEndDate": "2024-03-30",
+        "taskStatus": "Pendiente"
+    },
+    {
+        "taskId": 22,
+        "user": "kaka",
+        "taskName": "boton3",
+        "taskType": "DataScience",
+        "creationDate": "2024-03-14",
+        "expectedEndDate": "2024-03-23",
+        "taskStatus": "Pendiente"
+    },
+    {
+        "taskId": 24,
+        "user": "indi",
+        "taskName": "jjjj",
+        "taskType": "BackEnd",
+        "creationDate": "2024-03-11",
+        "expectedEndDate": "2024-03-26",
+        "taskStatus": "Pendiente"
+    },
+    {
+        "taskId": 25,
+        "user": "indi",
+        "taskName": "YUYUYU",
+        "taskType": "FrontEnd",
+        "creationDate": "2024-03-19",
+        "expectedEndDate": "2024-03-29",
+        "taskStatus": "Pendiente"
+    },
+    {
+        "taskId": 26,
+        "user": "lolo",
+        "taskName": "Metodos CRUD",
+        "taskType": "BackEnd",
+        "creationDate": "2024-03-14",
+        "expectedEndDate": "2024-03-24",
+        "taskStatus": "En ejecucion"
+    },
+    {
+        "taskId": 27,
+        "user": "lolo",
+        "taskName": "Crear user controller",
+        "taskType": "BackEnd",
+        "creationDate": "2024-03-12",
+        "expectedEndDate": "2024-03-14",
+        "taskStatus": "Finalizada"
+    },
+    {
+        "taskId": 28,
+        "user": "lolo",
+        "taskName": "Hablar con equipo de data",
+        "taskType": "DataScience",
+        "creationDate": "2024-03-29",
+        "expectedEndDate": "2024-03-31",
+        "taskStatus": "Pendiente"
+    },
+    {
+        "taskId": 29,
+        "user": "lolo",
+        "taskName": "Revisar metodos model",
+        "taskType": "BackEnd",
+        "creationDate": "2024-03-14",
+        "expectedEndDate": "2024-03-23",
+        "taskStatus": "Pendiente"
+    },
+    {
+        "taskId": 30,
+        "user": "lolo",
+        "taskName": "",
+        "taskType": "--",
+        "creationDate": "",
+        "expectedEndDate": "",
+        "taskStatus": "--"
     }
 ]

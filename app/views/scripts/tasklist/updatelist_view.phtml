@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css">
+    <title>Actualizar Lista</title>
+    <style>
+        .task-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .task-field {
+            flex: 0 0 100%;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center flex-col mc-auto">
+    <div class="mr-auto mt-4 ml-4">
+        <a href="task-list_view" class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500">
+            Volver al tablón de tareas
+        </a>
+    </div>
+    <div class="text-4xl mb-8 mt-10 text-center">ACTUALIZAR LISTA</div>
+
+    <?php
+    // Verifica la sesión del usuario
+    if (!isset($_SESSION["user"])) {
+        header("location:login-users-form_view");
+    }
+
+    $TaskListController = new TaskListController();
+    $listFound = $TaskListController->updatelist_ViewAction();
+    ?>
+
+    <form action="updateList" method="post" class="w-full max-w-lg">
+        <input type="hidden" name="listId" value="<?= isset($listFound[0]['listId']) ? htmlspecialchars($listFound[0]['listId']) : ''; ?>">
+
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="listName">Nombre de la Lista:</label>
+            <input type="text" name="listName" value="<?php echo htmlspecialchars($listFound[0]['listName']); ?>" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+
+        <div class="mb-4 task-container" id="taskFieldContainer">
+            <label class="block text-gray-700 text-sm font-bold mb-2">Tareas:</label>
+            <?php foreach ($listFound[0]['tasks'] as $index => $task) : ?>
+                <div class="flex items-center mb-2 task-field">
+                    <select name="tasks[]" class="shadow appearance-none border rounded w-3/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <?php foreach ($listFound[0]['tasks'] as $existingTask) : ?>
+                            <option value="<?= htmlspecialchars($existingTask); ?>" <?php if ($task === $existingTask) echo 'selected'; ?>>
+                                <?= htmlspecialchars($existingTask); ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                    <?php if ($index >= 0) : ?>
+                        <button type="button" onclick="removeTaskField(this)" class="ml-2 px-4 py-1 bg-red-500 text-white rounded hover:bg-red-300">Eliminar</button>
+                    <?php endif; ?>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+        <button type="button" onclick="addTaskField(event)" class="px-4 py-1 bg-green-500 text-white rounded hover:bg-green-300">Agregar Tarea</button>
+
+        <button type="submit" class="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-300">Guardar Cambios</button>
+    </form>
+
+    <script>
+        function addTaskField() {
+            const taskContainer = document.getElementById("taskFieldContainer");
+            const newTaskField = document.createElement("div");
+            newTaskField.className = "flex items-center mb-2 task-field";
+
+            // PHP genera las opciones del desplegable
+            const options = `<?php
+                                $TaskController = new TaskController();
+                                $arrayTasks = $TaskController->allTasks_ViewAction();
+                                if ($arrayTasks !== null) :
+                                    foreach ($arrayTasks as $task) : ?>
+                    <option value="<?php echo $task['taskName']; ?>"><?php echo $task['taskName']; ?></option>
+                <?php endforeach;
+                                endif;
+                ?>`;
+
+            newTaskField.innerHTML = `
+            <select name="tasks[]" class="shadow appearance-none border rounded w-3/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                ${options}
+            </select>
+            <button type="button" onclick="removeTaskField(this)" class="ml-2 px-4 py-1 bg-red-500 text-white rounded hover:bg-red-300">Eliminar</button>
+        `;
+            taskContainer.appendChild(newTaskField);
+        }
+
+        function removeTaskField(button) {
+            const taskContainer = document.getElementById("taskFieldContainer");
+            taskContainer.removeChild(button.parentElement);
+        }
+    </script>
+
+</body>
+
+</html>

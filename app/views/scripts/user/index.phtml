@@ -18,9 +18,18 @@
         <br><br>
 
         <div class="text-xl">
-            <a href="loginUsersForm_View" class="flex w-full justify-center rounded-sm bg-gray-300 py-2 font-semibold leading-6 hover:bg-blue-300 mb-7">Inicio de sesión</a>
-            <a href="createUsersForm_View" class="flex w-full justify-center rounded-sm bg-gray-300 py-2 font-semibold leading-6 hover:bg-blue-300 mt-5">Registro</a>
+            <a href="login-users-form_view" class="flex w-full justify-center rounded-sm bg-gray-300 py-2 font-semibold leading-6 hover:bg-blue-300 mb-7">Inicio de sesión</a>
+            <a href="create-users-form_view" class="flex w-full justify-center rounded-sm bg-gray-300 py-2 font-semibold leading-6 hover:bg-blue-300 mt-5">Registro</a>
         </div>
+    </div>
+
+    <!-- Contenedor del mensaje de éxito con clases de Tailwind -->
+    <div class="absolute bottom-1/3 inset-x-0 mx-auto mb-10">
+        <?php
+        if (isset($_GET['createdUser'])) {
+            echo "<p class='text-center text-gray-900 text-lg'>¡El usuario se ha creado correctamente!</p>";
+        }
+        ?>
     </div>
 </body>
 

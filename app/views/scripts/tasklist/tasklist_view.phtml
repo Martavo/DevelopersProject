@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css">
+    <title>Listas de Tareas</title>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center flex-col mc-auto">
+
+    <?php
+    $user = $_SESSION['user'];
+    ?>
+
+    <div class="mr-auto mt-4 ml-4">
+        <a href="all-tasks_view" class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500">
+            Volver atrás
+        </a>
+    </div>
+
+
+    <div class="mb-8">
+        <div class="bg-gray-200 p-4 rounded">
+            <p class="text-gray-700">Tareas Actuales:</p>
+            <?php
+            $TaskController = new TaskController();
+            $allTasks = $TaskController->allTasks_ViewAction();
+            if ($allTasks !== null) :
+            ?>
+                <ul class="list-disc list-inside text-gray-700">
+                    <?php foreach ($allTasks as $task) : ?>
+                        <li>
+                            <?php echo $task['taskName']; ?> -> <?php echo $task['taskStatus']; ?>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php else : ?>
+                <p class="text-gray-700">No hay tareas disponibles.</p>
+            <?php endif; ?>
+        </div>
+    </div>
+
+    <h2 class="text-5xl font-bold text-black mb-4 text-center">Gestiona tus listas</h2>
+
+    <div id="tablesContainer" class="mb-4 flex flex-wrap justify-around w-3/4 mt-10">
+        <?php
+        $TaskListController = new TaskListController();
+        $userTaskLists = $TaskListController->TaskList_ViewAction();
+
+
+        if ($userTaskLists !== null) :
+            foreach ($userTaskLists as $table) :
+
+        ?>
+                <table class="border-collapse w-64 text-center mb-4">
+                    <thead>
+                        <tr>
+                            <td class="border border-gray-400 p-2 relative flex items-center justify-center">
+
+                                <a href="update-list_view?listId=<?php echo urlencode($table['listId']); ?>&user=<?php echo urlencode($table['user']); ?>&listName=<?php echo urlencode($table['listName']); ?>&tasks=<?php echo urlencode(json_encode($table['tasks'])); ?>">
+                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB8UlEQVR4nO2by0rDQBSGv3Gva8F1i+6Vvoq2S7FvIBVEEFcFxZVCQZ9C3Am+gPgGuhLceaPuFEYKEYaQpGk7Sc90zg9nkZKQ839zyTkNAZVKpVJNpA2gC/QExT7QpGKtA/eAFRpPVZpvAZ8CTM4FwArw6tzoB7gBToG+kDgCGlUBOHTMvwGbRKZHB8AuEWroAFglQlknopRVAOgMsLoE0D3AEqlsYHuAAc6Bb+AsOY4GgAEuUzlfA0sxADAZ5r1AsAEAKDI/MwQrHEAZ8zNBsIIBjMwPUjmWOTaLAMBkjPxVMsLub6PzLmaZCVYgADNmZNM5jzs/OADtMWaycs6C0A4VQGfMSOblnIawHSoAkyS/kzONi3L+v3YUwS6BWnO2CgCdAVaXALoHWMLRRPuWSZ6r0z5Siq4NAkDbU1FRqqqSCKDjqawsVVVJXQKDuhqLmjRx7WIKWsZ0a5nXgkrSVMWbqePPhZo0dfVqMmZCXkgceS/luykBQbJ5L/2LKYAg3by3Bs5kQAjBvNcO1iSvl4a+XjPVpBBbeK9SAOgMQJcAugegmyARas3ZAL+IUF0HwAORqQW8OwAOqrpRM/lKoyckToBb4Ncx/wIsVwXguWTLPK/4ALaqMi8dwF0d3w81kq80+kLiGNirw7hKpVKxSPoDcX9CnSiKRhMAAAAASUVORK5CYII=" alt="Modificar" class="w-4 h-4">
+                                </a>
+                                <span class="ml-auto mr-10 font-bold"><?php echo $table['listName']; ?></span>
+                                <a href="delete-list?listId=<?php echo $table['listId']; ?>" onclick="return confirmDeleteList('<?php echo $table['listName']; ?>');">
+                                    <input type='button' name='del' id='del' value='X' class='bg-red-500 text-white px-4 py-1 rounded hover:bg-red-300 text-xs'>
+                                </a>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($table['tasks'] as $task) : ?>
+                            <tr>
+                                <td class="border border-gray-400 p-2 relative">
+                                    <span><?php echo $task; ?></span>
+
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+        <?php
+            endforeach;
+        endif;
+        ?>
+    </div>
+
+    <div>
+        <a href="createlist_view" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-400">
+            Crear nueva lista
+        </a>
+    </div>
+
+    <script>
+        function confirmDeleteList(listName) {
+            return confirm("¿Estás segur@ de que deseas borrar la lista: '" + listName + "'?");
+        }
+    </script>
+
+</body>
+
+</html>

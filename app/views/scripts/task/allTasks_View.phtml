@@ -12,17 +12,17 @@
     <div class="flex mt-6 mr-auto ml-7">
         <?php
 
-        $usuario = $_SESSION['user'];
+        $user = $_SESSION['user'];
 
-        echo "<p class='text-left text-4xl text-black'>Hola $usuario, bienvenid@!!</p>"
+        echo "<p class='text-left text-4xl text-black'>Hola $user, bienvenid@!!</p>"
         ?>
     </div>
 
     <div class="flex mt-1 mr-4 ml-auto">
-        <a href="closeUserSession" class=" bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500 mr-5 ">
+        <a href="close-user-session" class=" bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500 mr-5 ">
             Cerrar sessión
         </a>
-        <a href="userProfile_View" class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500">
+        <a href="user-profile_view" class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500">
             Portal del Usuario
         </a>
     </div>
@@ -31,7 +31,7 @@
 
     <!-- Filas de titulos de columnas -->
 
-    <form action="insertTask" method="post">
+    <form action="insert-task" method="post">
         <table class="w-full border-collapse border border-blue-200">
             <tr class="bg-gray-100">
                 <th class="py-2 px-4">Usuario</th>
@@ -47,12 +47,12 @@
 
                 <!-- Filas de filtrar datos -->
                 <td>
-                    <div class="flex items-center">
+                    <!--<div class="flex items-center">
                         <a href="#" onclick="filterByUser()" title="Filtrar" class="mr-2">
                             <img src="../web/images/filtrar.png" alt="Icono de filtro" class="w-5 h-5">
                         </a>
                         <input type='text' id='filteredUser' class='px-0.5 py-2 border border-blue-200 rounded'>
-                    </div>
+                    </div>-->
                 </td>
                 <td>
                     <div class="flex items-center">
@@ -80,7 +80,7 @@
 
             <!-- Filas de inserción de datos -->
             <tr>
-                <td><input type='text' name='user' class='px-4 py-2 border border-blue-200 rounded'></td>
+                <td><input type='text' name='user' class='px-4 py-2 border border-blue-200 rounded text-center' value="<?php echo $user?>" readonly></td>
                 <td><input type='text' name='taskName' class='px-4 py-2 border border-blue-200 rounded'></td>
                 <td>
                     <select name="taskType" id="taskType" class='w-full px-4 py-2 border border-blue-200 rounded'>
@@ -90,8 +90,8 @@
                         <option value="DataScience">Data Science</option>
                     </select>
                 </td>
-                <td><input type='text' name='creationDate' class='px-4 py-2 border border-blue-200 rounded'></td>
-                <td><input type='text' name='expectedEndDate' class='px-4 py-2 border border-blue-200 rounded'></td>
+                <td><input type='date' name='creationDate' class='px-4 py-2 border border-blue-200 rounded'></td>
+                <td><input type='date' name='expectedEndDate' class='px-4 py-2 border border-blue-200 rounded'></td>
                 <td>
                     <select name="statusTask" id="statusTask" class='px-4 py-2 border border-blue-200 rounded'>
                         <option value="--">--Escoje un valor--</option>
@@ -102,10 +102,10 @@
                 </td>
                 <td class='py-2 px-4'><input type='submit' name='cr' id='cr' value='Insertar' class='bg-blue-200 text-white px-7 py-2 rounded hover:bg-blue-300'></td>
             </tr>
-
+            <!-- Listado tareas ya creadas -->
             <?php
             $TaskController = new TaskController();
-            $arrayTasks = $TaskController->tasksList_ViewAction();
+            $arrayTasks = $TaskController->allTasks_ViewAction();
             if ($arrayTasks !== null) :
                 foreach ($arrayTasks as $task) : ?>
                     <tr>
@@ -115,13 +115,15 @@
                         <td class="text-center"><?php echo $task['creationDate'] ?></td>
                         <td class="text-center"><?php echo $task['expectedEndDate'] ?></td>
                         <td class="text-center"><?php echo $task['taskStatus'] ?></td>
+                        <!-- boton borrar -->   
                         <td class="py-2 px-4">
-                            <a href="deleteTask?taskId=<?php echo $task['taskId'] ?>&taskName=<?php echo $task['taskName'] ?>" onclick="return confirmDelete('<?php echo $task['taskName'] ?>');">
+                            <a href="delete-task?taskId=<?php echo $task['taskId'] ?>&taskName=<?php echo $task['taskName'] ?>" onclick="return confirmDelete('<?php echo $task['taskName'] ?>');">
                                 <input type='button' name='del' id='del' value='Borrar' class='bg-red-500 text-white px-8 py-2 rounded hover:bg-red-300'>
                             </a>
                         </td>
+                        <!-- boton actualizar -->
                         <td class='py-2 px-4 text-center'>
-                            <a href="UpdateTask_View?taskId=<?php echo $task['taskId'] ?> & user=<?php echo $task['user'] ?> & taskName=<?php echo $task['taskName'] ?> & taskType=<?php echo $task['taskType'] ?> & creationDate=<?php echo $task['creationDate'] ?> & expectedEndDate=<?php echo $task['expectedEndDate'] ?> & taskStatus=<?php echo $task['taskStatus'] ?>">
+                            <a href="update-task_View?taskId=<?php echo $task['taskId'] ?> & user=<?php echo $task['user'] ?> & taskName=<?php echo $task['taskName'] ?> & taskType=<?php echo $task['taskType'] ?> & creationDate=<?php echo $task['creationDate'] ?> & expectedEndDate=<?php echo $task['expectedEndDate'] ?> & taskStatus=<?php echo $task['taskStatus'] ?>">
                                 <input type='button' name='up' id='up' value='Actualizar' class='bg-green-500 text-white px-4 py-2 rounded hover:bg-green-300'>
                             </a>
                         </td>
@@ -129,7 +131,12 @@
             <?php endforeach;
             endif; ?>
         </table>
+
+       
     </form>
+    <a href="task-list_view" class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500 mt-5">
+            Gestiona tus listas
+        </a>
     </div>
 
     <!-- Ventana emergente para confirmar borrado de registro -->
@@ -142,7 +149,7 @@
             let filteredUser = document.getElementById("filteredUser").value;
 
             if (filteredUser != "") {
-                window.location.href = "filterByUser_View?filteredUser=" + filteredUser;
+                window.location.href = "filter-by-user_view?filteredUser=" + filteredUser;
             } else {
                 alert("Para filtrar debes introducir algun dato!");
             }
@@ -152,7 +159,7 @@
             let filteredTaskName = document.getElementById("filteredTaskName").value;
 
             if (filteredTaskName != "") {
-                window.location.href = "filterByTaskName_View?filteredTaskName=" + filteredTaskName;
+                window.location.href = "filter-by-task-name_view?filteredTaskName=" + filteredTaskName;
             } else {
                 alert("Para filtrar debes introducir algun dato!");
             }
@@ -162,7 +169,7 @@
             let filteredTaskType = document.getElementById("filteredTaskType").value;
 
             if (filteredTaskType != "--") {
-                window.location.href = "filterByTaskType_View?filteredTaskType=" + filteredTaskType;
+                window.location.href = "filter-by-task-type_view?filteredTaskType=" + filteredTaskType;
             } else {
                 alert("Para filtrar debes introducir algun dato!");
             }

@@ -11,7 +11,7 @@
 
 <body class="bg-blue-200 dark:bg-gray-900 flex flex-col items-center justify-center flex-col">
     <div class="mr-auto mt-4 ml-4">
-        <a href="tasksList_View" class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500">
+        <a href="all-tasks_view" class="bg-blue-300 text-white px-4 py-2 rounded hover:bg-blue-500">
             Volver al tablón de tareas
         </a>
     </div>
@@ -19,7 +19,7 @@
     <?php
     if(!isset($_SESSION["user"])){ //Impide copiado url paginas restringidas a usuarios validados: si no se ha iniciado una sesion validada redirigirá al usuario al formulario del login
 
-        header("location:loginUsersForm_View");
+        header("location:login-users-form_view");
 
     }
     
@@ -30,7 +30,7 @@
 
     <div class="flex justify-around">
         <!-- Div "Cambiar datos de usuario" -->
-        <form action="updateUser" method="post">
+        <form action="update-user" method="post">
             <div class="bg-white mt-10 mr-12 rounded-lg shadow-md flex flex-col justify-start p-6 py-10 lg:px-25 border-5">
                 <div class="text-2xl mb-8 mt-15 text-center">Cambiar datos de usuario</div>
                 <div class="mb-4">
@@ -55,7 +55,7 @@
         <!-- Div "Borrar perfil del usuario" -->
         <div class="bg-white mt-10 ml-12 rounded-lg shadow-md flex flex-col text-center p-6 py-10 lg:px-25 border-5">
             <div class="text-2xl mb-8 mt-10 text-center flex items-center justify-center">Borrar perfil del usuario</div>
-            <a href="deleteUser" onclick="return confirmDelete('<?php echo $usuario; ?>');" class="flex items-center justify-center">
+            <a href="delete-user" onclick="return confirmDelete('<?php echo $usuario; ?>');" class="flex items-center justify-center">
                 <input type="button" name="del" id="del" value="Eliminar" class="bg-blue-300 text-white w-15 px-4 py-2 rounded hover:bg-blue-500 mx-auto ">
             </a>
         </div>

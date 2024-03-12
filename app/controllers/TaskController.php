@@ -3,7 +3,10 @@ require_once(__DIR__ . '../../models/class/ToDoModel.php');
 require_once(__DIR__ . '../../models/class/TaskModel.php');
 require_once(__DIR__ . '/../../lib/base/Controller.php');
 
-
+/*
+🗒️NOTAS:
+1: !isset comprueba si NO se almaceno algo en la variable superglobal "user", si se cumple esta condición es porque no se valido el usuario por lo que sera redirigido al formulario de login.
+*/
 class TaskController extends Controller
 {
 
@@ -11,27 +14,25 @@ class TaskController extends Controller
 
     public function __construct()
     {
-        $this->toDo = $toDo = new ToDo();  
+        $this->toDo = new ToDo();  
     }
 
-    public function tasksList_ViewAction()
+    public function allTasks_ViewAction()
     {
-        // !isset comprueba si NO se almaceno algo en la variable superglobal "user", si se cumple esta condición es porque no se valido el usuario por lo que sera redirigido al formulario de login
-        if(!isset($_SESSION["user"])){
+        
+        if(!isset($_SESSION["user"])){/*nota 1 */
 
-            header("location:loginUsersForm_View");
+            header("location:login-users-form_view");
     
         }else{
              $toDo = $this->toDo;
-            return $arrayTasks = $toDo->getTasks();
-            // var_dump($arrayTasks);
+            return $arrayTasks = $toDo->getUserTasks();
         }
     
     }
 
     public function deleteTaskAction()
     {
-        echo "Estas en deleteTaskAction";
         if(isset($_GET["taskId"]))
         {
             $taskId = $_GET["taskId"];
@@ -39,7 +40,7 @@ class TaskController extends Controller
     
             $toDo->deleteTask($taskId);
     
-            header("location:tasksList_View");
+            header("location:all-tasks_view");
         }else{
             echo "Hay un error en la ruta";
         }    
@@ -67,7 +68,7 @@ class TaskController extends Controller
             $user);
 
             // Redirigimos a la página de listado de tareas con los nuevo datos insertados.
-            header("location:tasksList_View");
+            header("location:all-tasks_view");
         }else{
             echo "Debe introducir todos los datos";
         }
@@ -89,7 +90,6 @@ class TaskController extends Controller
 
         if(isset($_POST["taskId"]))
         {    
-            $toDo = $this->toDo;
             // Recogemos todos los valores recibidos de la vista incluyendo los modificados para hacer el cambio en la BBDD
                 $taskId= (int) $_POST["taskId"];//casteamos el valor a int ya que el POST lo devuelve como string
                 $user= $_POST["user"];
@@ -111,24 +111,13 @@ class TaskController extends Controller
 
             // var_dump($updatedTask);
 
-            $toDo->updateTask($updatedTask);
+            $this->toDo->updateTask($updatedTask);
 
-            header("location:tasksList_View");
+            header("location:all-tasks_view");
         }
     }
 
 // METODOS DE FILTRAR >>>>>>>>>>>>>>>>>
-    public function filterByUser_ViewAction()
-    {
-        if(isset($_GET["filteredUser"])){
-            $filteredUser = $_GET['filteredUser'];
-            // var_dump($filteredUser);
-            
-            $filteredTasks= $this->toDo->filterByUser($filteredUser);
-
-            return $filteredTasks;
-        }
-    }
     public function filterByTaskName_ViewAction()
     {
         if(isset($_GET["filteredTaskName"])){
@@ -153,11 +142,11 @@ class TaskController extends Controller
             return $filteredTasks;
         }
     }
-    
 
 }
+    
 
-$TaskController = new TaskController();
+// $TaskController = new TaskController();
 // $arrayTasks = $TaskController->tasksList_ViewAction();
 // $TaskController->insertTaskAction("prueba 18.43","prueba 18.43","prueba 18.43","prueba 18.43","prueba 18.43","prueba 18.43");
 // $updateTask = ["taskId"=>1,"prueba 18.43","prueba 18.43","prueba 18.43","prueba 18.43","prueba 18.43", "prueba 18.43"];

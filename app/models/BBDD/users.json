@@ -1,38 +1,17 @@
 [
     {
-        "nickName": "pepe",
-        "password": "pepe"
+        "userId": 3,
+        "nickName": "lolo",
+        "password": "$2y$10$nG8aKMcUJ7XPTOSHLmLx9emnX.7CKxEmWDdm6x.Hi1d7LooSvoqQ6"
     },
     {
-        "nickName": "lelo",
-        "password": "kaka"
+        "userId": 4,
+        "nickName": "indi",
+        "password": "$2y$10$0dal8HGrQyDL9JS3jeRFBOEX2QhZI6Ecs.hZ2WuoeDdlU5PB9iHIy"
     },
     {
-        "nickName": "Lole",
-        "password": "12345"
-    },
-    {
-        "nickName": "pablito",
-        "password": "1245"
-    },
-    {
-        "nickName": "piropi",
-        "password": "1234"
-    },
-    {
-        "nickName": "maria",
-        "password": "1234"
-    },
-    {
-        "nickName": "marta",
-        "password": "1234"
-    },
-    {
-        "nickName": "marta",
-        "password": "12"
-    },
-    {
-        "nickName": "pol45",
-        "password": "1997"
+        "userId": 5,
+        "nickName": "pepa",
+        "password": "$2y$10$fFeir2tjjnYOcKwqGmL9VuZcQftY0XnzKSUVD.9ZEB\/OttZ01r7d6"
     }
 ]
