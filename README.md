@@ -26,5 +26,8 @@ Marta Villalba
 Xavier Bigorra
 Diego Chacón
 
+** index page:**
+http://localhost:3000/web/
+
 ** Acknowledgments:**
 To Ruben Alcalde for their invaluable guidance and support.
