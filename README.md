@@ -1,10 +1,11 @@
 Basic Trello Project with PHP and JSON
-** Develop a Trello-like web application from scratch!**
 
-️ Technologies:
-PHP
-JSON
-Apache
+*** Develop a Trello-like web application from scratch!
+
+️*Technologies:
+-PHP
+-JSON
+-Apache
 
 ✨ Features:
 ✍️ User registration
@@ -15,19 +16,19 @@ Task filtering by name and type
 Change username and password
 ❌ Profile deletion
 
-** Skills acquired:**
+** Skills acquired:
 PHP web development
 ️ JSON file handling
 ️ Basic security
 Teamwork
 
-** ‍ Developers:**
+** ‍ Developers:
 Marta Villalba
 Xavier Bigorra
 Diego Chacón
 
-** index page:**
+** index page:
 http://localhost:3000/web/
 
-** Acknowledgments:**
+** Acknowledgments:
 To Ruben Alcalde for their invaluable guidance and support.
